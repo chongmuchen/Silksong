@@ -67,8 +67,8 @@ namespace HutongGames.PlayMakerEditor
 
         // Latest Install
 
-        public static string PlayMakerUnitypackage1910 = "9252c4762763457419306d7ecf107162";           
-        public static string PlayMakerStudentUnitypackage1910 = "b884333361a4bd842a1d7c2a76ea7421";
+        public static string PlayMakerUnitypackage1910 = "c803309f0d878b84ca39f6b56f755c73";           
+        public static string PlayMakerStudentUnitypackage1910 = "";
 
 
         public static string LatestInstall
