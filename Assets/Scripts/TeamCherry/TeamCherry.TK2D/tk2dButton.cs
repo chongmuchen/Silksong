@@ -61,15 +61,15 @@ public class tk2dButton : MonoBehaviour
 		if ((Object)(object)viewCamera == (Object)null)
 		{
 			Transform val = ((Component)this).transform;
-			while (Object.op_Implicit((Object)(object)val) && (Object)(object)((Component)val).GetComponent<Camera>() == (Object)null)
+			while ((val != null) && (Object)(object)((Component)val).GetComponent<Camera>() == (Object)null)
 			{
 				val = val.parent;
 			}
-			if (Object.op_Implicit((Object)(object)val) && (Object)(object)((Component)val).GetComponent<Camera>() != (Object)null)
+			if ((val != null) && (Object)(object)((Component)val).GetComponent<Camera>() != (Object)null)
 			{
 				viewCamera = ((Component)val).GetComponent<Camera>();
 			}
-			if ((Object)(object)viewCamera == (Object)null && Object.op_Implicit((Object)(object)tk2dCamera.Instance))
+			if ((Object)(object)viewCamera == (Object)null && (tk2dCamera.Instance != null))
 			{
 				viewCamera = ((Component)tk2dCamera.Instance).GetComponent<Camera>();
 			}
@@ -79,7 +79,7 @@ public class tk2dButton : MonoBehaviour
 			}
 		}
 		sprite = ((Component)this).GetComponent<tk2dBaseSprite>();
-		if (Object.op_Implicit((Object)(object)sprite))
+		if ((sprite != null))
 		{
 			UpdateSpriteIds();
 		}
@@ -105,7 +105,7 @@ public class tk2dButton : MonoBehaviour
 
 	private void PlaySound(AudioClip source)
 	{
-		if (Object.op_Implicit((Object)(object)((Component)this).GetComponent<AudioSource>()) && Object.op_Implicit((Object)(object)source))
+		if ((((Component)this).GetComponent<AudioSource>() != null) && (source != null))
 		{
 			((Component)this).GetComponent<AudioSource>().PlayOneShot(source);
 		}
@@ -165,13 +165,13 @@ public class tk2dButton : MonoBehaviour
 				for (int i = 0; i < Input.touchCount; i++)
 				{
 					Touch touch = Input.GetTouch(i);
-					if (((Touch)(ref touch)).fingerId == fingerId)
+					if (touch.fingerId == fingerId)
 					{
-						if ((int)((Touch)(ref touch)).phase == 3 || (int)((Touch)(ref touch)).phase == 4)
+						if ((int)touch.phase == 3 || (int)touch.phase == 4)
 						{
 							break;
 						}
-						val = Vector2.op_Implicit(((Touch)(ref touch)).position);
+						val = (Vector2)(touch.position);
 						flag2 = true;
 					}
 				}
@@ -193,7 +193,7 @@ public class tk2dButton : MonoBehaviour
 				break;
 			}
 			Ray val2 = viewCamera.ScreenPointToRay(val);
-			bool flag3 = ((Component)this).GetComponent<Collider>().Raycast(val2, ref val3, float.PositiveInfinity);
+				bool flag3 = ((Component)this).GetComponent<Collider>().Raycast(val2, out val3, float.PositiveInfinity);
 			if (buttonPressed && !flag3)
 			{
 				if (targetScale != 1f)
@@ -245,7 +245,7 @@ public class tk2dButton : MonoBehaviour
 			{
 				sprite.spriteId = buttonPressedSpriteId;
 			}
-			if (Object.op_Implicit((Object)(object)targetObject))
+			if ((targetObject != null))
 			{
 				targetObject.SendMessage(messageName);
 			}
@@ -296,12 +296,12 @@ public class tk2dButton : MonoBehaviour
 			for (int i = 0; i < Input.touchCount; i++)
 			{
 				Touch touch = Input.GetTouch(i);
-				if ((int)((Touch)(ref touch)).phase == 0)
+				if ((int)touch.phase == 0)
 				{
-					Ray val = viewCamera.ScreenPointToRay(Vector2.op_Implicit(((Touch)(ref touch)).position));
-					if (((Component)this).GetComponent<Collider>().Raycast(val, ref val2, 100000000f) && !Physics.Raycast(val, ((RaycastHit)(ref val2)).distance - 0.01f))
+					Ray val = viewCamera.ScreenPointToRay((Vector2)(touch.position));
+					if (((Component)this).GetComponent<Collider>().Raycast(val, out val2, 100000000f) && !Physics.Raycast(val, val2.distance - 0.01f))
 					{
-						((MonoBehaviour)this).StartCoroutine(coHandleButtonPress(((Touch)(ref touch)).fingerId));
+						((MonoBehaviour)this).StartCoroutine(coHandleButtonPress(touch.fingerId));
 						flag = true;
 						break;
 					}
@@ -312,7 +312,7 @@ public class tk2dButton : MonoBehaviour
 		{
 			Ray val3 = viewCamera.ScreenPointToRay(Input.mousePosition);
 			RaycastHit val4 = default(RaycastHit);
-			if (((Component)this).GetComponent<Collider>().Raycast(val3, ref val4, 100000000f) && !Physics.Raycast(val3, ((RaycastHit)(ref val4)).distance - 0.01f))
+			if (((Component)this).GetComponent<Collider>().Raycast(val3, out val4, 100000000f) && !Physics.Raycast(val3, val4.distance - 0.01f))
 			{
 				((MonoBehaviour)this).StartCoroutine(coHandleButtonPress(-1));
 			}

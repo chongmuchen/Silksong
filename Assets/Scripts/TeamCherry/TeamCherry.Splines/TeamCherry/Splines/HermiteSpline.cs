@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TeamCherry.Splines;
+namespace TeamCherry.Splines
+{
 
 [ExecuteAlways]
 public class HermiteSpline : HermiteSplineBase
@@ -45,4 +46,5 @@ public class HermiteSpline : HermiteSplineBase
 		}
 		base.Start();
 	}
+}
 }

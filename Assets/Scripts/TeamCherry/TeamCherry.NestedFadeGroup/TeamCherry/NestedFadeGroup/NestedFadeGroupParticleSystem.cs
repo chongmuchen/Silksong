@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
 
-namespace TeamCherry.NestedFadeGroup;
+namespace TeamCherry.NestedFadeGroup
+{
 
 [ExecuteAlways]
 [NestedFadeGroupBridge(new Type[] { typeof(ParticleSystem) })]
@@ -10,7 +11,7 @@ public class NestedFadeGroupParticleSystem : NestedFadeGroupBase
 {
 	private ParticleSystem system;
 
-	private Particle[] particles;
+	private ParticleSystem.Particle[] particles;
 
 	private bool hasSystem;
 
@@ -38,39 +39,39 @@ public class NestedFadeGroupParticleSystem : NestedFadeGroupBase
 		{
 			return;
 		}
-		hasSystem = Object.op_Implicit((Object)(object)(system = ((Component)this).GetComponent<ParticleSystem>()));
-		MainModule main = system.main;
-		int num = ((MainModule)(ref main)).maxParticles;
-		if (!((MainModule)(ref main)).loop)
+		hasSystem = ((system = ((Component)this).GetComponent<ParticleSystem>()) != null);
+		ParticleSystem.MainModule main = system.main;
+		int num = main.maxParticles;
+		if (!main.loop)
 		{
-			EmissionModule emission = system.emission;
-			if (IsCurveZero(((EmissionModule)(ref emission)).rateOverDistance))
+			ParticleSystem.EmissionModule emission = system.emission;
+			if (IsCurveZero(emission.rateOverDistance))
 			{
 				float num2 = 0f;
-				MinMaxCurve rateOverTime = ((EmissionModule)(ref emission)).rateOverTime;
-				ParticleSystemCurveMode mode = ((MinMaxCurve)(ref rateOverTime)).mode;
+				ParticleSystem.MinMaxCurve rateOverTime = emission.rateOverTime;
+				ParticleSystemCurveMode mode = rateOverTime.mode;
 				if ((int)mode != 0)
 				{
 					if ((int)mode == 3)
 					{
-						rateOverTime = ((EmissionModule)(ref emission)).rateOverTime;
-						num2 = ((MinMaxCurve)(ref rateOverTime)).constantMax;
+						rateOverTime = emission.rateOverTime;
+						num2 = rateOverTime.constantMax;
 					}
 				}
 				else
 				{
-					rateOverTime = ((EmissionModule)(ref emission)).rateOverTime;
-					num2 = ((MinMaxCurve)(ref rateOverTime)).constant;
+					rateOverTime = emission.rateOverTime;
+					num2 = rateOverTime.constant;
 				}
 				if (num2 > 0f)
 				{
-					num = Mathf.CeilToInt(num2 * ((MainModule)(ref main)).duration);
+					num = Mathf.CeilToInt(num2 * main.duration);
 				}
 			}
 		}
 		if (num <= 1000)
 		{
-			particles = (Particle[])(object)new Particle[num];
+			particles = new ParticleSystem.Particle[num];
 		}
 		else
 		{
@@ -86,29 +87,29 @@ public class NestedFadeGroupParticleSystem : NestedFadeGroupBase
 		GetMissingReferences();
 	}
 
-	private bool IsCurveZero(MinMaxCurve curve)
+	private bool IsCurveZero(ParticleSystem.MinMaxCurve curve)
 	{
 		//IL_0002: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0007: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0008: Unknown result type (might be due to invalid IL or missing references)
 		//IL_001e: Expected I4, but got Unknown
-		ParticleSystemCurveMode mode = ((MinMaxCurve)(ref curve)).mode;
+		ParticleSystemCurveMode mode = curve.mode;
 		switch ((int)mode)
 		{
 		case 0:
-			return ((MinMaxCurve)(ref curve)).constant <= 0f;
+			return curve.constant <= 0f;
 		case 1:
-			return IsCurveZero(((MinMaxCurve)(ref curve)).curve);
+			return IsCurveZero(curve.curve);
 		case 3:
-			if (((MinMaxCurve)(ref curve)).constantMin <= 0f)
+			if (curve.constantMin <= 0f)
 			{
-				return ((MinMaxCurve)(ref curve)).constantMax <= 0f;
+				return curve.constantMax <= 0f;
 			}
 			return false;
 		case 2:
-			if (IsCurveZero(((MinMaxCurve)(ref curve)).curveMin))
+			if (IsCurveZero(curve.curveMin))
 			{
-				return IsCurveZero(((MinMaxCurve)(ref curve)).curveMax);
+				return IsCurveZero(curve.curveMax);
 			}
 			return false;
 		default:
@@ -128,7 +129,7 @@ public class NestedFadeGroupParticleSystem : NestedFadeGroupBase
 		for (int i = 0; i < keys.Length; i++)
 		{
 			Keyframe val = keys[i];
-			if (((Keyframe)(ref val)).value > 0f)
+			if (val.value > 0f)
 			{
 				return false;
 			}
@@ -154,21 +155,22 @@ public class NestedFadeGroupParticleSystem : NestedFadeGroupBase
 		{
 			return;
 		}
-		MainModule main = system.main;
-		MinMaxGradient startColor = ((MainModule)(ref main)).startColor;
-		Color color = ((MinMaxGradient)(ref startColor)).color;
+		ParticleSystem.MainModule main = system.main;
+		ParticleSystem.MinMaxGradient startColor = main.startColor;
+		Color color = startColor.color;
 		color.a = alpha;
-		((MinMaxGradient)(ref startColor)).color = color;
-		((MainModule)(ref main)).startColor = startColor;
-		Color32 startColor2 = Color32.op_Implicit(color);
+		startColor.color = color;
+		main.startColor = startColor;
+		Color32 startColor2 = (Color32)(color);
 		int num = system.GetParticles(particles);
 		if (num > 0)
 		{
 			for (int i = 0; i < num; i++)
 			{
-				((Particle)(ref particles[i])).startColor = startColor2;
+				particles[i].startColor = startColor2;
 			}
 		}
 		system.SetParticles(particles, num);
 	}
+}
 }

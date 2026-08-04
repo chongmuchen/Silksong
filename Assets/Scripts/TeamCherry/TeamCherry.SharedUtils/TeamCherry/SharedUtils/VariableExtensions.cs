@@ -2,7 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace TeamCherry.SharedUtils;
+namespace TeamCherry.SharedUtils
+{
 
 public static class VariableExtensions
 {
@@ -276,4 +277,5 @@ public static class VariableExtensions
 	{
 		return variableCache.VariableExists(typeof(TContainer), fieldName, type);
 	}
+}
 }

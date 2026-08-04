@@ -1,6 +1,7 @@
 using UnityEngine;
 
-namespace TeamCherry.NestedFadeGroup;
+namespace TeamCherry.NestedFadeGroup
+{
 
 [ExecuteAlways]
 [RequireComponent(typeof(MeshRenderer))]
@@ -44,4 +45,5 @@ public class NestedFadeGroupBlurPlane : NestedFadeGroupBase
 		block.SetFloat(Size, Mathf.Lerp(0f, maxBlurSpacing, curve.Evaluate(alpha)));
 		((Renderer)renderer).SetPropertyBlock(block);
 	}
+}
 }

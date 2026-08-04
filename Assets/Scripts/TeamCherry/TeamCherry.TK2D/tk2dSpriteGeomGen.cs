@@ -48,7 +48,7 @@ public static class tk2dSpriteGeomGen
 			c.g *= c.a;
 			c.b *= c.a;
 		}
-		Color32 val = Color32.op_Implicit(c);
+		Color32 val = (Color32)(c);
 		for (int i = 0; i < numVertices; i++)
 		{
 			dest[offset + i] = val;
@@ -326,17 +326,17 @@ public static class tk2dSpriteGeomGen
 			float num7 = (num3 - val4.y) / val3.y;
 			float num8 = (num4 - val4.y) / val3.y;
 			Vector2 val5 = default(Vector2);
-			((Vector2)(ref val5))._002Ector(Mathf.Clamp01(num5), Mathf.Clamp01(num7));
+			val5 = new Vector2(Mathf.Clamp01(num5), Mathf.Clamp01(num7));
 			Vector2 val6 = default(Vector2);
-			((Vector2)(ref val6))._002Ector(Mathf.Clamp01(num6), Mathf.Clamp01(num8));
+			val6 = new Vector2(Mathf.Clamp01(num6), Mathf.Clamp01(num8));
 			Vector3 val7 = spriteDef.positions[0];
 			Vector3 val8 = spriteDef.positions[3];
 			Vector3 val9 = default(Vector3);
-			((Vector3)(ref val9))._002Ector(Mathf.Lerp(val7.x, val8.x, val5.x) * scale.x, Mathf.Lerp(val7.y, val8.y, val5.y) * scale.y, val7.z * scale.z);
+			val9 = new Vector3(Mathf.Lerp(val7.x, val8.x, val5.x) * scale.x, Mathf.Lerp(val7.y, val8.y, val5.y) * scale.y, val7.z * scale.z);
 			Vector3 val10 = default(Vector3);
-			((Vector3)(ref val10))._002Ector(Mathf.Lerp(val7.x, val8.x, val6.x) * scale.x, Mathf.Lerp(val7.y, val8.y, val6.y) * scale.y, val7.z * scale.z);
-			((Vector3)(ref boundsCenter)).Set(val9.x + (val10.x - val9.x) * 0.5f, val9.y + (val10.y - val9.y) * 0.5f, colliderOffsetZ);
-			((Vector3)(ref boundsExtents)).Set((val10.x - val9.x) * 0.5f, (val10.y - val9.y) * 0.5f, colliderExtentZ);
+			val10 = new Vector3(Mathf.Lerp(val7.x, val8.x, val6.x) * scale.x, Mathf.Lerp(val7.y, val8.y, val6.y) * scale.y, val7.z * scale.z);
+			boundsCenter.Set(val9.x + (val10.x - val9.x) * 0.5f, val9.y + (val10.y - val9.y) * 0.5f, colliderOffsetZ);
+			boundsExtents.Set((val10.x - val9.x) * 0.5f, (val10.y - val9.y) * 0.5f, colliderExtentZ);
 			pos[offset] = new Vector3(val9.x, val9.y, val9.z);
 			pos[offset + 1] = new Vector3(val10.x, val9.y, val9.z);
 			pos[offset + 2] = new Vector3(val9.x, val10.y, val9.z);
@@ -344,9 +344,9 @@ public static class tk2dSpriteGeomGen
 			if (spriteDef.flipped == tk2dSpriteDefinition.FlipMode.Tk2d)
 			{
 				Vector2 val11 = default(Vector2);
-				((Vector2)(ref val11))._002Ector(Mathf.Lerp(spriteDef.uvs[0].x, spriteDef.uvs[3].x, val5.y), Mathf.Lerp(spriteDef.uvs[0].y, spriteDef.uvs[3].y, val5.x));
+				val11 = new Vector2(Mathf.Lerp(spriteDef.uvs[0].x, spriteDef.uvs[3].x, val5.y), Mathf.Lerp(spriteDef.uvs[0].y, spriteDef.uvs[3].y, val5.x));
 				Vector2 val12 = default(Vector2);
-				((Vector2)(ref val12))._002Ector(Mathf.Lerp(spriteDef.uvs[0].x, spriteDef.uvs[3].x, val6.y), Mathf.Lerp(spriteDef.uvs[0].y, spriteDef.uvs[3].y, val6.x));
+				val12 = new Vector2(Mathf.Lerp(spriteDef.uvs[0].x, spriteDef.uvs[3].x, val6.y), Mathf.Lerp(spriteDef.uvs[0].y, spriteDef.uvs[3].y, val6.x));
 				uv[offset] = new Vector2(val11.x, val11.y);
 				uv[offset + 1] = new Vector2(val11.x, val12.y);
 				uv[offset + 2] = new Vector2(val12.x, val11.y);
@@ -355,9 +355,9 @@ public static class tk2dSpriteGeomGen
 			else if (spriteDef.flipped == tk2dSpriteDefinition.FlipMode.TPackerCW)
 			{
 				Vector2 val13 = default(Vector2);
-				((Vector2)(ref val13))._002Ector(Mathf.Lerp(spriteDef.uvs[0].x, spriteDef.uvs[3].x, val5.y), Mathf.Lerp(spriteDef.uvs[0].y, spriteDef.uvs[3].y, val5.x));
+				val13 = new Vector2(Mathf.Lerp(spriteDef.uvs[0].x, spriteDef.uvs[3].x, val5.y), Mathf.Lerp(spriteDef.uvs[0].y, spriteDef.uvs[3].y, val5.x));
 				Vector2 val14 = default(Vector2);
-				((Vector2)(ref val14))._002Ector(Mathf.Lerp(spriteDef.uvs[0].x, spriteDef.uvs[3].x, val6.y), Mathf.Lerp(spriteDef.uvs[0].y, spriteDef.uvs[3].y, val6.x));
+				val14 = new Vector2(Mathf.Lerp(spriteDef.uvs[0].x, spriteDef.uvs[3].x, val6.y), Mathf.Lerp(spriteDef.uvs[0].y, spriteDef.uvs[3].y, val6.x));
 				uv[offset] = new Vector2(val13.x, val13.y);
 				uv[offset + 2] = new Vector2(val14.x, val13.y);
 				uv[offset + 1] = new Vector2(val13.x, val14.y);
@@ -366,9 +366,9 @@ public static class tk2dSpriteGeomGen
 			else
 			{
 				Vector2 val15 = default(Vector2);
-				((Vector2)(ref val15))._002Ector(Mathf.Lerp(spriteDef.uvs[0].x, spriteDef.uvs[3].x, val5.x), Mathf.Lerp(spriteDef.uvs[0].y, spriteDef.uvs[3].y, val5.y));
+				val15 = new Vector2(Mathf.Lerp(spriteDef.uvs[0].x, spriteDef.uvs[3].x, val5.x), Mathf.Lerp(spriteDef.uvs[0].y, spriteDef.uvs[3].y, val5.y));
 				Vector2 val16 = default(Vector2);
-				((Vector2)(ref val16))._002Ector(Mathf.Lerp(spriteDef.uvs[0].x, spriteDef.uvs[3].x, val6.x), Mathf.Lerp(spriteDef.uvs[0].y, spriteDef.uvs[3].y, val6.y));
+				val16 = new Vector2(Mathf.Lerp(spriteDef.uvs[0].x, spriteDef.uvs[3].x, val6.x), Mathf.Lerp(spriteDef.uvs[0].y, spriteDef.uvs[3].y, val6.y));
 				uv[offset] = new Vector2(val15.x, val15.y);
 				uv[offset + 1] = new Vector2(val16.x, val15.y);
 				uv[offset + 2] = new Vector2(val15.x, val16.y);
@@ -547,13 +547,13 @@ public static class tk2dSpriteGeomGen
 		}
 		num9 *= x;
 		num10 *= y;
-		((Vector3)(ref boundsCenter)).Set(scale.x * (num7 * 0.5f + num9), scale.y * (num8 * 0.5f + num10), colliderOffsetZ);
-		((Vector3)(ref boundsExtents)).Set(scale.x * (num7 * 0.5f), scale.y * (num8 * 0.5f), colliderExtentZ);
+		boundsCenter.Set(scale.x * (num7 * 0.5f + num9), scale.y * (num8 * 0.5f + num10), colliderOffsetZ);
+		boundsExtents.Set(scale.x * (num7 * 0.5f), scale.y * (num8 * 0.5f), colliderExtentZ);
 		Vector2[] uvs = spriteDef.uvs;
 		Vector2 val = uvs[1] - uvs[0];
 		Vector2 val2 = uvs[2] - uvs[0];
 		Vector3 val3 = default(Vector3);
-		((Vector3)(ref val3))._002Ector(num9, num10, 0f);
+		val3 = new Vector3(num9, num10, 0f);
 		Vector3[] array = (Vector3[])(object)new Vector3[4]
 		{
 			val3,
@@ -824,8 +824,8 @@ public static class tk2dSpriteGeomGen
 		int num = (int)Mathf.Ceil(dimensions.x * spriteDef.texelSize.x / spriteDef.untrimmedBoundsData[1].x);
 		int num2 = (int)Mathf.Ceil(dimensions.y * spriteDef.texelSize.y / spriteDef.untrimmedBoundsData[1].y);
 		Vector2 val = default(Vector2);
-		((Vector2)(ref val))._002Ector(dimensions.x * spriteDef.texelSize.x * scale.x, dimensions.y * spriteDef.texelSize.y * scale.y);
-		Vector2 val2 = Vector2.Scale(spriteDef.texelSize, Vector2.op_Implicit(scale)) * 0.1f;
+		val = new Vector2(dimensions.x * spriteDef.texelSize.x * scale.x, dimensions.y * spriteDef.texelSize.y * scale.y);
+		Vector2 val2 = Vector2.Scale(spriteDef.texelSize, (Vector2)(scale)) * 0.1f;
 		Vector3 zero = Vector3.zero;
 		switch (anchor)
 		{
@@ -855,8 +855,8 @@ public static class tk2dSpriteGeomGen
 		}
 		Vector3 val3 = zero;
 		zero -= Vector3.Scale(spriteDef.positions[0], scale);
-		((Vector3)(ref boundsCenter)).Set(val.x * 0.5f + val3.x, val.y * 0.5f + val3.y, colliderOffsetZ);
-		((Vector3)(ref boundsExtents)).Set(val.x * 0.5f, val.y * 0.5f, colliderExtentZ);
+		boundsCenter.Set(val.x * 0.5f + val3.x, val.y * 0.5f + val3.y, colliderOffsetZ);
+		boundsExtents.Set(val.x * 0.5f, val.y * 0.5f, colliderExtentZ);
 		int num3 = 0;
 		Vector3 val4 = Vector3.Scale(spriteDef.untrimmedBoundsData[1], scale);
 		Vector3 zero2 = Vector3.zero;
@@ -889,17 +889,17 @@ public static class tk2dSpriteGeomGen
 				if (num4 != 1f || num5 != 1f)
 				{
 					Vector2 zero3 = Vector2.zero;
-					((Vector2)(ref val7))._002Ector(num4, num5);
-					((Vector3)(ref val8))._002Ector(Mathf.Lerp(spriteDef.positions[0].x, spriteDef.positions[3].x, zero3.x) * scale.x, Mathf.Lerp(spriteDef.positions[0].y, spriteDef.positions[3].y, zero3.y) * scale.y, spriteDef.positions[0].z * scale.z);
-					((Vector3)(ref val9))._002Ector(Mathf.Lerp(spriteDef.positions[0].x, spriteDef.positions[3].x, val7.x) * scale.x, Mathf.Lerp(spriteDef.positions[0].y, spriteDef.positions[3].y, val7.y) * scale.y, spriteDef.positions[0].z * scale.z);
+					val7 = new Vector2(num4, num5);
+					val8 = new Vector3(Mathf.Lerp(spriteDef.positions[0].x, spriteDef.positions[3].x, zero3.x) * scale.x, Mathf.Lerp(spriteDef.positions[0].y, spriteDef.positions[3].y, zero3.y) * scale.y, spriteDef.positions[0].z * scale.z);
+					val9 = new Vector3(Mathf.Lerp(spriteDef.positions[0].x, spriteDef.positions[3].x, val7.x) * scale.x, Mathf.Lerp(spriteDef.positions[0].y, spriteDef.positions[3].y, val7.y) * scale.y, spriteDef.positions[0].z * scale.z);
 					pos[offset + num3] = val6 + new Vector3(val8.x, val8.y, val8.z);
 					pos[offset + num3 + 1] = val6 + new Vector3(val9.x, val8.y, val8.z);
 					pos[offset + num3 + 2] = val6 + new Vector3(val8.x, val9.y, val8.z);
 					pos[offset + num3 + 3] = val6 + new Vector3(val9.x, val9.y, val8.z);
 					if (spriteDef.flipped == tk2dSpriteDefinition.FlipMode.Tk2d)
 					{
-						((Vector2)(ref val10))._002Ector(Mathf.Lerp(spriteDef.uvs[0].x, spriteDef.uvs[3].x, zero3.y), Mathf.Lerp(spriteDef.uvs[0].y, spriteDef.uvs[3].y, zero3.x));
-						((Vector2)(ref val11))._002Ector(Mathf.Lerp(spriteDef.uvs[0].x, spriteDef.uvs[3].x, val7.y), Mathf.Lerp(spriteDef.uvs[0].y, spriteDef.uvs[3].y, val7.x));
+						val10 = new Vector2(Mathf.Lerp(spriteDef.uvs[0].x, spriteDef.uvs[3].x, zero3.y), Mathf.Lerp(spriteDef.uvs[0].y, spriteDef.uvs[3].y, zero3.x));
+						val11 = new Vector2(Mathf.Lerp(spriteDef.uvs[0].x, spriteDef.uvs[3].x, val7.y), Mathf.Lerp(spriteDef.uvs[0].y, spriteDef.uvs[3].y, val7.x));
 						uv[offset + num3] = new Vector2(val10.x, val10.y);
 						uv[offset + num3 + 1] = new Vector2(val10.x, val11.y);
 						uv[offset + num3 + 2] = new Vector2(val11.x, val10.y);
@@ -907,8 +907,8 @@ public static class tk2dSpriteGeomGen
 					}
 					else if (spriteDef.flipped == tk2dSpriteDefinition.FlipMode.TPackerCW)
 					{
-						((Vector2)(ref val12))._002Ector(Mathf.Lerp(spriteDef.uvs[0].x, spriteDef.uvs[3].x, zero3.y), Mathf.Lerp(spriteDef.uvs[0].y, spriteDef.uvs[3].y, zero3.x));
-						((Vector2)(ref val13))._002Ector(Mathf.Lerp(spriteDef.uvs[0].x, spriteDef.uvs[3].x, val7.y), Mathf.Lerp(spriteDef.uvs[0].y, spriteDef.uvs[3].y, val7.x));
+						val12 = new Vector2(Mathf.Lerp(spriteDef.uvs[0].x, spriteDef.uvs[3].x, zero3.y), Mathf.Lerp(spriteDef.uvs[0].y, spriteDef.uvs[3].y, zero3.x));
+						val13 = new Vector2(Mathf.Lerp(spriteDef.uvs[0].x, spriteDef.uvs[3].x, val7.y), Mathf.Lerp(spriteDef.uvs[0].y, spriteDef.uvs[3].y, val7.x));
 						uv[offset + num3] = new Vector2(val12.x, val12.y);
 						uv[offset + num3 + 2] = new Vector2(val13.x, val12.y);
 						uv[offset + num3 + 1] = new Vector2(val12.x, val13.y);
@@ -916,8 +916,8 @@ public static class tk2dSpriteGeomGen
 					}
 					else
 					{
-						((Vector2)(ref val14))._002Ector(Mathf.Lerp(spriteDef.uvs[0].x, spriteDef.uvs[3].x, zero3.x), Mathf.Lerp(spriteDef.uvs[0].y, spriteDef.uvs[3].y, zero3.y));
-						((Vector2)(ref val15))._002Ector(Mathf.Lerp(spriteDef.uvs[0].x, spriteDef.uvs[3].x, val7.x), Mathf.Lerp(spriteDef.uvs[0].y, spriteDef.uvs[3].y, val7.y));
+						val14 = new Vector2(Mathf.Lerp(spriteDef.uvs[0].x, spriteDef.uvs[3].x, zero3.x), Mathf.Lerp(spriteDef.uvs[0].y, spriteDef.uvs[3].y, zero3.y));
+						val15 = new Vector2(Mathf.Lerp(spriteDef.uvs[0].x, spriteDef.uvs[3].x, val7.x), Mathf.Lerp(spriteDef.uvs[0].y, spriteDef.uvs[3].y, val7.y));
 						uv[offset + num3] = new Vector2(val14.x, val14.y);
 						uv[offset + num3 + 1] = new Vector2(val15.x, val14.y);
 						uv[offset + num3 + 2] = new Vector2(val14.x, val15.y);
@@ -995,7 +995,7 @@ public static class tk2dSpriteGeomGen
 		Matrix4x4 val = mat * boxScaleMatrix;
 		for (int i = 0; i < 8; i++)
 		{
-			pos[posOffset + i] = ((Matrix4x4)(ref val)).MultiplyPoint(boxUnitVertices[i]);
+			pos[posOffset + i] = val.MultiplyPoint(boxUnitVertices[i]);
 		}
 		int[] array = ((mat.m00 * mat.m11 * mat.m22 * baseScale.x * baseScale.y * baseScale.z >= 0f) ? boxIndicesFwd : boxIndicesBack);
 		for (int j = 0; j < array.Length; j++)
@@ -1021,7 +1021,7 @@ public static class tk2dSpriteGeomGen
 		for (int i = 0; i < spriteDef.colliderVertices.Length; i++)
 		{
 			Vector3 val = Vector3.Scale(spriteDef.colliderVertices[i], baseScale);
-			val = ((Matrix4x4)(ref mat)).MultiplyPoint(val);
+			val = mat.MultiplyPoint(val);
 			pos[posOffset + i] = val;
 		}
 		int[] array = ((mat.m00 * mat.m11 * mat.m22 >= 0f) ? spriteDef.colliderIndicesFwd : spriteDef.colliderIndicesBack);

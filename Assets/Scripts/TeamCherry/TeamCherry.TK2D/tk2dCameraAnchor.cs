@@ -178,43 +178,43 @@ public class tk2dCameraAnchor : MonoBehaviour
 		}
 		else
 		{
-			((Rect)(ref val)).Set(0f, 0f, (float)AnchorCamera.pixelWidth, (float)AnchorCamera.pixelHeight);
+			val.Set(0f, 0f, (float)AnchorCamera.pixelWidth, (float)AnchorCamera.pixelHeight);
 		}
-		float yMin = ((Rect)(ref val)).yMin;
-		float yMax = ((Rect)(ref val)).yMax;
+		float yMin = val.yMin;
+		float yMax = val.yMax;
 		float num2 = (yMin + yMax) * 0.5f;
-		float xMin = ((Rect)(ref val)).xMin;
-		float xMax = ((Rect)(ref val)).xMax;
+		float xMin = val.xMin;
+		float xMax = val.xMax;
 		float num3 = (xMin + xMax) * 0.5f;
 		Vector3 zero = Vector3.zero;
 		switch (AnchorPoint)
 		{
 		case tk2dBaseSprite.Anchor.UpperLeft:
-			((Vector3)(ref zero))._002Ector(xMin, yMax, localPosition.z);
+			zero = new Vector3(xMin, yMax, localPosition.z);
 			break;
 		case tk2dBaseSprite.Anchor.UpperCenter:
-			((Vector3)(ref zero))._002Ector(num3, yMax, localPosition.z);
+			zero = new Vector3(num3, yMax, localPosition.z);
 			break;
 		case tk2dBaseSprite.Anchor.UpperRight:
-			((Vector3)(ref zero))._002Ector(xMax, yMax, localPosition.z);
+			zero = new Vector3(xMax, yMax, localPosition.z);
 			break;
 		case tk2dBaseSprite.Anchor.MiddleLeft:
-			((Vector3)(ref zero))._002Ector(xMin, num2, localPosition.z);
+			zero = new Vector3(xMin, num2, localPosition.z);
 			break;
 		case tk2dBaseSprite.Anchor.MiddleCenter:
-			((Vector3)(ref zero))._002Ector(num3, num2, localPosition.z);
+			zero = new Vector3(num3, num2, localPosition.z);
 			break;
 		case tk2dBaseSprite.Anchor.MiddleRight:
-			((Vector3)(ref zero))._002Ector(xMax, num2, localPosition.z);
+			zero = new Vector3(xMax, num2, localPosition.z);
 			break;
 		case tk2dBaseSprite.Anchor.LowerLeft:
-			((Vector3)(ref zero))._002Ector(xMin, yMin, localPosition.z);
+			zero = new Vector3(xMin, yMin, localPosition.z);
 			break;
 		case tk2dBaseSprite.Anchor.LowerCenter:
-			((Vector3)(ref zero))._002Ector(num3, yMin, localPosition.z);
+			zero = new Vector3(num3, yMin, localPosition.z);
 			break;
 		case tk2dBaseSprite.Anchor.LowerRight:
-			((Vector3)(ref zero))._002Ector(xMax, yMin, localPosition.z);
+			zero = new Vector3(xMax, yMin, localPosition.z);
 			break;
 		}
 		Vector3 val2 = zero + new Vector3(num * offset.x, num * offset.y, 0f);

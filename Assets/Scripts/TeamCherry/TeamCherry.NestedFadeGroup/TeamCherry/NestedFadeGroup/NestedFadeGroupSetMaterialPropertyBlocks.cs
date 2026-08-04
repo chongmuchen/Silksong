@@ -1,8 +1,10 @@
 using System;
 using TeamCherry.SharedUtils;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
-namespace TeamCherry.NestedFadeGroup;
+namespace TeamCherry.NestedFadeGroup
+{
 
 [ExecuteAlways]
 [RequireComponent(typeof(SetMaterialPropertyBlocks))]
@@ -31,4 +33,5 @@ public class NestedFadeGroupSetMaterialPropertyBlocks : NestedFadeGroupBase
 			setMatBlocks.FloatAlpha = alpha;
 		}
 	}
+}
 }

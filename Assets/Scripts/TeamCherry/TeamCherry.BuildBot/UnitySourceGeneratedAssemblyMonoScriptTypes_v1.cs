@@ -1,3 +1,4 @@
+#if false // Unity regenerates this metadata for each asmdef.
 using System.CodeDom.Compiler;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -61,3 +62,5 @@ internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1
 		};
 	}
 }
+
+#endif

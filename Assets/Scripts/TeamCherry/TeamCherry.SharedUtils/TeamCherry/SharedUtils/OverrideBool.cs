@@ -1,8 +1,10 @@
 using System;
 
-namespace TeamCherry.SharedUtils;
+namespace TeamCherry.SharedUtils
+{
 
 [Serializable]
 public class OverrideBool : OverrideValue<bool>
 {
+}
 }

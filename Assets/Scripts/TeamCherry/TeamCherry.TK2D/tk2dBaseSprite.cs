@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TeamCherry.SharedUtils;
 using UnityEngine;
+using Object = UnityEngine.Object;
 using tk2dRuntime;
 
 [AddComponentMenu("2D Toolkit/Backend/tk2dBaseSprite")]
@@ -312,7 +313,7 @@ public abstract class tk2dBaseSprite : MonoBehaviour, ISpriteCollectionForceBuil
 			float num2 = Collection.invOrthoSize * Collection.halfTargetHeight;
 			num = tk2dCamera2.GetSizeAtDistance(distance) * num2;
 		}
-		else if (Object.op_Implicit((Object)(object)Camera.main))
+		else if ((Camera.main != null))
 		{
 			if (Camera.main.orthographic)
 			{
@@ -433,7 +434,7 @@ public abstract class tk2dBaseSprite : MonoBehaviour, ISpriteCollectionForceBuil
 			val.g *= val.a;
 			val.b *= val.a;
 		}
-		Color32 val2 = Color32.op_Implicit(val);
+		Color32 val2 = (Color32)(val);
 		int numVertices = GetNumVertices();
 		for (int i = 0; i < numVertices; i++)
 		{
@@ -467,9 +468,9 @@ public abstract class tk2dBaseSprite : MonoBehaviour, ISpriteCollectionForceBuil
 		//IL_0007: Unknown result type (might be due to invalid IL or missing references)
 		//IL_001a: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0020: Unknown result type (might be due to invalid IL or missing references)
-		Vector3 center = ((Bounds)(ref bounds)).center;
+		Vector3 center = bounds.center;
 		center.z = (float)(-renderLayer) * 0.01f;
-		((Bounds)(ref bounds)).center = center;
+		bounds.center = center;
 		return bounds;
 	}
 
@@ -608,7 +609,7 @@ public abstract class tk2dBaseSprite : MonoBehaviour, ISpriteCollectionForceBuil
 						Vector2[] array = (Vector2[])(object)new Vector2[points.Length];
 						for (int k = 0; k < points.Length; k++)
 						{
-							array[k] = Vector2.Scale(points[k], Vector2.op_Implicit(_scale));
+							array[k] = Vector2.Scale(points[k], (Vector2)(_scale));
 						}
 						polygonCollider2D[j].points = array;
 					}
@@ -648,7 +649,7 @@ public abstract class tk2dBaseSprite : MonoBehaviour, ISpriteCollectionForceBuil
 						Vector2[] array2 = (Vector2[])(object)new Vector2[points2.Length];
 						for (int num3 = 0; num3 < points2.Length; num3++)
 						{
-							array2[num3] = Vector2.Scale(points2[num3], Vector2.op_Implicit(_scale));
+							array2[num3] = Vector2.Scale(points2[num3], (Vector2)(_scale));
 						}
 						edgeCollider2D[n].points = array2;
 					}
@@ -743,7 +744,7 @@ public abstract class tk2dBaseSprite : MonoBehaviour, ISpriteCollectionForceBuil
 				meshColliderMesh.triangles = ((num >= 0f) ? tk2dSpriteDefinition2.colliderIndicesFwd : tk2dSpriteDefinition2.colliderIndicesBack);
 				meshCollider.sharedMesh = meshColliderMesh;
 				meshCollider.convex = tk2dSpriteDefinition2.colliderConvex;
-				if (Object.op_Implicit((Object)(object)((Component)this).GetComponent<Rigidbody>()))
+				if ((((Component)this).GetComponent<Rigidbody>() != null))
 				{
 					((Component)this).GetComponent<Rigidbody>().centerOfMass = Vector3.zero;
 				}

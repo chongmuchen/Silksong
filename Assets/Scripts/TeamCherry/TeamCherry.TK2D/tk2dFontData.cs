@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 [AddComponentMenu("2D Toolkit/Backend/tk2dFontData")]
 public class tk2dFontData : MonoBehaviour
@@ -103,7 +104,7 @@ public class tk2dFontData : MonoBehaviour
 	{
 		if (needMaterialInstance)
 		{
-			if (Object.op_Implicit((Object)(object)spriteCollection))
+			if ((spriteCollection != null))
 			{
 				tk2dSpriteCollectionData tk2dSpriteCollectionData2 = spriteCollection.inst;
 				for (int i = 0; i < tk2dSpriteCollectionData2.materials.Length; i++)
@@ -133,7 +134,7 @@ public class tk2dFontData : MonoBehaviour
 
 	public void ResetPlatformData()
 	{
-		if (hasPlatformData && Object.op_Implicit((Object)(object)platformSpecificData))
+		if (hasPlatformData && (platformSpecificData != null))
 		{
 			platformSpecificData = null;
 		}

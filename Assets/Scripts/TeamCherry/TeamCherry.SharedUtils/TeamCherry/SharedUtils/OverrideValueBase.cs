@@ -1,5 +1,7 @@
-namespace TeamCherry.SharedUtils;
+namespace TeamCherry.SharedUtils
+{
 
 public class OverrideValueBase
 {
+}
 }

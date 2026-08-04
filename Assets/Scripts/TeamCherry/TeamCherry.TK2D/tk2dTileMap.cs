@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 using tk2dRuntime;
 using tk2dRuntime.TileMap;
 
@@ -138,7 +139,7 @@ public class tk2dTileMap : MonoBehaviour, ISpriteCollectionForceBuild
 		//IL_013b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0145: Expected O, but got Unknown
 		bool flag = true;
-		if (Object.op_Implicit((Object)(object)SpriteCollectionInst) && (SpriteCollectionInst.buildKey != spriteCollectionKey || SpriteCollectionInst.needMaterialInstance))
+		if ((SpriteCollectionInst != null) && (SpriteCollectionInst.buildKey != spriteCollectionKey || SpriteCollectionInst.needMaterialInstance))
 		{
 			flag = false;
 		}
@@ -258,12 +259,12 @@ public class tk2dTileMap : MonoBehaviour, ISpriteCollectionForceBuild
 			Array.Resize(ref data.tilePrefabs, SpriteCollectionInst.Count);
 		}
 		BuilderUtil.InitDataStore(this);
-		if (Object.op_Implicit((Object)(object)SpriteCollectionInst))
+		if ((SpriteCollectionInst != null))
 		{
 			SpriteCollectionInst.InitMaterialIds();
 		}
 		bool flag = (buildFlags & BuildFlags.ForceBuild) != 0;
-		if (Object.op_Implicit((Object)(object)SpriteCollectionInst) && SpriteCollectionInst.buildKey != spriteCollectionKey)
+		if ((SpriteCollectionInst != null) && SpriteCollectionInst.buildKey != spriteCollectionKey)
 		{
 			flag = true;
 		}
@@ -307,7 +308,7 @@ public class tk2dTileMap : MonoBehaviour, ISpriteCollectionForceBuild
 		{
 			colorChannel.ClearDirtyFlag();
 		}
-		if (Object.op_Implicit((Object)(object)SpriteCollectionInst))
+		if ((SpriteCollectionInst != null))
 		{
 			spriteCollectionKey = SpriteCollectionInst.buildKey;
 		}
@@ -346,7 +347,7 @@ public class tk2dTileMap : MonoBehaviour, ISpriteCollectionForceBuild
 		case tk2dTileMapData.TileType.Rectangular:
 		{
 			worldToLocalMatrix = ((Component)this).transform.worldToLocalMatrix;
-			Vector3 val2 = ((Matrix4x4)(ref worldToLocalMatrix)).MultiplyPoint(position);
+			Vector3 val2 = worldToLocalMatrix.MultiplyPoint(position);
 			x = (val2.x - data.tileOrigin.x) / data.tileSize.x;
 			y = (val2.y - data.tileOrigin.y) / data.tileSize.y;
 			if (x >= 0f && x < (float)width && y >= 0f)
@@ -363,7 +364,7 @@ public class tk2dTileMap : MonoBehaviour, ISpriteCollectionForceBuild
 			}
 			float num = Mathf.Atan2(data.tileSize.y, data.tileSize.x / 2f);
 			worldToLocalMatrix = ((Component)this).transform.worldToLocalMatrix;
-			Vector3 val = ((Matrix4x4)(ref worldToLocalMatrix)).MultiplyPoint(position);
+			Vector3 val = worldToLocalMatrix.MultiplyPoint(position);
 			x = (val.x - data.tileOrigin.x) / data.tileSize.x;
 			y = (val.y - data.tileOrigin.y) / data.tileSize.y;
 			float num2 = y * 0.5f;
@@ -423,14 +424,14 @@ public class tk2dTileMap : MonoBehaviour, ISpriteCollectionForceBuild
 		if (tileType == tk2dTileMapData.TileType.Rectangular || tileType != tk2dTileMapData.TileType.Isometric)
 		{
 			Vector3 val = default(Vector3);
-			((Vector3)(ref val))._002Ector((float)x * data.tileSize.x + data.tileOrigin.x, (float)y * data.tileSize.y + data.tileOrigin.y, 0f);
+			val = new Vector3((float)x * data.tileSize.x + data.tileOrigin.x, (float)y * data.tileSize.y + data.tileOrigin.y, 0f);
 			localToWorldMatrix = ((Component)this).transform.localToWorldMatrix;
-			return ((Matrix4x4)(ref localToWorldMatrix)).MultiplyPoint(val);
+			return localToWorldMatrix.MultiplyPoint(val);
 		}
 		Vector3 val2 = default(Vector3);
-		((Vector3)(ref val2))._002Ector(((float)x + (((y & 1) == 0) ? 0f : 0.5f)) * data.tileSize.x + data.tileOrigin.x, (float)y * data.tileSize.y + data.tileOrigin.y, 0f);
+		val2 = new Vector3(((float)x + (((y & 1) == 0) ? 0f : 0.5f)) * data.tileSize.x + data.tileOrigin.x, (float)y * data.tileSize.y + data.tileOrigin.y, 0f);
 		localToWorldMatrix = ((Component)this).transform.localToWorldMatrix;
-		return ((Matrix4x4)(ref localToWorldMatrix)).MultiplyPoint(val2);
+		return localToWorldMatrix.MultiplyPoint(val2);
 	}
 
 	public int GetTileIdAtPosition(Vector3 position, int layer)
@@ -488,7 +489,7 @@ public class tk2dTileMap : MonoBehaviour, ISpriteCollectionForceBuild
 		//IL_01d5: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00cb: Unknown result type (might be due to invalid IL or missing references)
 		Matrix4x4 worldToLocalMatrix = ((Component)this).transform.worldToLocalMatrix;
-		Vector3 val = ((Matrix4x4)(ref worldToLocalMatrix)).MultiplyPoint(position);
+		Vector3 val = worldToLocalMatrix.MultiplyPoint(position);
 		int num = (int)((val.x - data.tileOrigin.x) / data.tileSize.x);
 		int num2 = (int)((val.y - data.tileOrigin.y) / data.tileSize.y);
 		if (colorChannel == null || colorChannel.IsEmpty)
@@ -506,10 +507,10 @@ public class tk2dTileMap : MonoBehaviour, ISpriteCollectionForceBuild
 			return colorChannel.clearColor;
 		}
 		int num3 = partitionSizeX + 1;
-		Color val2 = Color32.op_Implicit(colorChunk.colors[offset]);
-		Color val3 = Color32.op_Implicit(colorChunk.colors[offset + 1]);
-		Color val4 = Color32.op_Implicit(colorChunk.colors[offset + num3]);
-		Color val5 = Color32.op_Implicit(colorChunk.colors[offset + num3 + 1]);
+		Color val2 = (Color32)(colorChunk.colors[offset]);
+		Color val3 = (Color32)(colorChunk.colors[offset + 1]);
+		Color val4 = (Color32)(colorChunk.colors[offset + num3]);
+		Color val5 = (Color32)(colorChunk.colors[offset + num3 + 1]);
 		float num4 = (float)num * data.tileSize.x + data.tileOrigin.x;
 		float num5 = (float)num2 * data.tileSize.y + data.tileOrigin.y;
 		float num6 = (val.x - num4) / data.tileSize.x;

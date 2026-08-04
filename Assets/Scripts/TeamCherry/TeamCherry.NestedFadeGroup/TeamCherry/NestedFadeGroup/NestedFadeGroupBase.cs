@@ -1,8 +1,10 @@
 using System;
 using TeamCherry.SharedUtils;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
-namespace TeamCherry.NestedFadeGroup;
+namespace TeamCherry.NestedFadeGroup
+{
 
 [ExecuteAlways]
 public abstract class NestedFadeGroupBase : MonoBehaviour
@@ -197,7 +199,7 @@ public abstract class NestedFadeGroupBase : MonoBehaviour
 				return component;
 			}
 			Transform parent = currentTransform.parent;
-			if (!Object.op_Implicit((Object)(object)parent))
+			if (!(parent != null))
 			{
 				break;
 			}
@@ -212,7 +214,7 @@ public abstract class NestedFadeGroupBase : MonoBehaviour
 		{
 			UnsubscribeFromParent();
 			ParentGroup = parentGroup;
-			hasParent = Object.op_Implicit((Object)(object)parentGroup);
+			hasParent = (parentGroup != null);
 			SubscribeToParent();
 			RefreshAlpha();
 			return true;
@@ -223,7 +225,7 @@ public abstract class NestedFadeGroupBase : MonoBehaviour
 
 	private void SubscribeToParent()
 	{
-		if (!isSubscribedToParent && Object.op_Implicit((Object)(object)ParentGroup))
+		if (!isSubscribedToParent && (ParentGroup != null))
 		{
 			isSubscribedToParent = true;
 			ParentGroup.AddChild(this);
@@ -235,7 +237,7 @@ public abstract class NestedFadeGroupBase : MonoBehaviour
 		if (isSubscribedToParent)
 		{
 			isSubscribedToParent = false;
-			if (Object.op_Implicit((Object)(object)ParentGroup))
+			if ((ParentGroup != null))
 			{
 				ParentGroup.RemoveChild(this);
 			}
@@ -350,4 +352,5 @@ public abstract class NestedFadeGroupBase : MonoBehaviour
 	}
 
 	protected abstract void OnAlphaChanged(float alpha);
+}
 }

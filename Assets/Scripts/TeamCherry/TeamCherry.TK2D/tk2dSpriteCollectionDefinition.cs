@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 [Serializable]
 public class tk2dSpriteCollectionDefinition
@@ -82,9 +83,9 @@ public class tk2dSpriteCollectionDefinition
 
 		public Type type;
 
-		public Vector2 origin = Vector2.op_Implicit(Vector3.zero);
+		public Vector2 origin = (Vector2)(Vector3.zero);
 
-		public Vector2 size = Vector2.op_Implicit(Vector3.zero);
+		public Vector2 size = (Vector2)(Vector3.zero);
 
 		public float angle;
 

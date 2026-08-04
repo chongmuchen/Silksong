@@ -2,7 +2,8 @@ using System;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace TeamCherry.SharedUtils;
+namespace TeamCherry.SharedUtils
+{
 
 public static class Encryption
 {
@@ -41,4 +42,5 @@ public static class Encryption
 		byte[] bytes = Decrypt(Convert.FromBase64String(encryptedString));
 		return Encoding.UTF8.GetString(bytes);
 	}
+}
 }

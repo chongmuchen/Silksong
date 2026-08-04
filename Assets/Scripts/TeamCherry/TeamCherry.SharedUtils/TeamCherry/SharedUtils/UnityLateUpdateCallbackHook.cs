@@ -1,7 +1,8 @@
 using System;
 using Unity.Profiling;
 
-namespace TeamCherry.SharedUtils;
+namespace TeamCherry.SharedUtils
+{
 
 public abstract class UnityLateUpdateCallbackHook<T> : ComponentSingleton<T> where T : UnityLateUpdateCallbackHook<T>
 {
@@ -23,4 +24,5 @@ public abstract class UnityLateUpdateCallbackHook<T> : ComponentSingleton<T> whe
 }
 public class UnityLateUpdateCallbackHook : UnityLateUpdateCallbackHook<UnityLateUpdateCallbackHook>
 {
+}
 }

@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 using UnityEngine.Events;
 
-namespace TeamCherry.SharedUtils;
+namespace TeamCherry.SharedUtils
+{
 
 public abstract class FloatCurveAnimator : BaseAnimator
 {
@@ -143,7 +145,7 @@ public abstract class FloatCurveAnimator : BaseAnimator
 		{
 			if (duration <= 0f)
 			{
-				Debug.LogError((object)"Duration can not be less than or equal to 0!", (Object)(object)this);
+				Debug.LogError("Duration can not be less than or equal to 0!", this);
 				if (!loop)
 				{
 					break;
@@ -188,4 +190,5 @@ public abstract class FloatCurveAnimator : BaseAnimator
 		}
 		return Time.unscaledTimeAsDouble;
 	}
+}
 }

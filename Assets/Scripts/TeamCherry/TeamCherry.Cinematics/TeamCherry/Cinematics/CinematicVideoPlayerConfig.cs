@@ -1,6 +1,7 @@
 using UnityEngine;
 
-namespace TeamCherry.Cinematics;
+namespace TeamCherry.Cinematics
+{
 
 public class CinematicVideoPlayerConfig
 {
@@ -22,4 +23,5 @@ public class CinematicVideoPlayerConfig
 		FaderStyle = faderStyle;
 		ImplicitVolume = implicitVolume;
 	}
+}
 }

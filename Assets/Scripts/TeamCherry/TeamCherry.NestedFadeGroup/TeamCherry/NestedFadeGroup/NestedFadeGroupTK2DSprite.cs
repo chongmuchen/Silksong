@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
 
-namespace TeamCherry.NestedFadeGroup;
+namespace TeamCherry.NestedFadeGroup
+{
 
 [ExecuteAlways]
 [RequireComponent(typeof(tk2dSprite))]
@@ -41,7 +42,7 @@ public class NestedFadeGroupTK2DSprite : NestedFadeGroupBase
 			//IL_0033: Unknown result type (might be due to invalid IL or missing references)
 			//IL_003f: Unknown result type (might be due to invalid IL or missing references)
 			base.AlphaSelf = value.a;
-			if (Object.op_Implicit((Object)(object)sprite) && displayType == DisplayType.Alpha)
+			if ((sprite != null) && displayType == DisplayType.Alpha)
 			{
 				sprite.color = new Color(value.r, value.g, value.b, base.AlphaTotal);
 			}
@@ -50,15 +51,15 @@ public class NestedFadeGroupTK2DSprite : NestedFadeGroupBase
 
 	protected override void GetMissingReferences()
 	{
-		if (!Object.op_Implicit((Object)(object)sprite))
+		if (!(sprite != null))
 		{
 			sprite = ((Component)this).GetComponent<tk2dSprite>();
 		}
-		if (!Object.op_Implicit((Object)(object)animator) && displayType == DisplayType.Frames)
+		if (!(animator != null) && displayType == DisplayType.Frames)
 		{
 			animator = ((Component)this).GetComponent<tk2dSpriteAnimator>();
 		}
-		if (!Object.op_Implicit((Object)(object)meshRenderer))
+		if (!(meshRenderer != null))
 		{
 			meshRenderer = ((Component)this).GetComponent<MeshRenderer>();
 		}
@@ -67,7 +68,7 @@ public class NestedFadeGroupTK2DSprite : NestedFadeGroupBase
 	protected override void OnComponentAdded()
 	{
 		//IL_0014: Unknown result type (might be due to invalid IL or missing references)
-		if (Object.op_Implicit((Object)(object)sprite))
+		if ((sprite != null))
 		{
 			base.AlphaSelf = sprite.color.a;
 		}
@@ -89,7 +90,7 @@ public class NestedFadeGroupTK2DSprite : NestedFadeGroupBase
 		}
 		case DisplayType.Frames:
 		{
-			if (!Object.op_Implicit((Object)(object)animator))
+			if (!(animator != null))
 			{
 				break;
 			}
@@ -132,4 +133,5 @@ public class NestedFadeGroupTK2DSprite : NestedFadeGroupBase
 			}
 		}
 	}
+}
 }

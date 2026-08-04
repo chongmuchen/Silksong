@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
-namespace tk2dRuntime.TileMap;
+namespace tk2dRuntime.TileMap
+{
 
 public static class ColliderBuilder3D
 {
@@ -168,8 +170,8 @@ public static class ColliderBuilder3D
 			{
 				int rawTile = spriteIds[i * tileMap.partitionSizeX + j];
 				int tileFromRawTile = BuilderUtil.GetTileFromRawTile(rawTile);
-				((Vector3)(ref val))._002Ector(tileSize.x * ((float)j + num2), tileSize.y * (float)i, 0f);
-				if (tileFromRawTile < 0 || tileFromRawTile >= num || Object.op_Implicit((Object)(object)tilePrefabs[tileFromRawTile]))
+				val = new Vector3(tileSize.x * ((float)j + num2), tileSize.y * (float)i, 0f);
+				if (tileFromRawTile < 0 || tileFromRawTile >= num || (tilePrefabs[tileFromRawTile] != null))
 				{
 					continue;
 				}
@@ -359,4 +361,5 @@ public static class ColliderBuilder3D
 		}
 		return list.ToArray();
 	}
+}
 }

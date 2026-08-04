@@ -1,7 +1,8 @@
 using TeamCherry.SharedUtils;
 using UnityEngine;
 
-namespace TeamCherry.NestedFadeGroup;
+namespace TeamCherry.NestedFadeGroup
+{
 
 public class NestedFadeGroupCurveAnimator : FloatCurveAnimator
 {
@@ -14,7 +15,7 @@ public class NestedFadeGroupCurveAnimator : FloatCurveAnimator
 	{
 		get
 		{
-			if (!Object.op_Implicit((Object)(object)group))
+			if (!(group != null))
 			{
 				return 0f;
 			}
@@ -22,7 +23,7 @@ public class NestedFadeGroupCurveAnimator : FloatCurveAnimator
 		}
 		set
 		{
-			if (Object.op_Implicit((Object)(object)group))
+			if ((group != null))
 			{
 				group.AlphaSelf = value;
 			}
@@ -33,4 +34,5 @@ public class NestedFadeGroupCurveAnimator : FloatCurveAnimator
 	{
 		group = ((Component)this).GetComponent<NestedFadeGroupBase>();
 	}
+}
 }

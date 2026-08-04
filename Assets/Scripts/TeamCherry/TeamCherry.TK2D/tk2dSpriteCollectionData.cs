@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 using tk2dRuntime;
 
 [AddComponentMenu("2D Toolkit/Backend/tk2dSpriteCollectionData")]
@@ -318,7 +319,7 @@ public class tk2dSpriteCollectionData : MonoBehaviour
 			platformSpecificData.DestroyTextureInsts();
 		}
 		DestroyTextureInsts();
-		if (Object.op_Implicit((Object)(object)platformSpecificData))
+		if ((platformSpecificData != null))
 		{
 			platformSpecificData = null;
 		}

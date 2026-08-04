@@ -1,4 +1,5 @@
-namespace TeamCherry.SharedUtils;
+namespace TeamCherry.SharedUtils
+{
 
 public readonly struct ScreenRes
 {
@@ -11,4 +12,5 @@ public readonly struct ScreenRes
 		Width = width;
 		Height = height;
 	}
+}
 }

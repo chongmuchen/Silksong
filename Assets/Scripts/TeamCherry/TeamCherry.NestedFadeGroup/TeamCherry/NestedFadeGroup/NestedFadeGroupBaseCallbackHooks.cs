@@ -1,7 +1,9 @@
 using TeamCherry.SharedUtils;
 
-namespace TeamCherry.NestedFadeGroup;
+namespace TeamCherry.NestedFadeGroup
+{
 
 internal sealed class NestedFadeGroupBaseCallbackHooks : UnityLateUpdateCallbackHook<NestedFadeGroupBaseCallbackHooks>
 {
+}
 }

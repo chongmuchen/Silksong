@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
-namespace tk2dRuntime.TileMap;
+namespace tk2dRuntime.TileMap
+{
 
 public static class ColliderBuilder2D
 {
@@ -156,7 +158,7 @@ public static class ColliderBuilder2D
 		int[] array2 = new int[8] { 0, 1, 1, 2, 2, 3, 3, 0 };
 		int[] array3 = new int[8] { 0, 3, 3, 2, 2, 1, 1, 0 };
 		int num = tileMap.SpriteCollectionInst.spriteDefinitions.Length;
-		Vector2 val = Vector2.op_Implicit(new Vector3(tileMap.data.tileSize.x, tileMap.data.tileSize.y));
+		Vector2 val = (Vector2)(new Vector3(tileMap.data.tileSize.x, tileMap.data.tileSize.y));
 		GameObject[] tilePrefabs = tileMap.data.tilePrefabs;
 		float x = 0f;
 		float y = 0f;
@@ -170,8 +172,8 @@ public static class ColliderBuilder2D
 			{
 				int rawTile = spriteIds[i * tileMap.partitionSizeX + j];
 				int tileFromRawTile = BuilderUtil.GetTileFromRawTile(rawTile);
-				((Vector2)(ref val2))._002Ector(val.x * ((float)j + num2), val.y * (float)i);
-				if (tileFromRawTile < 0 || tileFromRawTile >= num || Object.op_Implicit((Object)(object)tilePrefabs[tileFromRawTile]))
+				val2 = new Vector2(val.x * ((float)j + num2), val.y * (float)i);
+				if (tileFromRawTile < 0 || tileFromRawTile >= num || (tilePrefabs[tileFromRawTile] != null))
 				{
 					continue;
 				}
@@ -428,7 +430,7 @@ public static class ColliderBuilder2D
 				int num = indices[i * 2];
 				int num2 = indices[i * 2 + 1];
 				Vector2 val = verts[num2] - verts[num];
-				zero = ((Vector2)(ref val)).normalized;
+				zero = val.normalized;
 				list3.Add(num);
 				list3.Add(num2);
 				for (int j = i + 1; j < array.Length; j++)
@@ -442,7 +444,7 @@ public static class ColliderBuilder2D
 					{
 						int num4 = indices[j * 2 + 1];
 						val = verts[num4] - verts[num3];
-						Vector2 normalized = ((Vector2)(ref val)).normalized;
+						Vector2 normalized = val.normalized;
 						if (Vector2.Dot(normalized, zero) > 0.999f)
 						{
 							list3.RemoveAt(list3.Count - 1);
@@ -471,4 +473,5 @@ public static class ColliderBuilder2D
 		}
 		return list;
 	}
+}
 }

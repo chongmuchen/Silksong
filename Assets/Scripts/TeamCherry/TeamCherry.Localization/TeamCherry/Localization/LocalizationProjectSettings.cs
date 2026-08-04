@@ -1,6 +1,7 @@
 using UnityEngine;
 
-namespace TeamCherry.Localization;
+namespace TeamCherry.Localization
+{
 
 public static class LocalizationProjectSettings
 {
@@ -16,7 +17,7 @@ public static class LocalizationProjectSettings
 			return localizationProjectSettingsBase;
 		}
 		Debug.LogError((object)"Could not load Localisation Project settings asset at path: LocalizationProjectSettings");
-		if (!Object.op_Implicit((Object)(object)_defaultSettings))
+		if (!(_defaultSettings != null))
 		{
 			_defaultSettings = ScriptableObject.CreateInstance<LocalizationProjectSettingsDefault>();
 		}
@@ -58,4 +59,5 @@ public static class LocalizationProjectSettings
 	{
 		return Get().IsTextOverflowing(sheetTitle, text);
 	}
+}
 }

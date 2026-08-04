@@ -1,10 +1,12 @@
 using UnityEngine;
 
-namespace TeamCherry.SharedUtils;
+namespace TeamCherry.SharedUtils
+{
 
 public interface IVertexColor
 {
 	Color VertexColor { get; set; }
 
 	GameObject gameObject { get; }
+}
 }

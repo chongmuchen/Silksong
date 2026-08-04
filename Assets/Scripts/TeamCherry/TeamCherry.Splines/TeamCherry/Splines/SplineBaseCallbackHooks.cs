@@ -1,7 +1,9 @@
 using TeamCherry.SharedUtils;
 
-namespace TeamCherry.Splines;
+namespace TeamCherry.Splines
+{
 
 internal sealed class SplineBaseCallbackHooks : UnityULCallbackHooks<SplineBaseCallbackHooks>
 {
+}
 }

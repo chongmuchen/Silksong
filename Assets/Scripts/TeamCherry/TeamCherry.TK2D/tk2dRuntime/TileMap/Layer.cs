@@ -1,7 +1,9 @@
 using System;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
-namespace tk2dRuntime.TileMap;
+namespace tk2dRuntime.TileMap
+{
 
 [Serializable]
 public class Layer
@@ -248,4 +250,5 @@ public class Layer
 			chunks[i].Dirty = false;
 		}
 	}
+}
 }

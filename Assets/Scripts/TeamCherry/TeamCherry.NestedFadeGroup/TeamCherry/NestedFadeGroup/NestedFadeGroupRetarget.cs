@@ -1,7 +1,8 @@
 using TeamCherry.SharedUtils;
 using UnityEngine;
 
-namespace TeamCherry.NestedFadeGroup;
+namespace TeamCherry.NestedFadeGroup
+{
 
 [ExecuteAlways]
 public class NestedFadeGroupRetarget : NestedFadeGroupBase
@@ -47,9 +48,10 @@ public class NestedFadeGroupRetarget : NestedFadeGroupBase
 
 	protected override void OnAlphaChanged(float alpha)
 	{
-		if (Object.op_Implicit((Object)(object)target))
+		if ((target != null))
 		{
 			target.AlphaSelf = range.GetLerpedValue(alpha);
 		}
 	}
+}
 }

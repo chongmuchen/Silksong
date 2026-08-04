@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
 
-namespace TeamCherry.SharedUtils;
+namespace TeamCherry.SharedUtils
+{
 
 [AttributeUsage(AttributeTargets.Field)]
 public class EnumPickerBitmaskAttribute : PropertyAttribute
@@ -17,4 +18,5 @@ public class EnumPickerBitmaskAttribute : PropertyAttribute
 	{
 		EnumType = enumType;
 	}
+}
 }

@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace tk2dRuntime.TileMap;
+namespace tk2dRuntime.TileMap
+{
 
 public static class BuilderUtil
 {
@@ -141,7 +142,7 @@ public static class BuilderUtil
 				if ((Object)(object)val2 != (Object)null)
 				{
 					GameObject val3 = (GameObject)(object)((val is GameObject) ? val : null);
-					((Vector3)(ref val4))._002Ector(tileSize.x * ((float)j + num), tileSize.y * (float)i, 0f);
+					val4 = new Vector3(tileSize.x * ((float)j + num), tileSize.y * (float)i, 0f);
 					bool flag2 = false;
 					TileInfo tileInfoForSprite = tileMap.data.GetTileInfoForSprite(tileFromRawTile);
 					if (tileInfoForSprite != null)
@@ -507,4 +508,5 @@ public static class BuilderUtil
 		pos.y = num2 + num4;
 		return pos;
 	}
+}
 }

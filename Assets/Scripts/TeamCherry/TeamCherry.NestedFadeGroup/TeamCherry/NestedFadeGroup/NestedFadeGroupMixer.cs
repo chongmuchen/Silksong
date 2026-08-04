@@ -2,7 +2,8 @@ using System;
 using TeamCherry.SharedUtils;
 using UnityEngine;
 
-namespace TeamCherry.NestedFadeGroup;
+namespace TeamCherry.NestedFadeGroup
+{
 
 [ExecuteAlways]
 public class NestedFadeGroupMixer : MonoBehaviour
@@ -60,7 +61,7 @@ public class NestedFadeGroupMixer : MonoBehaviour
 
 	private void OnEnable()
 	{
-		if (Object.op_Implicit((Object)(object)applyToGroup))
+		if ((applyToGroup != null))
 		{
 			previousAlpha = applyToGroup.AlphaSelf;
 		}
@@ -79,7 +80,7 @@ public class NestedFadeGroupMixer : MonoBehaviour
 			MixMethods.Max => MixMax(), 
 			_ => throw new ArgumentOutOfRangeException(), 
 		};
-		if (Math.Abs(num - previousAlpha) > Mathf.Epsilon && Object.op_Implicit((Object)(object)applyToGroup))
+		if (Math.Abs(num - previousAlpha) > Mathf.Epsilon && (applyToGroup != null))
 		{
 			applyToGroup.AlphaSelf = num;
 			previousAlpha = num;
@@ -93,7 +94,7 @@ public class NestedFadeGroupMixer : MonoBehaviour
 		NestedFadeGroupBase[] array = readFromGroups;
 		foreach (NestedFadeGroupBase nestedFadeGroupBase in array)
 		{
-			if (Object.op_Implicit((Object)(object)nestedFadeGroupBase))
+			if ((nestedFadeGroupBase != null))
 			{
 				num += nestedFadeGroupBase.AlphaTotal;
 				num2++;
@@ -113,7 +114,7 @@ public class NestedFadeGroupMixer : MonoBehaviour
 		NestedFadeGroupBase[] array = readFromGroups;
 		foreach (NestedFadeGroupBase nestedFadeGroupBase in array)
 		{
-			if (Object.op_Implicit((Object)(object)nestedFadeGroupBase))
+			if ((nestedFadeGroupBase != null))
 			{
 				float alphaTotal = nestedFadeGroupBase.AlphaTotal;
 				if (alphaTotal > num)
@@ -128,4 +129,5 @@ public class NestedFadeGroupMixer : MonoBehaviour
 		}
 		return num;
 	}
+}
 }

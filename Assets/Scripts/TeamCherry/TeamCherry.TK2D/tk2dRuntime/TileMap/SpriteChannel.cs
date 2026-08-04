@@ -1,6 +1,7 @@
 using System;
 
-namespace tk2dRuntime.TileMap;
+namespace tk2dRuntime.TileMap
+{
 
 [Serializable]
 public class SpriteChannel
@@ -11,4 +12,5 @@ public class SpriteChannel
 	{
 		chunks = new SpriteChunk[0];
 	}
+}
 }

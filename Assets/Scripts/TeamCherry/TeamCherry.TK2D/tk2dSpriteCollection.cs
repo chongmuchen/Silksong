@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 [AddComponentMenu("2D Toolkit/Backend/tk2dSpriteCollection")]
 public class tk2dSpriteCollection : MonoBehaviour

@@ -1,6 +1,7 @@
 using UnityEngine;
 
-namespace TeamCherry.Localization;
+namespace TeamCherry.Localization
+{
 
 public class LocalizedAsset : MonoBehaviour
 {
@@ -59,4 +60,5 @@ public class LocalizedAsset : MonoBehaviour
 			Debug.LogError((object)("Could not localize this object type: " + ((object)target).GetType()));
 		}
 	}
+}
 }

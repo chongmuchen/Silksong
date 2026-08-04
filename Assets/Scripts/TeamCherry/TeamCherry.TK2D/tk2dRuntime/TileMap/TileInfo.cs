@@ -1,6 +1,7 @@
 using System;
 
-namespace tk2dRuntime.TileMap;
+namespace tk2dRuntime.TileMap
+{
 
 [Serializable]
 public class TileInfo
@@ -12,4 +13,5 @@ public class TileInfo
 	public float floatVal;
 
 	public bool enablePrefabOffset;
+}
 }

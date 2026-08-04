@@ -2,7 +2,8 @@ using TeamCherry.SharedUtils;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace TeamCherry.NestedFadeGroup;
+namespace TeamCherry.NestedFadeGroup
+{
 
 public class NestedFadeGroupTimedFader : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class NestedFadeGroupTimedFader : MonoBehaviour
 
 	private void OnEnable()
 	{
-		if (Object.op_Implicit((Object)(object)fade))
+		if ((fade != null))
 		{
 			if (!manualTrigger)
 			{
@@ -83,4 +84,5 @@ public class NestedFadeGroupTimedFader : MonoBehaviour
 		fadeTimeLeft = fade.FadeTo(fadeAlpha.End, duration);
 		OnFadeStart.Invoke();
 	}
+}
 }

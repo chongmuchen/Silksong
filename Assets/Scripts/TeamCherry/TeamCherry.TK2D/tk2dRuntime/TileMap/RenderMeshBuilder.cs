@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace tk2dRuntime.TileMap;
+namespace tk2dRuntime.TileMap
+{
 
 public static class RenderMeshBuilder
 {
@@ -68,7 +69,7 @@ public static class RenderMeshBuilder
 		bool flag = firstValidDefinition != null && firstValidDefinition.normals != null && firstValidDefinition.normals.Length != 0;
 		bool generateUv = tileMap.data.generateUv2;
 		tk2dTileMapData.ColorMode colorMode = tileMap.data.colorMode;
-		Color32 val = Color32.op_Implicit((useColor && tileMap.ColorChannel != null) ? tileMap.ColorChannel.clearColor : Color.white);
+		Color32 val = (Color32)((useColor && tileMap.ColorChannel != null) ? tileMap.ColorChannel.clearColor : Color.white);
 		if (colorChunk == null || colorChunk.colors.Length == 0)
 		{
 			useColor = false;
@@ -94,8 +95,8 @@ public static class RenderMeshBuilder
 				bool flag2 = BuilderUtil.IsRawTileFlagSet(rawTile, tk2dTileFlags.FlipX);
 				bool flag3 = BuilderUtil.IsRawTileFlagSet(rawTile, tk2dTileFlags.FlipY);
 				bool rot = BuilderUtil.IsRawTileFlagSet(rawTile, tk2dTileFlags.Rot90);
-				((Vector3)(ref val2))._002Ector(tileSize.x * ((float)k + num3), tileSize.y * (float)j, 0f);
-				if (tileFromRawTile < 0 || tileFromRawTile >= num || (skipPrefabs && Object.op_Implicit(array[tileFromRawTile])))
+				val2 = new Vector3(tileSize.x * ((float)k + num3), tileSize.y * (float)j, 0f);
+				if (tileFromRawTile < 0 || tileFromRawTile >= num || (skipPrefabs && (array[tileFromRawTile] != null)))
 				{
 					continue;
 				}
@@ -106,10 +107,10 @@ public static class RenderMeshBuilder
 					Vector3 val3 = BuilderUtil.ApplySpriteVertexTileFlags(tileMap, tk2dSpriteDefinition, tk2dSpriteDefinition.positions[l], flag2, flag3, rot);
 					if (useColor && colorChunk != null)
 					{
-						Color val4 = Color32.op_Implicit(colorChunk.colors[j * num2 + k]);
-						Color val5 = Color32.op_Implicit(colorChunk.colors[j * num2 + k + 1]);
-						Color val6 = Color32.op_Implicit(colorChunk.colors[(j + 1) * num2 + k]);
-						Color val7 = Color32.op_Implicit(colorChunk.colors[(j + 1) * num2 + (k + 1)]);
+						Color val4 = (Color32)(colorChunk.colors[j * num2 + k]);
+						Color val5 = (Color32)(colorChunk.colors[j * num2 + k + 1]);
+						Color val6 = (Color32)(colorChunk.colors[(j + 1) * num2 + k]);
+						Color val7 = (Color32)(colorChunk.colors[(j + 1) * num2 + (k + 1)]);
 						switch (colorMode)
 						{
 						case tk2dTileMapData.ColorMode.Interpolate:
@@ -128,7 +129,7 @@ public static class RenderMeshBuilder
 					}
 					else
 					{
-						list2.Add(Color32.op_Implicit(val));
+						list2.Add((Color32)(val));
 					}
 					if (generateUv)
 					{
@@ -266,4 +267,5 @@ public static class RenderMeshBuilder
 			}
 		}
 	}
+}
 }

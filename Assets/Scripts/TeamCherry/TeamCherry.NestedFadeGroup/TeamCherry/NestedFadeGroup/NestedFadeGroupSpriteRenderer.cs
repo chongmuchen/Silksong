@@ -1,8 +1,10 @@
 using System;
 using TeamCherry.SharedUtils;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
-namespace TeamCherry.NestedFadeGroup;
+namespace TeamCherry.NestedFadeGroup
+{
 
 [ExecuteAlways]
 [RequireComponent(typeof(SpriteRenderer))]
@@ -58,7 +60,7 @@ public class NestedFadeGroupSpriteRenderer : NestedFadeGroupBase
 			//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 			//IL_001f: Unknown result type (might be due to invalid IL or missing references)
 			//IL_003a: Unknown result type (might be due to invalid IL or missing references)
-			if (Object.op_Implicit((Object)(object)spriteRenderer))
+			if ((spriteRenderer != null))
 			{
 				spriteRenderer.color = new Color(value.r, value.g, value.b, (displayType == DisplayType.Alpha) ? base.AlphaTotal : 1f);
 			}
@@ -81,10 +83,10 @@ public class NestedFadeGroupSpriteRenderer : NestedFadeGroupBase
 
 	protected override void GetMissingReferences()
 	{
-		if (!Object.op_Implicit((Object)(object)spriteRenderer))
+		if (!(spriteRenderer != null))
 		{
 			spriteRenderer = ((Component)this).GetComponent<SpriteRenderer>();
-			if (!Object.op_Implicit((Object)(object)spriteRenderer) && Application.isPlaying)
+			if (!(spriteRenderer != null) && Application.isPlaying)
 			{
 				Object.Destroy((Object)(object)this);
 			}
@@ -94,7 +96,7 @@ public class NestedFadeGroupSpriteRenderer : NestedFadeGroupBase
 	protected override void OnComponentAdded()
 	{
 		//IL_0014: Unknown result type (might be due to invalid IL or missing references)
-		if (Object.op_Implicit((Object)(object)spriteRenderer))
+		if ((spriteRenderer != null))
 		{
 			base.AlphaSelf = spriteRenderer.color.a;
 		}
@@ -152,4 +154,5 @@ public class NestedFadeGroupSpriteRenderer : NestedFadeGroupBase
 			}
 		}
 	}
+}
 }

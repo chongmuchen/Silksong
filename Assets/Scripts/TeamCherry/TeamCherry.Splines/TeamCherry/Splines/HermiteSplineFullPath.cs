@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using TeamCherry.SharedUtils;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
-namespace TeamCherry.Splines;
+namespace TeamCherry.Splines
+{
 
 public class HermiteSplineFullPath : HermiteSplineBase, IHermiteSplinePath
 {
@@ -132,4 +134,5 @@ public class HermiteSplineFullPath : HermiteSplineBase, IHermiteSplinePath
 		}
 		base.UpdateMeshInternal(forceNewMesh);
 	}
+}
 }

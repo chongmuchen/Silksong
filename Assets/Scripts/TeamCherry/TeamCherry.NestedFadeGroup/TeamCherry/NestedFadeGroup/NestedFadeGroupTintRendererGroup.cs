@@ -2,7 +2,8 @@ using System;
 using TeamCherry.SharedUtils;
 using UnityEngine;
 
-namespace TeamCherry.NestedFadeGroup;
+namespace TeamCherry.NestedFadeGroup
+{
 
 [ExecuteAlways]
 [RequireComponent(typeof(TintRendererGroup))]
@@ -13,7 +14,7 @@ public class NestedFadeGroupTintRendererGroup : NestedFadeGroupBase
 
 	protected override void GetMissingReferences()
 	{
-		if (!Object.op_Implicit((Object)(object)target))
+		if (!(target != null))
 		{
 			target = ((Component)this).GetComponent<TintRendererGroup>();
 		}
@@ -22,7 +23,7 @@ public class NestedFadeGroupTintRendererGroup : NestedFadeGroupBase
 	protected override void OnComponentAdded()
 	{
 		//IL_0014: Unknown result type (might be due to invalid IL or missing references)
-		if (Object.op_Implicit((Object)(object)target))
+		if ((target != null))
 		{
 			base.AlphaSelf = target.Color.a;
 		}
@@ -37,4 +38,5 @@ public class NestedFadeGroupTintRendererGroup : NestedFadeGroupBase
 		color.a = alpha;
 		target.Color = color;
 	}
+}
 }

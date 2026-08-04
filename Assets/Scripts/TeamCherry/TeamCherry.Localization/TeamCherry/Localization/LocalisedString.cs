@@ -1,6 +1,7 @@
 using System;
 
-namespace TeamCherry.Localization;
+namespace TeamCherry.Localization
+{
 
 [Serializable]
 public struct LocalisedString : IEquatable<LocalisedString>
@@ -110,4 +111,5 @@ public struct LocalisedString : IEquatable<LocalisedString>
 	{
 		return HashCode.Combine(Sheet, Key);
 	}
+}
 }

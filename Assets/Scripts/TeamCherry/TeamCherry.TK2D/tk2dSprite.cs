@@ -45,7 +45,7 @@ public class tk2dSprite : tk2dBaseSprite
 		mesh.MarkDynamic();
 		((Object)mesh).hideFlags = (HideFlags)52;
 		((Component)this).GetComponent<MeshFilter>().sharedMesh = mesh;
-		if (Object.op_Implicit((Object)(object)base.Collection))
+		if ((base.Collection != null))
 		{
 			if (_spriteId < 0 || _spriteId >= base.Collection.Count)
 			{
@@ -57,11 +57,11 @@ public class tk2dSprite : tk2dBaseSprite
 
 	protected void OnDestroy()
 	{
-		if (Object.op_Implicit((Object)(object)mesh))
+		if ((mesh != null))
 		{
 			Object.Destroy((Object)(object)mesh);
 		}
-		if (Object.op_Implicit((Object)(object)meshColliderMesh))
+		if ((meshColliderMesh != null))
 		{
 			Object.Destroy((Object)(object)meshColliderMesh);
 		}
@@ -390,7 +390,7 @@ public class tk2dSprite : tk2dBaseSprite
 		float num = 0.1f;
 		tk2dSpriteDefinition currentSprite = base.CurrentSprite;
 		Vector3 val = default(Vector3);
-		((Vector3)(ref val))._002Ector(Mathf.Abs(_scale.x), Mathf.Abs(_scale.y), Mathf.Abs(_scale.z));
+		val = new Vector3(Mathf.Abs(_scale.x), Mathf.Abs(_scale.y), Mathf.Abs(_scale.z));
 		Vector3 val2 = Vector3.Scale(currentSprite.untrimmedBoundsData[0], _scale) - 0.5f * Vector3.Scale(currentSprite.untrimmedBoundsData[1], val);
 		Vector3 val3 = Vector3.Scale(currentSprite.untrimmedBoundsData[1], val) + dMax - dMin;
 		val3.x /= currentSprite.untrimmedBoundsData[1].x;
@@ -405,9 +405,9 @@ public class tk2dSprite : tk2dBaseSprite
 			dMin.y = 0f;
 			val3.y = val.y;
 		}
-		Vector2 val4 = Vector2.op_Implicit(new Vector3(Mathf.Approximately(val.x, 0f) ? 0f : (val3.x / val.x), Mathf.Approximately(val.y, 0f) ? 0f : (val3.y / val.y)));
+		Vector2 val4 = (Vector2)(new Vector3(Mathf.Approximately(val.x, 0f) ? 0f : (val3.x / val.x), Mathf.Approximately(val.y, 0f) ? 0f : (val3.y / val.y)));
 		Vector3 val5 = default(Vector3);
-		((Vector3)(ref val5))._002Ector(val2.x * val4.x, val2.y * val4.y);
+		val5 = new Vector3(val2.x * val4.x, val2.y * val4.y);
 		Vector3 val6 = dMin + val2 - val5;
 		val6.z = 0f;
 		((Component)this).transform.position = ((Component)this).transform.TransformPoint(val6);

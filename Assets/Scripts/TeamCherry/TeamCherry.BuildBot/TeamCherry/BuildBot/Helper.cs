@@ -2,7 +2,8 @@ using System;
 using System.IO;
 using System.Linq;
 
-namespace TeamCherry.BuildBot;
+namespace TeamCherry.BuildBot
+{
 
 public static class Helper
 {
@@ -79,4 +80,5 @@ public static class Helper
 			File.Copy(src, dest);
 		}
 	}
+}
 }

@@ -6,10 +6,13 @@ using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
+using Object = UnityEngine.Object;
 using UnityEngine.LowLevel;
 using UnityEngine.PlayerLoop;
 
-namespace TeamCherry.Splines;
+namespace TeamCherry.Splines
+{
 
 [ExecuteAlways]
 [RequireComponent(typeof(MeshFilter))]
@@ -573,8 +576,8 @@ public abstract class SplineBase : MonoBehaviour, IVertexColor
 			{
 				float num = 1f / fpsLimit;
 				Resolution currentResolution = Screen.currentResolution;
-				RefreshRate refreshRateRatio = ((Resolution)(ref currentResolution)).refreshRateRatio;
-				float num2 = (float)((RefreshRate)(ref refreshRateRatio)).value;
+				RefreshRate refreshRateRatio = currentResolution.refreshRateRatio;
+				float num2 = (float)refreshRateRatio.value;
 				int num3 = Mathf.RoundToInt(num * num2);
 				int num4 = Random.Range(0, num3);
 				updateTimeOffset = num * (float)num4;
@@ -605,7 +608,7 @@ public abstract class SplineBase : MonoBehaviour, IVertexColor
 		}
 		if (scheduledMeshJob)
 		{
-			((JobHandle)(ref meshJobHandle)).Complete();
+			meshJobHandle.Complete();
 			scheduledMeshJob = false;
 		}
 		if (jobPoints.IsCreated)
@@ -798,7 +801,7 @@ public abstract class SplineBase : MonoBehaviour, IVertexColor
 		//IL_007d: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0082: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0087: Unknown result type (might be due to invalid IL or missing references)
-		((JobHandle)(ref meshJobHandle)).Complete();
+		meshJobHandle.Complete();
 		scheduledMeshJob = false;
 		if (hasColorChanged)
 		{
@@ -902,7 +905,7 @@ public abstract class SplineBase : MonoBehaviour, IVertexColor
 				if (i < InternalPoints.Length - 1)
 				{
 					Vector3 val = InternalPoints[i + 1].Position - point.Position;
-					tangent = ((Vector3)(ref val)).normalized;
+					tangent = val.normalized;
 				}
 				else
 				{
@@ -1013,7 +1016,7 @@ public abstract class SplineBase : MonoBehaviour, IVertexColor
 			EnsureArraySize(ref colors, num);
 		}
 		float num2 = textureOffset;
-		if (Object.op_Implicit((Object)(object)textureContinueFrom))
+		if ((textureContinueFrom != null))
 		{
 			if (textureContinueFrom.scheduledMeshJob)
 			{
@@ -1209,7 +1212,7 @@ public abstract class SplineBase : MonoBehaviour, IVertexColor
 				list.Add(new PlayerLoopSystem
 				{
 					type = typeof(SplineBase),
-					updateDelegate = new UpdateFunction(EarlySplineUpdate)
+					updateDelegate = EarlySplineUpdate
 				});
 				val.subSystemList = list.ToArray();
 				currentPlayerLoop.subSystemList[num] = val;
@@ -1261,8 +1264,9 @@ public abstract class SplineBase : MonoBehaviour, IVertexColor
 		{
 			return false;
 		}
-		((JobHandle)(ref positionJobHandle)).Complete();
+		positionJobHandle.Complete();
 		positionJobScheduled = false;
 		return true;
 	}
+}
 }

@@ -1,7 +1,9 @@
 using System;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
-namespace TeamCherry.Localization;
+namespace TeamCherry.Localization
+{
 
 [Serializable]
 public class LocalizationSettings : ScriptableObject
@@ -37,4 +39,5 @@ public class LocalizationSettings : ScriptableObject
 		Debug.LogError((object)("ERORR: There is no language: [" + langCode + "]"));
 		return LanguageCode.EN;
 	}
+}
 }

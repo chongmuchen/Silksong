@@ -1,6 +1,7 @@
 using System;
 
-namespace TeamCherry.Cinematics;
+namespace TeamCherry.Cinematics
+{
 
 public static class CinematicFormatUtils
 {
@@ -17,4 +18,5 @@ public static class CinematicFormatUtils
 			throw new ArgumentOutOfRangeException("format", format, null);
 		}
 	}
+}
 }

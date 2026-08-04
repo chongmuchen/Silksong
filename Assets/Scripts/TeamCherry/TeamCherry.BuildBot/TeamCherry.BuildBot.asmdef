@@ -1,0 +1,14 @@
+{
+  "name": "TeamCherry.BuildBot",
+  "rootNamespace": "TeamCherry.BuildBot",
+  "references": [],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": true,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

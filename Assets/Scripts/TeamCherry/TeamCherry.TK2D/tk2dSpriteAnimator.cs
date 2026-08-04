@@ -1,6 +1,8 @@
 using System;
 using TeamCherry.SharedUtils;
 using UnityEngine;
+using Random = UnityEngine.Random;
+using Object = UnityEngine.Object;
 
 [AddComponentMenu("2D Toolkit/Sprite/tk2dSpriteAnimator")]
 public class tk2dSpriteAnimator : MonoBehaviour
@@ -119,7 +121,7 @@ public class tk2dSpriteAnimator : MonoBehaviour
 	{
 		get
 		{
-			if (Object.op_Implicit((Object)(object)spriteOverride))
+			if ((spriteOverride != null))
 			{
 				return spriteOverride;
 			}
@@ -325,7 +327,7 @@ public class tk2dSpriteAnimator : MonoBehaviour
 
 	public void PlayFrom(string name, float clipStartTime)
 	{
-		tk2dSpriteAnimationClip tk2dSpriteAnimationClip2 = (Object.op_Implicit((Object)(object)library) ? library.GetClipByName(name) : null);
+		tk2dSpriteAnimationClip tk2dSpriteAnimationClip2 = ((library != null) ? library.GetClipByName(name) : null);
 		if (tk2dSpriteAnimationClip2 == null)
 		{
 			ClipNameError(name);
@@ -442,7 +444,7 @@ public class tk2dSpriteAnimator : MonoBehaviour
 
 	public int GetClipIdByName(string name)
 	{
-		if (!Object.op_Implicit((Object)(object)library))
+		if (!(library != null))
 		{
 			return -1;
 		}
@@ -451,7 +453,7 @@ public class tk2dSpriteAnimator : MonoBehaviour
 
 	public tk2dSpriteAnimationClip GetClipByName(string name)
 	{
-		if (!Object.op_Implicit((Object)(object)library))
+		if (!(library != null))
 		{
 			return null;
 		}

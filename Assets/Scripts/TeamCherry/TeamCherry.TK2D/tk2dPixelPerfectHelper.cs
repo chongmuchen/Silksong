@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 [AddComponentMenu("2D Toolkit/Deprecated/Extra/tk2dPixelPerfectHelper")]
 public class tk2dPixelPerfectHelper : MonoBehaviour

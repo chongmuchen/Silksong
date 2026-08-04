@@ -1,6 +1,7 @@
 using UnityEngine;
 
-namespace TeamCherry.Localization;
+namespace TeamCherry.Localization
+{
 
 [RequireComponent(typeof(TextMesh))]
 public class LocalizedTextMesh : MonoBehaviour
@@ -23,4 +24,5 @@ public class LocalizedTextMesh : MonoBehaviour
 			((Component)this).gameObject.GetComponent<TextMesh>().text = Language.Get(newKeyValue);
 		}
 	}
+}
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Text;
 using UnityEngine;
+using Object = UnityEngine.Object;
 using tk2dRuntime;
 
 [ExecuteAlways]
@@ -599,7 +600,7 @@ public class tk2dTextMesh : MonoBehaviour, ISpriteCollectionForceBuild
 		{
 			mesh = meshFilter.sharedMesh;
 		}
-		if (Object.op_Implicit((Object)(object)mesh))
+		if ((mesh != null))
 		{
 			Object.DestroyImmediate((Object)(object)mesh, true);
 			meshFilter.mesh = null;
@@ -688,7 +689,7 @@ public class tk2dTextMesh : MonoBehaviour, ISpriteCollectionForceBuild
 		float yAnchorForHeight = tk2dTextGeomGen.GetYAnchorForHeight(meshDimensionsForString.y, geomData);
 		float xAnchorForWidth = tk2dTextGeomGen.GetXAnchorForWidth(meshDimensionsForString.x, geomData);
 		float num = (_fontInst.lineHeight + data.lineSpacing) * data.scale.y;
-		return new Bounds(new Vector3(xAnchorForWidth + meshDimensionsForString.x * 0.5f, yAnchorForHeight + meshDimensionsForString.y * 0.5f + num, 0f), Vector3.Scale(Vector2.op_Implicit(meshDimensionsForString), new Vector3(1f, -1f, 1f)));
+		return new Bounds(new Vector3(xAnchorForWidth + meshDimensionsForString.x * 0.5f, yAnchorForHeight + meshDimensionsForString.y * 0.5f + num, 0f), Vector3.Scale((Vector2)(meshDimensionsForString), new Vector3(1f, -1f, 1f)));
 	}
 
 	public void Init(bool force)
@@ -722,7 +723,7 @@ public class tk2dTextMesh : MonoBehaviour, ISpriteCollectionForceBuild
 		//IL_01af: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0207: Unknown result type (might be due to invalid IL or missing references)
 		//IL_020c: Unknown result type (might be due to invalid IL or missing references)
-		if (!Object.op_Implicit((Object)(object)_fontInst) || ((updateFlags & UpdateFlags.UpdateBuffers) == 0 && !((Object)(object)mesh == (Object)null)))
+		if (!(_fontInst != null) || ((updateFlags & UpdateFlags.UpdateBuffers) == 0 && !((Object)(object)mesh == (Object)null)))
 		{
 			return;
 		}
@@ -742,8 +743,8 @@ public class tk2dTextMesh : MonoBehaviour, ISpriteCollectionForceBuild
 		int target = tk2dTextGeomGen.SetTextMeshGeom(vertices, uvs, uv2, untintedColors, 0, geomData);
 		if (!_fontInst.isPacked)
 		{
-			Color32 val = Color32.op_Implicit(data.color);
-			Color32 val2 = Color32.op_Implicit(data.useGradient ? data.color2 : data.color);
+			Color32 val = (Color32)(data.color);
+			Color32 val2 = (Color32)(data.useGradient ? data.color2 : data.color);
 			for (int i = 0; i < numVertices; i++)
 			{
 				Color32 val3 = ((i % 4 < 2) ? val : val2);
@@ -872,8 +873,8 @@ public class tk2dTextMesh : MonoBehaviour, ISpriteCollectionForceBuild
 			}
 			if (!font.isPacked && (updateFlags & UpdateFlags.UpdateColors) != UpdateFlags.UpdateNone)
 			{
-				Color32 val = Color32.op_Implicit(data.color);
-				Color32 val2 = Color32.op_Implicit(data.useGradient ? data.color2 : data.color);
+				Color32 val = (Color32)(data.color);
+				Color32 val2 = (Color32)(data.useGradient ? data.color2 : data.color);
 				for (int j = 0; j < colors.Length; j++)
 				{
 					Color32 val3 = ((j % 4 < 2) ? val : val2);
@@ -917,7 +918,7 @@ public class tk2dTextMesh : MonoBehaviour, ISpriteCollectionForceBuild
 			float num2 = _fontInst.invOrthoSize * _fontInst.halfTargetHeight;
 			num = tk2dCamera2.GetSizeAtDistance(distance) * num2;
 		}
-		else if (Object.op_Implicit((Object)(object)Camera.main))
+		else if ((Camera.main != null))
 		{
 			if (Camera.main.orthographic)
 			{

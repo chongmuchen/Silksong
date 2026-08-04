@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
 
-namespace TeamCherry.NestedFadeGroup;
+namespace TeamCherry.NestedFadeGroup
+{
 
 [ExecuteAlways]
 [NestedFadeGroupBridge(new Type[]
@@ -16,7 +17,7 @@ public class NestedFadeGroupCanvasGroup : NestedFadeGroupBase
 
 	protected override void GetMissingReferences()
 	{
-		if (!Object.op_Implicit((Object)(object)canvasGroup))
+		if (!(canvasGroup != null))
 		{
 			canvasGroup = ((Component)this).GetComponent<CanvasGroup>();
 		}
@@ -26,4 +27,5 @@ public class NestedFadeGroupCanvasGroup : NestedFadeGroupBase
 	{
 		canvasGroup.alpha = alpha;
 	}
+}
 }

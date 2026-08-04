@@ -2,7 +2,8 @@ using System;
 using TeamCherry.SharedUtils;
 using UnityEngine;
 
-namespace TeamCherry.NestedFadeGroup;
+namespace TeamCherry.NestedFadeGroup
+{
 
 [ExecuteAlways]
 [RequireComponent(typeof(TextMesh))]
@@ -13,7 +14,7 @@ public class NestedFadeGroupTextMesh : NestedFadeGroupBase
 
 	protected override void GetMissingReferences()
 	{
-		if (!Object.op_Implicit((Object)(object)textMesh))
+		if (!(textMesh != null))
 		{
 			textMesh = ((Component)this).GetComponent<TextMesh>();
 		}
@@ -22,7 +23,7 @@ public class NestedFadeGroupTextMesh : NestedFadeGroupBase
 	protected override void OnComponentAdded()
 	{
 		//IL_0014: Unknown result type (might be due to invalid IL or missing references)
-		if (Object.op_Implicit((Object)(object)textMesh))
+		if ((textMesh != null))
 		{
 			base.AlphaSelf = textMesh.color.a;
 		}
@@ -53,4 +54,5 @@ public class NestedFadeGroupTextMesh : NestedFadeGroupBase
 			textMesh.color = color;
 		}
 	}
+}
 }

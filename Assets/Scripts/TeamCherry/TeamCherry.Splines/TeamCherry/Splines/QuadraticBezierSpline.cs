@@ -1,7 +1,8 @@
 using TeamCherry.SharedUtils;
 using UnityEngine;
 
-namespace TeamCherry.Splines;
+namespace TeamCherry.Splines
+{
 
 [ExecuteAlways]
 public class QuadraticBezierSpline : SplineBase
@@ -63,7 +64,7 @@ public class QuadraticBezierSpline : SplineBase
 		//IL_0124: Unknown result type (might be due to invalid IL or missing references)
 		//IL_012b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0130: Unknown result type (might be due to invalid IL or missing references)
-		if (Object.op_Implicit((Object)(object)startPoint) && Object.op_Implicit((Object)(object)endPoint) && Object.op_Implicit((Object)(object)controlPoint))
+		if ((startPoint != null) && (endPoint != null) && (controlPoint != null))
 		{
 			int num = Mathf.Max(0, subDivisions) + 1;
 			int num2 = 3 * num;
@@ -83,7 +84,7 @@ public class QuadraticBezierSpline : SplineBase
 				InternalPoints[i] = new Point
 				{
 					Position = position,
-					Tangent = ((Vector3)(ref val)).normalized,
+					Tangent = val.normalized,
 					Color = Color.white
 				};
 			}
@@ -112,4 +113,5 @@ public class QuadraticBezierSpline : SplineBase
 		Transform obj2 = endPoint;
 		obj2.localPosition += Vector3.one;
 	}
+}
 }

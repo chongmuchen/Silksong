@@ -1,7 +1,8 @@
 using System.IO;
 using UnityEngine;
 
-namespace TeamCherry.Cinematics;
+namespace TeamCherry.Cinematics
+{
 
 public class DesktopCinematicVideoPlayer : EmbeddedCinematicVideoPlayer
 {
@@ -22,4 +23,5 @@ public class DesktopCinematicVideoPlayer : EmbeddedCinematicVideoPlayer
 		CinematicFormats format = (((int)platform != 13 && (int)platform != 16) ? CinematicFormats.MP4_H264_1080_Any_AAC_48000 : CinematicFormats.WEBM_VP8_1080_Any_Vorbis_48000);
 		return Path.GetFullPath(Path.Combine(Application.streamingAssetsPath, base.Config.VideoReference.VideoFileName + CinematicFormatUtils.GetExtension(format)));
 	}
+}
 }

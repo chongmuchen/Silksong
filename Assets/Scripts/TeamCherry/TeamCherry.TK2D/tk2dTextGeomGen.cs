@@ -16,9 +16,9 @@ public static class tk2dTextGeomGen
 	private static readonly Color32[] channelSelectColors = (Color32[])(object)new Color32[4]
 	{
 		new Color32((byte)0, (byte)0, byte.MaxValue, (byte)0),
-		Color32.op_Implicit(new Color(0f, 255f, 0f, 0f)),
-		Color32.op_Implicit(new Color(255f, 0f, 0f, 0f)),
-		Color32.op_Implicit(new Color(0f, 0f, 0f, 255f))
+		(Color32)(new Color(0f, 255f, 0f, 0f)),
+		(Color32)(new Color(255f, 0f, 0f, 0f)),
+		(Color32)(new Color(0f, 0f, 0f, 255f))
 	};
 
 	private static Color32 meshTopColor = new Color32(byte.MaxValue, byte.MaxValue, byte.MaxValue, byte.MaxValue);
@@ -138,7 +138,7 @@ public static class tk2dTextGeomGen
 		//IL_0017: Expected I4, but got Unknown
 		tk2dTextMeshData textMeshData = geomData.textMeshData;
 		tk2dFontData fontInst = geomData.fontInst;
-		int num = textMeshData.anchor / 3;
+		int num = (int)textMeshData.anchor / 3;
 		float num2 = (fontInst.lineHeight + textMeshData.lineSpacing) * textMeshData.scale.y;
 		switch (num)
 		{
@@ -168,7 +168,7 @@ public static class tk2dTextGeomGen
 		//IL_0017: Expected I4, but got Unknown
 		tk2dTextMeshData textMeshData = geomData.textMeshData;
 		tk2dFontData fontInst = geomData.fontInst;
-		switch (textMeshData.anchor % 3)
+		switch ((int)textMeshData.anchor % 3)
 		{
 		case 0:
 			return 0f;
@@ -642,7 +642,7 @@ public static class tk2dTextGeomGen
 			}
 			else
 			{
-				color[offset + k * 4] = (color[offset + k * 4 + 1] = (color[offset + k * 4 + 2] = (color[offset + k * 4 + 3] = Color32.op_Implicit(Color.clear))));
+				color[offset + k * 4] = (color[offset + k * 4 + 1] = (color[offset + k * 4 + 2] = (color[offset + k * 4 + 3] = (Color32)(Color.clear))));
 			}
 		}
 		return num3;

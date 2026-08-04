@@ -1,6 +1,7 @@
 using System;
 
-namespace tk2dRuntime.TileMap;
+namespace tk2dRuntime.TileMap
+{
 
 [Serializable]
 public class LayerSprites
@@ -11,4 +12,5 @@ public class LayerSprites
 	{
 		spriteIds = new int[0];
 	}
+}
 }

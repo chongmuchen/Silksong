@@ -1,9 +1,11 @@
 using System;
 using System.IO;
 using UnityEngine;
+using Object = UnityEngine.Object;
 using UnityEngine.Video;
 
-namespace TeamCherry.Cinematics;
+namespace TeamCherry.Cinematics
+{
 
 public abstract class EmbeddedCinematicVideoPlayer : CinematicVideoPlayer
 {
@@ -46,7 +48,7 @@ public abstract class EmbeddedCinematicVideoPlayer : CinematicVideoPlayer
 		set
 		{
 			skipFrameOnDrop = value;
-			if (Object.op_Implicit((Object)(object)videoPlayer))
+			if ((videoPlayer != null))
 			{
 				videoPlayer.skipOnDrop = value;
 			}
@@ -148,7 +150,7 @@ public abstract class EmbeddedCinematicVideoPlayer : CinematicVideoPlayer
 			videoPlayer.playOnAwake = false;
 			skipFrameOnDrop = videoPlayer.skipOnDrop;
 			videoPlayer.timeUpdateMode = (VideoTimeUpdateMode)0;
-			if (Object.op_Implicit((Object)(object)config.VideoReference.Audio))
+			if ((config.VideoReference.Audio != null))
 			{
 				videoPlayer.audioOutputMode = (VideoAudioOutputMode)0;
 			}
@@ -171,9 +173,9 @@ public abstract class EmbeddedCinematicVideoPlayer : CinematicVideoPlayer
 				VideoClip embeddedVideoClip = config.VideoReference.EmbeddedVideoClip;
 				videoPlayer.clip = embeddedVideoClip;
 			}
-			videoPlayer.seekCompleted += new EventHandler(OnSeekCompleted);
-			videoPlayer.prepareCompleted += new EventHandler(OnPrepareCompleted);
-			videoPlayer.started += new EventHandler(OnVideoStarted);
+			videoPlayer.seekCompleted += OnSeekCompleted;
+			videoPlayer.prepareCompleted += OnPrepareCompleted;
+			videoPlayer.started += OnVideoStarted;
 			videoPlayer.Prepare();
 		}
 		catch (Exception)
@@ -199,9 +201,9 @@ public abstract class EmbeddedCinematicVideoPlayer : CinematicVideoPlayer
 		base.Dispose();
 		if (!((Object)(object)videoPlayer == (Object)null))
 		{
-			videoPlayer.seekCompleted -= new EventHandler(OnSeekCompleted);
-			videoPlayer.prepareCompleted -= new EventHandler(OnPrepareCompleted);
-			videoPlayer.started -= new EventHandler(OnVideoStarted);
+			videoPlayer.seekCompleted -= OnSeekCompleted;
+			videoPlayer.prepareCompleted -= OnPrepareCompleted;
+			videoPlayer.started -= OnVideoStarted;
 			videoPlayer.Stop();
 			Object.Destroy((Object)(object)videoPlayer);
 			videoPlayer = null;
@@ -298,7 +300,7 @@ public abstract class EmbeddedCinematicVideoPlayer : CinematicVideoPlayer
 		if ((Object)(object)videoPlayer != (Object)null)
 		{
 			videoPlayer.Stop();
-			if (!Object.op_Implicit((Object)(object)base.Config.VideoReference.Audio))
+			if (!(base.Config.VideoReference.Audio != null))
 			{
 				StopAudio();
 			}
@@ -328,4 +330,5 @@ public abstract class EmbeddedCinematicVideoPlayer : CinematicVideoPlayer
 	{
 		isPlayEnqueued = false;
 	}
+}
 }

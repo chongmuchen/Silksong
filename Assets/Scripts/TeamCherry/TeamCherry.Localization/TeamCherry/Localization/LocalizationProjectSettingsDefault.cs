@@ -1,6 +1,7 @@
 using UnityEngine;
 
-namespace TeamCherry.Localization;
+namespace TeamCherry.Localization
+{
 
 internal class LocalizationProjectSettingsDefault : LocalizationProjectSettingsBase
 {
@@ -18,4 +19,5 @@ internal class LocalizationProjectSettingsDefault : LocalizationProjectSettingsB
 	public override void OnSwitchedLanguage(LanguageCode newLang)
 	{
 	}
+}
 }

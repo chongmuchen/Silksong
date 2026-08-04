@@ -1,7 +1,9 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-namespace TeamCherry.SharedUtils;
+namespace TeamCherry.SharedUtils
+{
 
 [Serializable]
 public struct MinMaxInt
@@ -14,9 +16,9 @@ public struct MinMaxInt
 	{
 		if (isInclusive)
 		{
-			return Random.Range(Start, End + 1);
+			return UnityEngine.Random.Range(Start, End + 1);
 		}
-		return Random.Range(Start, End);
+		return UnityEngine.Random.Range(Start, End);
 	}
 
 	public bool IsInRange(int value)
@@ -33,4 +35,5 @@ public struct MinMaxInt
 		Start = start;
 		End = end;
 	}
+}
 }

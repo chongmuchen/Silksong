@@ -1,6 +1,7 @@
 using System.Linq;
 
-namespace TeamCherry.SharedUtils;
+namespace TeamCherry.SharedUtils
+{
 
 public static class Helper
 {
@@ -10,4 +11,5 @@ public static class Helper
 		filter = filter.ToLower().Replace('_', ' ');
 		return filter.Split(' ').All((string f) => text.Contains(f));
 	}
+}
 }

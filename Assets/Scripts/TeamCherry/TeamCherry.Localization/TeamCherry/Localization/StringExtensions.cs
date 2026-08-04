@@ -1,4 +1,5 @@
-namespace TeamCherry.Localization;
+namespace TeamCherry.Localization
+{
 
 public static class StringExtensions
 {
@@ -12,4 +13,5 @@ public static class StringExtensions
 			.Replace("&lt;", "<")
 			.Replace("&amp;", "&");
 	}
+}
 }

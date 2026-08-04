@@ -3,7 +3,8 @@ using TeamCherry.SharedUtils;
 using Unity.Collections;
 using UnityEngine;
 
-namespace TeamCherry.Splines;
+namespace TeamCherry.Splines
+{
 
 public abstract class HermiteSplineBase : SplineBase
 {
@@ -175,4 +176,5 @@ public abstract class HermiteSplineBase : SplineBase
 		transform3.localPosition += Vector3.one;
 		controlPoints = new List<Transform> { transform, transform2, transform3 };
 	}
+}
 }

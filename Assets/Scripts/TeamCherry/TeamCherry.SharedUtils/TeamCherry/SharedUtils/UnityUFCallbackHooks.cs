@@ -1,7 +1,8 @@
 using System;
 using Unity.Profiling;
 
-namespace TeamCherry.SharedUtils;
+namespace TeamCherry.SharedUtils
+{
 
 public abstract class UnityUFCallbackHooks<T> : ComponentSingleton<T> where T : UnityUFCallbackHooks<T>
 {
@@ -35,4 +36,5 @@ public abstract class UnityUFCallbackHooks<T> : ComponentSingleton<T> where T : 
 }
 public class UnityUFCallbackHooks : UnityUFCallbackHooks<UnityUFCallbackHooks>
 {
+}
 }

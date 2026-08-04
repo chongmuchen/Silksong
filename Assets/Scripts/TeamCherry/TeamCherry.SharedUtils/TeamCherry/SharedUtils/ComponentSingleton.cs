@@ -1,6 +1,7 @@
 using UnityEngine;
 
-namespace TeamCherry.SharedUtils;
+namespace TeamCherry.SharedUtils
+{
 
 [ExecuteInEditMode]
 public abstract class ComponentSingleton<T> : MonoBehaviour where T : ComponentSingleton<T>
@@ -70,4 +71,5 @@ public abstract class ComponentSingleton<T> : MonoBehaviour where T : ComponentS
 			s_Instance = null;
 		}
 	}
+}
 }

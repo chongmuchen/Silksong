@@ -1,4 +1,5 @@
-namespace TeamCherry.Localization;
+namespace TeamCherry.Localization
+{
 
 public enum LanguageCode
 {
@@ -207,4 +208,5 @@ public enum LanguageCode
 	ZH_CN,
 	ZH_SG,
 	ZU
+}
 }

@@ -1,8 +1,10 @@
 using System;
 using UnityEngine;
+using Object = UnityEngine.Object;
 using UnityEngine.Events;
 
-namespace TeamCherry.SharedUtils;
+namespace TeamCherry.SharedUtils
+{
 
 public abstract class RampBase : MonoBehaviour
 {
@@ -148,4 +150,5 @@ public abstract class RampBase : MonoBehaviour
 	protected abstract void UpdateValues(float multiplier);
 
 	protected abstract void ResetValues();
+}
 }

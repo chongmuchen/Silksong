@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
-namespace tk2dRuntime.TileMap;
+namespace tk2dRuntime.TileMap
+{
 
 [Serializable]
 public class SpriteChunk
@@ -92,4 +94,5 @@ public class SpriteChunk
 			edgeColliders.Clear();
 		}
 	}
+}
 }

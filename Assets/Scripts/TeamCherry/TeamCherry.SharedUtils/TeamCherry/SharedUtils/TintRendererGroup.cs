@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TeamCherry.SharedUtils;
+namespace TeamCherry.SharedUtils
+{
 
 [ExecuteInEditMode]
 public class TintRendererGroup : MonoBehaviour
@@ -70,7 +71,7 @@ public class TintRendererGroup : MonoBehaviour
 		foreach (Transform item in root)
 		{
 			Transform val = item;
-			if (!Object.op_Implicit((Object)(object)((Component)val).GetComponent<TintRendererGroup>()))
+			if (!(((Component)val).GetComponent<TintRendererGroup>() != null))
 			{
 				GetComponentsInChildrenRecursively(val);
 			}
@@ -109,8 +110,8 @@ public class TintRendererGroup : MonoBehaviour
 		}
 		foreach (ParticleSystem particle in particles)
 		{
-			MainModule main = particle.main;
-			((MainModule)(ref main)).startColor = MinMaxGradient.op_Implicit(color);
+			ParticleSystem.MainModule main = particle.main;
+			main.startColor = color;
 		}
 		foreach (MeshRenderer meshRenderer in meshRenderers)
 		{
@@ -124,4 +125,5 @@ public class TintRendererGroup : MonoBehaviour
 			}
 		}
 	}
+}
 }

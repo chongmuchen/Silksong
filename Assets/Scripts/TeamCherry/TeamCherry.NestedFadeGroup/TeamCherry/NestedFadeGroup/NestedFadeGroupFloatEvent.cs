@@ -2,7 +2,8 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace TeamCherry.NestedFadeGroup;
+namespace TeamCherry.NestedFadeGroup
+{
 
 [ExecuteAlways]
 public class NestedFadeGroupFloatEvent : NestedFadeGroupBase
@@ -22,4 +23,5 @@ public class NestedFadeGroupFloatEvent : NestedFadeGroupBase
 			((UnityEvent<float>)onAlphaChanged).Invoke(alpha);
 		}
 	}
+}
 }

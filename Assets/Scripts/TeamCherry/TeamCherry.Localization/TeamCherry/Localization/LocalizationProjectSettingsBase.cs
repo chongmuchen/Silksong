@@ -1,6 +1,7 @@
 using UnityEngine;
 
-namespace TeamCherry.Localization;
+namespace TeamCherry.Localization
+{
 
 public abstract class LocalizationProjectSettingsBase : ScriptableObject
 {
@@ -29,4 +30,5 @@ public abstract class LocalizationProjectSettingsBase : ScriptableObject
 	{
 		return false;
 	}
+}
 }

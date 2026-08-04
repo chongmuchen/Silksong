@@ -1,7 +1,8 @@
 using TeamCherry.SharedUtils;
 using UnityEngine;
 
-namespace TeamCherry.NestedFadeGroup;
+namespace TeamCherry.NestedFadeGroup
+{
 
 [ExecuteAlways]
 [RequireComponent(typeof(Renderer))]
@@ -25,7 +26,7 @@ public class NestedFadeGroupMaterialFloatProperty : NestedFadeGroupBase
 	{
 		//IL_0022: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002c: Expected O, but got Unknown
-		if (!Object.op_Implicit((Object)(object)renderer))
+		if (!(renderer != null))
 		{
 			renderer = ((Component)this).GetComponent<Renderer>();
 		}
@@ -46,4 +47,5 @@ public class NestedFadeGroupMaterialFloatProperty : NestedFadeGroupBase
 		block.SetFloat(propertyId, lerpedValue);
 		renderer.SetPropertyBlock(block);
 	}
+}
 }

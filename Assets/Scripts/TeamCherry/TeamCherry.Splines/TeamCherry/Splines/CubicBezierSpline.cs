@@ -3,7 +3,8 @@ using Unity.Collections;
 using Unity.Jobs;
 using UnityEngine;
 
-namespace TeamCherry.Splines;
+namespace TeamCherry.Splines
+{
 
 [ExecuteAlways]
 public class CubicBezierSpline : SplineBase
@@ -65,7 +66,7 @@ public class CubicBezierSpline : SplineBase
 			if (calculateSplineTangent)
 			{
 				Vector3 val = 2f * num2 * (p1 - p0) + 2f * num * (p2 - p1);
-				tangent = ((Vector3)(ref val)).normalized;
+				tangent = val.normalized;
 			}
 			internalPoints[index] = new Point
 			{
@@ -139,7 +140,7 @@ public class CubicBezierSpline : SplineBase
 			return;
 		}
 		positionJobScheduled = true;
-		if (Object.op_Implicit((Object)(object)startPoint) && Object.op_Implicit((Object)(object)endPoint) && Object.op_Implicit((Object)(object)midPoint1) && Object.op_Implicit((Object)(object)midPoint2))
+		if ((startPoint != null) && (endPoint != null) && (midPoint1 != null) && (midPoint2 != null))
 		{
 			int num = Mathf.Max(0, subDivisions) + 1;
 			int num2 = 4 * num;
@@ -222,7 +223,7 @@ public class CubicBezierSpline : SplineBase
 		//IL_0181: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0188: Unknown result type (might be due to invalid IL or missing references)
 		//IL_018a: Unknown result type (might be due to invalid IL or missing references)
-		if (CompletePositionUpdate() || !Object.op_Implicit((Object)(object)startPoint) || !Object.op_Implicit((Object)(object)endPoint) || !Object.op_Implicit((Object)(object)midPoint1) || !Object.op_Implicit((Object)(object)midPoint2))
+		if (CompletePositionUpdate() || !(startPoint != null) || !(endPoint != null) || !(midPoint1 != null) || !(midPoint2 != null))
 		{
 			return;
 		}
@@ -248,7 +249,7 @@ public class CubicBezierSpline : SplineBase
 			if (calculateSplineTangent)
 			{
 				Vector3 val = 2f * num4 * (localPosition2 - localPosition) + 2f * num3 * (localPosition3 - localPosition2);
-				tangent = ((Vector3)(ref val)).normalized;
+				tangent = val.normalized;
 			}
 			else
 			{
@@ -262,4 +263,5 @@ public class CubicBezierSpline : SplineBase
 			};
 		}
 	}
+}
 }

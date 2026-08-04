@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
-namespace TeamCherry.NestedFadeGroup;
+namespace TeamCherry.NestedFadeGroup
+{
 
 [ExecuteAlways]
 [DisallowMultipleComponent]
@@ -41,7 +43,7 @@ public class NestedFadeGroup : NestedFadeGroupBase
 
 	protected override void OnEnable()
 	{
-		if (!Object.op_Implicit((Object)(object)base.ParentGroup))
+		if (!(base.ParentGroup != null))
 		{
 			AddMissingBridgeComponents();
 		}
@@ -67,7 +69,7 @@ public class NestedFadeGroup : NestedFadeGroupBase
 		{
 			Transform val = item;
 			NestedFadeGroupBase component = ((Component)val).GetComponent<NestedFadeGroupBase>();
-			if (Object.op_Implicit((Object)(object)component))
+			if ((component != null))
 			{
 				runningList.Add(component);
 				if (component is NestedFadeGroup && ((Behaviour)component).enabled)
@@ -149,7 +151,7 @@ public class NestedFadeGroup : NestedFadeGroupBase
 		Component[] componentsInChildren = ((Component)this).GetComponentsInChildren(sourceType, true);
 		foreach (Component val in componentsInChildren)
 		{
-			if (!Object.op_Implicit((Object)(object)val.GetComponent(destinationType)))
+			if (!(val.GetComponent(destinationType) != null))
 			{
 				NestedFadeGroupBase.QueuedOnComponentAdded = true;
 				val.gameObject.AddComponent(destinationType);
@@ -167,4 +169,5 @@ public class NestedFadeGroup : NestedFadeGroupBase
 	{
 		children.Remove(child);
 	}
+}
 }

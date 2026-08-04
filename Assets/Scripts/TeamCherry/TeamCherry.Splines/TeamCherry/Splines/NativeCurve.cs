@@ -4,7 +4,8 @@ using Unity.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace TeamCherry.Splines;
+namespace TeamCherry.Splines
+{
 
 public struct NativeCurve : IDisposable
 {
@@ -141,4 +142,5 @@ public struct NativeCurve : IDisposable
 		t = repeat(t, length * 2f);
 		return length - math.abs(t - length);
 	}
+}
 }

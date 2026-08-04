@@ -1,8 +1,10 @@
 using System;
 using JetBrains.Annotations;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-namespace TeamCherry.SharedUtils;
+namespace TeamCherry.SharedUtils
+{
 
 [Serializable]
 public struct MinMaxFloat
@@ -20,7 +22,7 @@ public struct MinMaxFloat
 	[Pure]
 	public float GetRandomValue()
 	{
-		return Random.Range(Start, End);
+		return UnityEngine.Random.Range(Start, End);
 	}
 
 	public float GetLerpedValue(float t)
@@ -52,4 +54,5 @@ public struct MinMaxFloat
 		float num = End - Start;
 		return (value - Start) / num;
 	}
+}
 }

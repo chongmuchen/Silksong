@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 using tk2dRuntime.TileMap;
 
 public class tk2dTileMapData : ScriptableObject

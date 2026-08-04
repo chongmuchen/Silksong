@@ -5,7 +5,8 @@ using Unity.Collections;
 using Unity.Jobs;
 using UnityEngine;
 
-namespace TeamCherry.Splines;
+namespace TeamCherry.Splines
+{
 
 public class HermiteSplinePath : MonoBehaviour, IHermiteSplinePath
 {
@@ -99,7 +100,7 @@ public class HermiteSplinePath : MonoBehaviour, IHermiteSplinePath
 			internalPoints[index] = new SplineBase.Point
 			{
 				Position = position,
-				Tangent = ((Vector3)(ref val5)).normalized,
+				Tangent = val5.normalized,
 				Color = Color.white
 			};
 		}
@@ -153,7 +154,7 @@ public class HermiteSplinePath : MonoBehaviour, IHermiteSplinePath
 		}
 		while (controlPoints.Count < 3)
 		{
-			controlPoints.Add(Vector2.op_Implicit(Vector2.zero));
+			controlPoints.Add((Vector2)(Vector2.zero));
 		}
 		if (subdivisions < 2)
 		{
@@ -202,7 +203,7 @@ public class HermiteSplinePath : MonoBehaviour, IHermiteSplinePath
 			worldPositions[num4] = val;
 			if (num4 != 0)
 			{
-				float num5 = Vector2.Distance(Vector2.op_Implicit(worldPositions[num4 - 1]), Vector2.op_Implicit(val));
+				float num5 = Vector2.Distance((Vector2)(worldPositions[num4 - 1]), (Vector2)(val));
 				distances[num3] = num5;
 				num3++;
 			}
@@ -365,23 +366,23 @@ public class HermiteSplinePath : MonoBehaviour, IHermiteSplinePath
 		{
 			Vector3 val2 = getControlPointFunc(controlPointCount - 1);
 			Vector3 val3 = getControlPointFunc(controlPointCount - 2);
-			newPointIndex = ((Vector2.Distance(Vector2.op_Implicit(val), Vector2.op_Implicit(val3)) > Vector2.Distance(Vector2.op_Implicit(val2), Vector2.op_Implicit(val3))) ? controlPointCount : (controlPointCount - 1));
+			newPointIndex = ((Vector2.Distance((Vector2)(val), (Vector2)(val3)) > Vector2.Distance((Vector2)(val2), (Vector2)(val3))) ? controlPointCount : (controlPointCount - 1));
 		}
 		else if (activePointIndex <= 0)
 		{
 			Vector3 val4 = getControlPointFunc(0);
 			Vector3 val5 = getControlPointFunc(1);
-			newPointIndex = ((!(Vector2.Distance(Vector2.op_Implicit(val), Vector2.op_Implicit(val5)) > Vector2.Distance(Vector2.op_Implicit(val4), Vector2.op_Implicit(val5)))) ? 1 : 0);
+			newPointIndex = ((!(Vector2.Distance((Vector2)(val), (Vector2)(val5)) > Vector2.Distance((Vector2)(val4), (Vector2)(val5)))) ? 1 : 0);
 		}
 		else
 		{
 			Vector3 val6 = getControlPointFunc(activePointIndex);
 			Vector3 val7 = getControlPointFunc(activePointIndex - 1);
 			Vector3 val8 = val - val6;
-			Vector3 normalized = ((Vector3)(ref val8)).normalized;
+			Vector3 normalized = val8.normalized;
 			val8 = val7 - val;
-			Vector3 normalized2 = ((Vector3)(ref val8)).normalized;
-			if (Vector2.Dot(Vector2.op_Implicit(normalized), Vector2.op_Implicit(normalized2)) < 0f)
+			Vector3 normalized2 = val8.normalized;
+			if (Vector2.Dot((Vector2)(normalized), (Vector2)(normalized2)) < 0f)
 			{
 				newPointIndex = activePointIndex + 1;
 			}
@@ -528,7 +529,7 @@ public class HermiteSplinePath : MonoBehaviour, IHermiteSplinePath
 				internalPoints[num5] = new SplineBase.Point
 				{
 					Position = position,
-					Tangent = ((Vector3)(ref val5)).normalized,
+					Tangent = val5.normalized,
 					Color = Color.white
 				};
 			}
@@ -540,4 +541,5 @@ public class HermiteSplinePath : MonoBehaviour, IHermiteSplinePath
 			Color = Color.white
 		};
 	}
+}
 }

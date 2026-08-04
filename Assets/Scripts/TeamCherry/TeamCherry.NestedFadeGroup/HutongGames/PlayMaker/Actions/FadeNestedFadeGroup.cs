@@ -1,8 +1,10 @@
+#if PLAYMAKER
 using TeamCherry.NestedFadeGroup;
 using TeamCherry.SharedUtils;
 using UnityEngine;
 
-namespace HutongGames.PlayMaker.Actions;
+namespace HutongGames.PlayMaker.Actions
+{
 
 public class FadeNestedFadeGroup : FsmStateAction
 {
@@ -22,14 +24,14 @@ public class FadeNestedFadeGroup : FsmStateAction
 	public override void OnEnter()
 	{
 		GameObject safe = Target.GetSafe(this);
-		if (Object.op_Implicit((Object)(object)safe))
+		if ((safe != null))
 		{
 			NestedFadeGroupBase component = safe.GetComponent<NestedFadeGroup>();
-			if (!Object.op_Implicit((Object)(object)component))
+			if (!(component != null))
 			{
 				component = safe.GetComponent<NestedFadeGroupBase>();
 			}
-			if (Object.op_Implicit((Object)(object)component))
+			if ((component != null))
 			{
 				component.FadeTo(ToAlpha.Value, FadeTime.Value);
 			}
@@ -37,3 +39,6 @@ public class FadeNestedFadeGroup : FsmStateAction
 		Finish();
 	}
 }
+}
+
+#endif

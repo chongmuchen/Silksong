@@ -1,0 +1,14 @@
+{
+  "name": "TeamCherry.SharedUtils",
+  "rootNamespace": "TeamCherry.SharedUtils",
+  "references": [],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": true,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

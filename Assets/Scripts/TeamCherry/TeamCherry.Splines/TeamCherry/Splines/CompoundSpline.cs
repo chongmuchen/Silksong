@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using TeamCherry.SharedUtils;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
-namespace TeamCherry.Splines;
+namespace TeamCherry.Splines
+{
 
 public class CompoundSpline : MonoBehaviour
 {
@@ -54,7 +56,7 @@ public class CompoundSpline : MonoBehaviour
 			for (int i = 1; i < positions.Length; i++)
 			{
 				Vector2 val = positions[i];
-				Gizmos.DrawLine(Vector2.op_Implicit(positions[i - 1]), Vector2.op_Implicit(val));
+				Gizmos.DrawLine((Vector2)(positions[i - 1]), (Vector2)(val));
 			}
 		}
 	}
@@ -101,7 +103,7 @@ public class CompoundSpline : MonoBehaviour
 		int num = 0;
 		foreach (SplineBase spline in splines)
 		{
-			if (Object.op_Implicit((Object)(object)spline) && ((Component)spline).gameObject.activeInHierarchy)
+			if ((spline != null) && ((Component)spline).gameObject.activeInHierarchy)
 			{
 				int pointCount = spline.GetPointCount();
 				if (pointCount > 0)
@@ -133,7 +135,7 @@ public class CompoundSpline : MonoBehaviour
 			for (int j = 0; j < pointCount2; j++)
 			{
 				SplineBase.Point point = splineBase.GetPoint(j);
-				Vector2 val = Vector2.op_Implicit(((Component)splineBase).transform.TransformPoint(point.Position));
+				Vector2 val = (Vector2)(((Component)splineBase).transform.TransformPoint(point.Position));
 				positions[num3] = val;
 				num3++;
 				if (j != 0 || i != 0)
@@ -145,12 +147,12 @@ public class CompoundSpline : MonoBehaviour
 						SplineBase splineBase2 = activeSplines[i - 1];
 						num5 = splineBase2.GetPointCount() - 1;
 						SplineBase.Point point2 = splineBase2.GetPoint(num5);
-						val2 = Vector2.op_Implicit(((Component)splineBase2).transform.TransformPoint(point2.Position));
+						val2 = (Vector2)(((Component)splineBase2).transform.TransformPoint(point2.Position));
 					}
 					else
 					{
 						SplineBase.Point point2 = splineBase.GetPoint(num5);
-						val2 = Vector2.op_Implicit(((Component)splineBase).transform.TransformPoint(point2.Position));
+						val2 = (Vector2)(((Component)splineBase).transform.TransformPoint(point2.Position));
 					}
 					float num6 = Vector2.Distance(val2, val);
 					distances[num4] = num6;
@@ -236,4 +238,5 @@ public class CompoundSpline : MonoBehaviour
 		splines.Add(item);
 		UpdateValues();
 	}
+}
 }

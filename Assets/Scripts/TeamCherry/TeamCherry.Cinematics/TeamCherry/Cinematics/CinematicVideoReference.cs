@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.Video;
 
-namespace TeamCherry.Cinematics;
+namespace TeamCherry.Cinematics
+{
 
 [CreateAssetMenu(menuName = "Team Cherry/Cinematic Video Reference", fileName = "CinematicVideoReference", order = 1000)]
 public class CinematicVideoReference : ScriptableObject
@@ -41,4 +42,5 @@ public class CinematicVideoReference : ScriptableObject
 	public int VideoFileWidth => videoFileWidth;
 
 	public int VideoFileHeight => videoFileHeight;
+}
 }

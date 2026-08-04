@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 [AddComponentMenu("2D Toolkit/Camera/tk2dCamera")]
 [ExecuteAlways]
@@ -140,13 +141,13 @@ public class tk2dCamera : MonoBehaviour
 			//IL_0031: Unknown result type (might be due to invalid IL or missing references)
 			//IL_003a: Unknown result type (might be due to invalid IL or missing references)
 			Rect val = ScreenExtents;
-			float xMin = ((Rect)(ref val)).xMin;
+			float xMin = val.xMin;
 			val = NativeScreenExtents;
-			float num = xMin - ((Rect)(ref val)).xMin;
+			float num = xMin - val.xMin;
 			val = ScreenExtents;
-			float yMin = ((Rect)(ref val)).yMin;
+			float yMin = val.yMin;
 			val = NativeScreenExtents;
-			return new Vector2(num, yMin - ((Rect)(ref val)).yMin);
+			return new Vector2(num, yMin - val.yMin);
 		}
 	}
 
@@ -161,9 +162,9 @@ public class tk2dCamera : MonoBehaviour
 			//IL_0014: Unknown result type (might be due to invalid IL or missing references)
 			//IL_001c: Unknown result type (might be due to invalid IL or missing references)
 			Rect screenExtents = ScreenExtents;
-			float xMax = ((Rect)(ref screenExtents)).xMax;
+			float xMax = screenExtents.xMax;
 			screenExtents = ScreenExtents;
-			return new Vector2(xMax, ((Rect)(ref screenExtents)).yMax);
+			return new Vector2(xMax, screenExtents.yMax);
 		}
 	}
 
@@ -178,9 +179,9 @@ public class tk2dCamera : MonoBehaviour
 			//IL_0014: Unknown result type (might be due to invalid IL or missing references)
 			//IL_001c: Unknown result type (might be due to invalid IL or missing references)
 			Rect screenExtents = ScreenExtents;
-			float xMax = ((Rect)(ref screenExtents)).xMax;
+			float xMax = screenExtents.xMax;
 			screenExtents = ScreenExtents;
-			return new Vector2(xMax, ((Rect)(ref screenExtents)).yMax);
+			return new Vector2(xMax, screenExtents.yMax);
 		}
 	}
 
@@ -195,9 +196,9 @@ public class tk2dCamera : MonoBehaviour
 			//IL_0014: Unknown result type (might be due to invalid IL or missing references)
 			//IL_001c: Unknown result type (might be due to invalid IL or missing references)
 			Rect screenExtents = ScreenExtents;
-			float width = ((Rect)(ref screenExtents)).width;
+			float width = screenExtents.width;
 			screenExtents = ScreenExtents;
-			return new Vector2(width, ((Rect)(ref screenExtents)).height);
+			return new Vector2(width, screenExtents.height);
 		}
 	}
 
@@ -350,22 +351,22 @@ public class tk2dCamera : MonoBehaviour
 		float num5 = (0f - (bottom + top)) / (top - bottom);
 		float num6 = (0f - (far + near)) / (far - near);
 		Matrix4x4 result = default(Matrix4x4);
-		((Matrix4x4)(ref result))[0, 0] = num;
-		((Matrix4x4)(ref result))[0, 1] = 0f;
-		((Matrix4x4)(ref result))[0, 2] = 0f;
-		((Matrix4x4)(ref result))[0, 3] = num4;
-		((Matrix4x4)(ref result))[1, 0] = 0f;
-		((Matrix4x4)(ref result))[1, 1] = num2;
-		((Matrix4x4)(ref result))[1, 2] = 0f;
-		((Matrix4x4)(ref result))[1, 3] = num5;
-		((Matrix4x4)(ref result))[2, 0] = 0f;
-		((Matrix4x4)(ref result))[2, 1] = 0f;
-		((Matrix4x4)(ref result))[2, 2] = num3;
-		((Matrix4x4)(ref result))[2, 3] = num6;
-		((Matrix4x4)(ref result))[3, 0] = 0f;
-		((Matrix4x4)(ref result))[3, 1] = 0f;
-		((Matrix4x4)(ref result))[3, 2] = 0f;
-		((Matrix4x4)(ref result))[3, 3] = 1f;
+		result[0, 0] = num;
+		result[0, 1] = 0f;
+		result[0, 2] = 0f;
+		result[0, 3] = num4;
+		result[1, 0] = 0f;
+		result[1, 1] = num2;
+		result[1, 2] = 0f;
+		result[1, 3] = num5;
+		result[2, 0] = 0f;
+		result[2, 1] = 0f;
+		result[2, 2] = num3;
+		result[2, 3] = num6;
+		result[3, 0] = 0f;
+		result[3, 1] = 0f;
+		result[3, 2] = 0f;
+		result[3, 3] = 1f;
 		return result;
 	}
 
@@ -385,15 +386,15 @@ public class tk2dCamera : MonoBehaviour
 		{
 		case tk2dCameraResolutionOverride.AutoScaleMode.PixelPerfect:
 			num = 1f;
-			((Vector2)(ref one)).Set(num, num);
+			one.Set(num, num);
 			break;
 		case tk2dCameraResolutionOverride.AutoScaleMode.FitHeight:
 			num = height / (float)settings.nativeResolutionHeight;
-			((Vector2)(ref one)).Set(num, num);
+			one.Set(num, num);
 			break;
 		case tk2dCameraResolutionOverride.AutoScaleMode.FitWidth:
 			num = width / (float)settings.nativeResolutionWidth;
-			((Vector2)(ref one)).Set(num, num);
+			one.Set(num, num);
 			break;
 		case tk2dCameraResolutionOverride.AutoScaleMode.FitVisible:
 		case tk2dCameraResolutionOverride.AutoScaleMode.ClosestMultipleOfTwo:
@@ -404,19 +405,19 @@ public class tk2dCamera : MonoBehaviour
 			{
 				num = ((!(num > 1f)) ? Mathf.Pow(2f, Mathf.Floor(Mathf.Log(num, 2f))) : Mathf.Floor(num));
 			}
-			((Vector2)(ref one)).Set(num, num);
+			one.Set(num, num);
 			break;
 		}
 		case tk2dCameraResolutionOverride.AutoScaleMode.StretchToFit:
-			((Vector2)(ref one)).Set(width / (float)settings.nativeResolutionWidth, height / (float)settings.nativeResolutionHeight);
+			one.Set(width / (float)settings.nativeResolutionWidth, height / (float)settings.nativeResolutionHeight);
 			break;
 		case tk2dCameraResolutionOverride.AutoScaleMode.Fill:
 			num = Mathf.Max(width / (float)settings.nativeResolutionWidth, height / (float)settings.nativeResolutionHeight);
-			((Vector2)(ref one)).Set(num, num);
+			one.Set(num, num);
 			break;
 		default:
 			num = currentOverride.scale;
-			((Vector2)(ref one)).Set(num, num);
+			one.Set(num, num);
 			break;
 		}
 		return one;
@@ -443,7 +444,7 @@ public class tk2dCamera : MonoBehaviour
 		{
 			if (settings.cameraSettings.orthographicOrigin == tk2dCameraSettings.OrthographicOrigin.BottomLeft)
 			{
-				((Vector2)(ref result))._002Ector(Mathf.Round(((float)settings.nativeResolutionWidth * scale.x - width) / 2f), Mathf.Round(((float)settings.nativeResolutionHeight * scale.y - height) / 2f));
+				result = new Vector2(Mathf.Round(((float)settings.nativeResolutionWidth * scale.x - width) / 2f), Mathf.Round(((float)settings.nativeResolutionHeight * scale.y - height) / 2f));
 			}
 		}
 		else
@@ -537,7 +538,7 @@ public class tk2dCamera : MonoBehaviour
 		{
 			float num5 = (num3 - num) / scaleForOverride.x;
 			float num6 = (num4 - num2) / scaleForOverride.y;
-			((Vector4)(ref val))._002Ector((float)(int)viewportRegion.x, (float)(int)viewportRegion.y, (float)(int)viewportRegion.z, (float)(int)viewportRegion.w);
+			val = new Vector4((float)(int)viewportRegion.x, (float)(int)viewportRegion.y, (float)(int)viewportRegion.z, (float)(int)viewportRegion.w);
 			flag = true;
 			float num7 = (0f - offsetForOverride.x) / pixelWidth + val.x / num5;
 			float num8 = (0f - offsetForOverride.y) / pixelHeight + val.y / num6;
@@ -548,18 +549,18 @@ public class tk2dCamera : MonoBehaviour
 				num7 += (pixelWidth - (float)settings.nativeResolutionWidth * scaleForOverride.x) / pixelWidth / 2f;
 				num8 += (pixelHeight - (float)settings.nativeResolutionHeight * scaleForOverride.y) / pixelHeight / 2f;
 			}
-			((Rect)(ref rect))._002Ector(num7, num8, num9, num10);
+			rect = new Rect(num7, num8, num9, num10);
 			rect2 = UnityCamera.rect;
-			if (((Rect)(ref rect2)).x == num7)
+			if (rect2.x == num7)
 			{
 				rect2 = UnityCamera.rect;
-				if (((Rect)(ref rect2)).y == num8)
+				if (rect2.y == num8)
 				{
 					rect2 = UnityCamera.rect;
-					if (((Rect)(ref rect2)).width == num9)
+					if (rect2.width == num9)
 					{
 						rect2 = UnityCamera.rect;
-						if (((Rect)(ref rect2)).height == num10)
+						if (rect2.height == num10)
 						{
 							goto IL_01c5;
 						}
@@ -581,12 +582,12 @@ public class tk2dCamera : MonoBehaviour
 			float num12 = (num4 - num2) * 0.5f;
 			num4 -= num12;
 			num2 -= num12;
-			((Vector2)(ref zero)).Set((float)(-nativeResolutionWidth) / 2f, (float)(-nativeResolutionHeight) / 2f);
+			zero.Set((float)(-nativeResolutionWidth) / 2f, (float)(-nativeResolutionHeight) / 2f);
 		}
 		goto IL_038a;
 		IL_01c5:
-		float num13 = Mathf.Min(1f - ((Rect)(ref rect)).x, ((Rect)(ref rect)).width);
-		float num14 = Mathf.Min(1f - ((Rect)(ref rect)).y, ((Rect)(ref rect)).height);
+		float num13 = Mathf.Min(1f - rect.x, rect.width);
+		float num14 = Mathf.Min(1f - rect.y, rect.height);
 		float num15 = val.x * scaleForOverride.x - offsetForOverride.x;
 		float num16 = val.y * scaleForOverride.y - offsetForOverride.y;
 		if (settings.cameraSettings.orthographicOrigin == tk2dCameraSettings.OrthographicOrigin.Center)
@@ -594,15 +595,15 @@ public class tk2dCamera : MonoBehaviour
 			num15 -= (float)settings.nativeResolutionWidth * 0.5f * scaleForOverride.x;
 			num16 -= (float)settings.nativeResolutionHeight * 0.5f * scaleForOverride.y;
 		}
-		if (((Rect)(ref rect)).x < 0f)
+		if (rect.x < 0f)
 		{
-			num15 += (0f - ((Rect)(ref rect)).x) * pixelWidth;
-			num13 = ((Rect)(ref rect)).x + ((Rect)(ref rect)).width;
+			num15 += (0f - rect.x) * pixelWidth;
+			num13 = rect.x + rect.width;
 		}
-		if (((Rect)(ref rect)).y < 0f)
+		if (rect.y < 0f)
 		{
-			num16 += (0f - ((Rect)(ref rect)).y) * pixelHeight;
-			num14 = ((Rect)(ref rect)).y + ((Rect)(ref rect)).height;
+			num16 += (0f - rect.y) * pixelHeight;
+			num14 = rect.y + rect.height;
 		}
 		num += num15;
 		num2 += num16;
@@ -626,13 +627,13 @@ public class tk2dCamera : MonoBehaviour
 		if (!flag)
 		{
 			rect2 = UnityCamera.rect;
-			float width = ((Rect)(ref rect2)).width;
+			float width = rect2.width;
 			rect2 = UnityCamera.rect;
-			float num20 = Mathf.Min(width, 1f - ((Rect)(ref rect2)).x);
+			float num20 = Mathf.Min(width, 1f - rect2.x);
 			rect2 = UnityCamera.rect;
-			float height = ((Rect)(ref rect2)).height;
+			float height = rect2.height;
 			rect2 = UnityCamera.rect;
-			float num21 = Mathf.Min(height, 1f - ((Rect)(ref rect2)).y);
+			float num21 = Mathf.Min(height, 1f - rect2.y);
 			if (num20 > 0f && num21 > 0f)
 			{
 				scaleForOverride.x /= num20;
@@ -739,7 +740,7 @@ public class tk2dCamera : MonoBehaviour
 			{
 				unityCamera.fieldOfView = num;
 			}
-			((Rect)(ref _screenExtents)).Set(0f - unityCamera.aspect, -1f, unityCamera.aspect * 2f, 2f);
+			_screenExtents.Set(0f - unityCamera.aspect, -1f, unityCamera.aspect * 2f, 2f);
 			_nativeScreenExtents = _screenExtents;
 			unityCamera.ResetProjectionMatrix();
 			return;

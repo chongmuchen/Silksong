@@ -147,7 +147,7 @@ public class tk2dSlicedSprite : tk2dBaseSprite
 		{
 			boxCollider2D = ((Component)this).GetComponent<BoxCollider2D>();
 		}
-		if (Object.op_Implicit((Object)(object)base.Collection))
+		if ((base.Collection != null))
 		{
 			if (_spriteId < 0 || _spriteId >= base.Collection.Count)
 			{
@@ -159,7 +159,7 @@ public class tk2dSlicedSprite : tk2dBaseSprite
 
 	protected void OnDestroy()
 	{
-		if (Object.op_Implicit((Object)(object)mesh))
+		if ((mesh != null))
 		{
 			Object.Destroy((Object)(object)mesh);
 		}
@@ -264,7 +264,7 @@ public class tk2dSlicedSprite : tk2dBaseSprite
 		float num2 = y2 / currentSprite.texelSize.y;
 		_dimensions.x = _scale.x * num;
 		_dimensions.y = _scale.y * num2;
-		((Vector3)(ref _scale)).Set(1f, 1f, 1f);
+		_scale.Set(1f, 1f, 1f);
 		legacyMode = false;
 	}
 
@@ -396,8 +396,8 @@ public class tk2dSlicedSprite : tk2dBaseSprite
 		}
 		else if (base.CurrentSprite.physicsEngine == tk2dSpriteDefinition.PhysicsEngine.Physics2D && (Object)(object)boxCollider2D != (Object)null)
 		{
-			boxCollider2D.size = Vector2.op_Implicit(2f * boundsExtents);
-			((Collider2D)boxCollider2D).offset = Vector2.op_Implicit(boundsCenter);
+			boxCollider2D.size = (Vector2)(2f * boundsExtents);
+			((Collider2D)boxCollider2D).offset = (Vector2)(boundsCenter);
 		}
 	}
 
@@ -468,38 +468,38 @@ public class tk2dSlicedSprite : tk2dBaseSprite
 		float num = 0.1f;
 		tk2dSpriteDefinition currentSprite = base.CurrentSprite;
 		Vector2 val = default(Vector2);
-		((Vector2)(ref val))._002Ector(_dimensions.x * currentSprite.texelSize.x, _dimensions.y * currentSprite.texelSize.y);
+		val = new Vector2(_dimensions.x * currentSprite.texelSize.x, _dimensions.y * currentSprite.texelSize.y);
 		Vector3 val2 = default(Vector3);
-		((Vector3)(ref val2))._002Ector(val.x * _scale.x, val.y * _scale.y);
+		val2 = new Vector3(val.x * _scale.x, val.y * _scale.y);
 		Vector3 val3 = Vector3.zero;
 		switch (_anchor)
 		{
 		case Anchor.LowerLeft:
-			((Vector3)(ref val3)).Set(0f, 0f, 0f);
+			val3.Set(0f, 0f, 0f);
 			break;
 		case Anchor.LowerCenter:
-			((Vector3)(ref val3)).Set(0.5f, 0f, 0f);
+			val3.Set(0.5f, 0f, 0f);
 			break;
 		case Anchor.LowerRight:
-			((Vector3)(ref val3)).Set(1f, 0f, 0f);
+			val3.Set(1f, 0f, 0f);
 			break;
 		case Anchor.MiddleLeft:
-			((Vector3)(ref val3)).Set(0f, 0.5f, 0f);
+			val3.Set(0f, 0.5f, 0f);
 			break;
 		case Anchor.MiddleCenter:
-			((Vector3)(ref val3)).Set(0.5f, 0.5f, 0f);
+			val3.Set(0.5f, 0.5f, 0f);
 			break;
 		case Anchor.MiddleRight:
-			((Vector3)(ref val3)).Set(1f, 0.5f, 0f);
+			val3.Set(1f, 0.5f, 0f);
 			break;
 		case Anchor.UpperLeft:
-			((Vector3)(ref val3)).Set(0f, 1f, 0f);
+			val3.Set(0f, 1f, 0f);
 			break;
 		case Anchor.UpperCenter:
-			((Vector3)(ref val3)).Set(0.5f, 1f, 0f);
+			val3.Set(0.5f, 1f, 0f);
 			break;
 		case Anchor.UpperRight:
-			((Vector3)(ref val3)).Set(1f, 1f, 0f);
+			val3.Set(1f, 1f, 0f);
 			break;
 		}
 		val3 = Vector3.Scale(val3, val2) * -1f;
@@ -516,9 +516,9 @@ public class tk2dSlicedSprite : tk2dBaseSprite
 			dMin.y = 0f;
 			val4.y = _scale.y;
 		}
-		Vector2 val5 = Vector2.op_Implicit(new Vector3(Mathf.Approximately(_scale.x, 0f) ? 0f : (val4.x / _scale.x), Mathf.Approximately(_scale.y, 0f) ? 0f : (val4.y / _scale.y)));
+		Vector2 val5 = (Vector2)(new Vector3(Mathf.Approximately(_scale.x, 0f) ? 0f : (val4.x / _scale.x), Mathf.Approximately(_scale.y, 0f) ? 0f : (val4.y / _scale.y)));
 		Vector3 val6 = default(Vector3);
-		((Vector3)(ref val6))._002Ector(val3.x * val5.x, val3.y * val5.y);
+		val6 = new Vector3(val3.x * val5.x, val3.y * val5.y);
 		Vector3 val7 = dMin + val3 - val6;
 		val7.z = 0f;
 		((Component)this).transform.position = ((Component)this).transform.TransformPoint(val7);

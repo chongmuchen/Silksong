@@ -6,8 +6,10 @@ using System.Text;
 using System.Xml;
 using TeamCherry.SharedUtils;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
-namespace TeamCherry.Localization;
+namespace TeamCherry.Localization
+{
 
 public static class Language
 {
@@ -268,7 +270,7 @@ public static class Language
 		GameObject[] array = (GameObject[])(object)Object.FindObjectsOfType(typeof(GameObject));
 		foreach (GameObject val in array)
 		{
-			if (Object.op_Implicit((Object)(object)val) && !((Object)(object)val.transform.parent != (Object)null))
+			if ((val != null) && !((Object)(object)val.transform.parent != (Object)null))
 			{
 				if (parameters != null && parameters.Length == 1)
 				{
@@ -334,4 +336,5 @@ public static class Language
 			_ => LanguageCode.N, 
 		};
 	}
+}
 }

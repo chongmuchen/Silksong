@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
 
-namespace tk2dRuntime.TileMap;
+namespace tk2dRuntime.TileMap
+{
 
 [Serializable]
 public class ColorChunk
@@ -16,4 +17,5 @@ public class ColorChunk
 	{
 		colors = (Color32[])(object)new Color32[0];
 	}
+}
 }

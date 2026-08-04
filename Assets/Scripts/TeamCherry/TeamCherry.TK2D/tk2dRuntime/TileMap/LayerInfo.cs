@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
 
-namespace tk2dRuntime.TileMap;
+namespace tk2dRuntime.TileMap
+{
 
 [Serializable]
 public class LayerInfo
@@ -35,4 +36,5 @@ public class LayerInfo
 		generateCollider = true;
 		skipMeshGeneration = false;
 	}
+}
 }

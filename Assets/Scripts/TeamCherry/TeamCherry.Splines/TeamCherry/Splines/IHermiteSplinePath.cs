@@ -1,6 +1,7 @@
 using UnityEngine;
 
-namespace TeamCherry.Splines;
+namespace TeamCherry.Splines
+{
 
 public interface IHermiteSplinePath
 {
@@ -17,4 +18,5 @@ public interface IHermiteSplinePath
 	void InsertControlPoint(int i, Vector3 mouseWorldPos, out int capturedIndex);
 
 	void SetControlPoint(int i, Vector3 mouseWorldPos);
+}
 }

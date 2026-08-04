@@ -1,0 +1,14 @@
+{
+  "name": "TeamCherry.Cinematics",
+  "rootNamespace": "TeamCherry.Cinematics",
+  "references": [],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": true,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

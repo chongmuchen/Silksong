@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
 
-namespace tk2dRuntime.TileMap;
+namespace tk2dRuntime.TileMap
+{
 
 [Serializable]
 public class ColorChannel
@@ -90,7 +91,7 @@ public class ColorChannel
 		{
 			return clearColor;
 		}
-		return Color32.op_Implicit(colorChunk.colors[offset]);
+		return (Color32)(colorChunk.colors[offset]);
 	}
 
 	private void InitChunk(ColorChunk chunk)
@@ -103,7 +104,7 @@ public class ColorChannel
 			chunk.colors = (Color32[])(object)new Color32[(divX + 1) * (divY + 1)];
 			for (int i = 0; i < chunk.colors.Length; i++)
 			{
-				chunk.colors[i] = Color32.op_Implicit(clearColor);
+				chunk.colors[i] = (Color32)(clearColor);
 			}
 		}
 	}
@@ -132,7 +133,7 @@ public class ColorChannel
 		ColorChunk chunk = GetChunk(num2, num3, init: true);
 		int num4 = x - num2 * divX;
 		int num5 = y - num3 * divY;
-		chunk.colors[num5 * num + num4] = Color32.op_Implicit(color);
+		chunk.colors[num5 * num + num4] = (Color32)(color);
 		chunk.Dirty = true;
 		bool flag = false;
 		bool flag2 = false;
@@ -150,7 +151,7 @@ public class ColorChannel
 			ColorChunk chunk2 = GetChunk(num6, num3, init: true);
 			num4 = x - num6 * divX;
 			num5 = y - num3 * divY;
-			chunk2.colors[num5 * num + num4] = Color32.op_Implicit(color);
+			chunk2.colors[num5 * num + num4] = (Color32)(color);
 			chunk2.Dirty = true;
 		}
 		if (flag2)
@@ -159,7 +160,7 @@ public class ColorChannel
 			ColorChunk chunk3 = GetChunk(num2, num7, init: true);
 			num4 = x - num2 * divX;
 			num5 = y - num7 * divY;
-			chunk3.colors[num5 * num + num4] = Color32.op_Implicit(color);
+			chunk3.colors[num5 * num + num4] = (Color32)(color);
 			chunk3.Dirty = true;
 		}
 		if (flag && flag2)
@@ -169,7 +170,7 @@ public class ColorChannel
 			ColorChunk chunk4 = GetChunk(num8, num9, init: true);
 			num4 = x - num8 * divX;
 			num5 = y - num9 * divY;
-			chunk4.colors[num5 * num + num4] = Color32.op_Implicit(color);
+			chunk4.colors[num5 * num + num4] = (Color32)(color);
 			chunk4.Dirty = true;
 		}
 	}
@@ -201,7 +202,7 @@ public class ColorChannel
 		//IL_0016: Unknown result type (might be due to invalid IL or missing references)
 		for (int i = 0; i < chunk.colors.Length; i++)
 		{
-			chunk.colors[i] = Color32.op_Implicit(clearColor);
+			chunk.colors[i] = (Color32)(clearColor);
 		}
 	}
 
@@ -257,7 +258,7 @@ public class ColorChannel
 		//IL_004f: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0056: Unknown result type (might be due to invalid IL or missing references)
 		bool flag = true;
-		Color32 val = Color32.op_Implicit(clearColor);
+		Color32 val = (Color32)(clearColor);
 		Color32[] colors = chunk.colors;
 		foreach (Color32 val2 in colors)
 		{
@@ -281,4 +282,5 @@ public class ColorChannel
 			Optimize(chunk);
 		}
 	}
+}
 }

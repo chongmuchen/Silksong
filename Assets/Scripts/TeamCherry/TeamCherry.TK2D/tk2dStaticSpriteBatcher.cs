@@ -112,11 +112,11 @@ public class tk2dStaticSpriteBatcher : MonoBehaviour, ISpriteCollectionForceBuil
 
 	protected void OnDestroy()
 	{
-		if (Object.op_Implicit((Object)(object)mesh))
+		if ((mesh != null))
 		{
 			Object.Destroy((Object)(object)mesh);
 		}
-		if (Object.op_Implicit((Object)(object)colliderMesh))
+		if ((colliderMesh != null))
 		{
 			Object.Destroy((Object)(object)colliderMesh);
 		}
@@ -154,7 +154,7 @@ public class tk2dStaticSpriteBatcher : MonoBehaviour, ISpriteCollectionForceBuil
 			{
 				foreach (tk2dBatchedSprite item in list)
 				{
-					((Matrix4x4)(ref val)).SetTRS(item.position, item.rotation, item.localScale);
+					val.SetTRS(item.position, item.rotation, item.localScale);
 					item.relativeMatrix = ((item.parentId == -1) ? Matrix4x4.identity : batchedSprites[item.parentId].relativeMatrix) * val;
 				}
 				return;
@@ -163,7 +163,7 @@ public class tk2dStaticSpriteBatcher : MonoBehaviour, ISpriteCollectionForceBuil
 		array = batchedSprites;
 		foreach (tk2dBatchedSprite tk2dBatchedSprite2 in array)
 		{
-			((Matrix4x4)(ref tk2dBatchedSprite2.relativeMatrix)).SetTRS(tk2dBatchedSprite2.position, tk2dBatchedSprite2.rotation, tk2dBatchedSprite2.localScale);
+			tk2dBatchedSprite2.relativeMatrix.SetTRS(tk2dBatchedSprite2.position, tk2dBatchedSprite2.rotation, tk2dBatchedSprite2.localScale);
 		}
 	}
 
@@ -182,7 +182,7 @@ public class tk2dStaticSpriteBatcher : MonoBehaviour, ISpriteCollectionForceBuil
 		{
 			mesh.Clear();
 		}
-		if (Object.op_Implicit((Object)(object)colliderMesh))
+		if ((colliderMesh != null))
 		{
 			Object.Destroy((Object)(object)colliderMesh);
 			colliderMesh = null;
@@ -487,8 +487,8 @@ public class tk2dStaticSpriteBatcher : MonoBehaviour, ISpriteCollectionForceBuil
 				int target = tk2dTextGeomGen.SetTextMeshGeom(array8, array9, array10, array11, 0, geomData);
 				if (!geomData.fontInst.isPacked)
 				{
-					Color32 val2 = Color32.op_Implicit(tk2dTextMeshData4.color);
-					Color32 val3 = Color32.op_Implicit(tk2dTextMeshData4.useGradient ? tk2dTextMeshData4.color2 : tk2dTextMeshData4.color);
+					Color32 val2 = (Color32)(tk2dTextMeshData4.color);
+					Color32 val3 = (Color32)(tk2dTextMeshData4.useGradient ? tk2dTextMeshData4.color2 : tk2dTextMeshData4.color);
 					for (int j = 0; j < array11.Length; j++)
 					{
 						Color32 val4 = ((j % 4 < 2) ? val2 : val3);
@@ -520,7 +520,7 @@ public class tk2dStaticSpriteBatcher : MonoBehaviour, ISpriteCollectionForceBuil
 			for (int k = 0; k < num4; k++)
 			{
 				Vector3 val6 = Vector3.Scale(array8[k], tk2dBatchedSprite4.baseScale);
-				val6 = ((Matrix4x4)(ref val5)).MultiplyPoint(val6);
+				val6 = val5.MultiplyPoint(val6);
 				if (flag4)
 				{
 					val6.z = 0f;
@@ -538,7 +538,7 @@ public class tk2dStaticSpriteBatcher : MonoBehaviour, ISpriteCollectionForceBuil
 				}
 				if (flag2)
 				{
-					((Vector3)(ref val7))._002Ector(array13[k].x, array13[k].y, array13[k].z);
+					val7 = new Vector3(array13[k].x, array13[k].y, array13[k].z);
 					val7 = tk2dBatchedSprite4.rotation * val7;
 					array3[num2 + k] = new Vector4(val7.x, val7.y, val7.z, array13[k].w);
 				}
@@ -552,7 +552,7 @@ public class tk2dStaticSpriteBatcher : MonoBehaviour, ISpriteCollectionForceBuil
 			list.Add(val);
 			list2.Add(list5);
 		}
-		if (Object.op_Implicit((Object)(object)mesh))
+		if ((mesh != null))
 		{
 			mesh.vertices = array4;
 			mesh.uv = array6;
@@ -844,7 +844,7 @@ public class tk2dStaticSpriteBatcher : MonoBehaviour, ISpriteCollectionForceBuil
 					Vector2[] array4 = (Vector2[])(object)new Vector2[tk2dCollider2DData2.points.Length];
 					for (int n = 0; n < tk2dCollider2DData2.points.Length; n++)
 					{
-						array4[n] = Vector2.op_Implicit(((Matrix4x4)(ref val3)).MultiplyPoint(Vector2.op_Implicit(tk2dCollider2DData2.points[n])));
+						array4[n] = (Vector2)(val3.MultiplyPoint((Vector2)(tk2dCollider2DData2.points[n])));
 					}
 					edgeColliders[num2].points = array4;
 				}
@@ -854,7 +854,7 @@ public class tk2dStaticSpriteBatcher : MonoBehaviour, ISpriteCollectionForceBuil
 					Vector2[] array5 = (Vector2[])(object)new Vector2[tk2dCollider2DData3.points.Length + 1];
 					for (int num3 = 0; num3 < tk2dCollider2DData3.points.Length; num3++)
 					{
-						array5[num3] = Vector2.op_Implicit(((Matrix4x4)(ref val3)).MultiplyPoint(Vector2.op_Implicit(tk2dCollider2DData3.points[num3])));
+						array5[num3] = (Vector2)(val3.MultiplyPoint((Vector2)(tk2dCollider2DData3.points[num3])));
 					}
 					array5[tk2dCollider2DData3.points.Length] = array5[0];
 					edgeColliders[num2].points = array5;
@@ -865,10 +865,10 @@ public class tk2dStaticSpriteBatcher : MonoBehaviour, ISpriteCollectionForceBuil
 			{
 				Vector3 val4 = val - val2;
 				Vector3 val5 = val + val2;
-				array[0] = Vector2.op_Implicit(((Matrix4x4)(ref val3)).MultiplyPoint(Vector2.op_Implicit(new Vector2(val4.x, val4.y))));
-				array[1] = Vector2.op_Implicit(((Matrix4x4)(ref val3)).MultiplyPoint(Vector2.op_Implicit(new Vector2(val5.x, val4.y))));
-				array[2] = Vector2.op_Implicit(((Matrix4x4)(ref val3)).MultiplyPoint(Vector2.op_Implicit(new Vector2(val5.x, val5.y))));
-				array[3] = Vector2.op_Implicit(((Matrix4x4)(ref val3)).MultiplyPoint(Vector2.op_Implicit(new Vector2(val4.x, val5.y))));
+				array[0] = (Vector2)(val3.MultiplyPoint((Vector2)(new Vector2(val4.x, val4.y))));
+				array[1] = (Vector2)(val3.MultiplyPoint((Vector2)(new Vector2(val5.x, val4.y))));
+				array[2] = (Vector2)(val3.MultiplyPoint((Vector2)(new Vector2(val5.x, val5.y))));
+				array[3] = (Vector2)(val3.MultiplyPoint((Vector2)(new Vector2(val4.x, val5.y))));
 				array[4] = array[0];
 				edgeColliders[num2].points = array;
 				num2++;

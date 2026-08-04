@@ -1,10 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+#if PLAYMAKER
 using HutongGames.PlayMaker;
+#endif
 using UnityEngine;
+using Object = UnityEngine.Object;
 
-namespace TeamCherry.SharedUtils;
+namespace TeamCherry.SharedUtils
+{
 
 public static class Extensions
 {
@@ -376,6 +380,7 @@ public static class Extensions
 		return bitMask;
 	}
 
+	#if PLAYMAKER
 	public static GameObject GetSafe(this FsmOwnerDefault ownerDefault, FsmStateAction stateAction)
 	{
 		if (ownerDefault.OwnerOption != OwnerDefaultOption.UseOwner)
@@ -384,4 +389,6 @@ public static class Extensions
 		}
 		return stateAction.Owner;
 	}
+	#endif
+}
 }

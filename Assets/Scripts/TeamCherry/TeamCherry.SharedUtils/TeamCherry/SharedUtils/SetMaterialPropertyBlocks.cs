@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
-namespace TeamCherry.SharedUtils;
+namespace TeamCherry.SharedUtils
+{
 
 public class SetMaterialPropertyBlocks : MonoBehaviour, IVertexColor
 {
@@ -161,7 +163,7 @@ public class SetMaterialPropertyBlocks : MonoBehaviour, IVertexColor
 		Renderer[] array = renderers;
 		foreach (Renderer val in array)
 		{
-			if (!Object.op_Implicit((Object)(object)val))
+			if (val == null)
 			{
 				continue;
 			}
@@ -207,4 +209,5 @@ public class SetMaterialPropertyBlocks : MonoBehaviour, IVertexColor
 		}
 		UpdateRenderers();
 	}
+}
 }

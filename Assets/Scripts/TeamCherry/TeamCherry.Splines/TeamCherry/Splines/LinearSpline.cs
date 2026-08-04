@@ -1,7 +1,8 @@
 using TeamCherry.SharedUtils;
 using UnityEngine;
 
-namespace TeamCherry.Splines;
+namespace TeamCherry.Splines
+{
 
 public class LinearSpline : SplineBase
 {
@@ -68,7 +69,7 @@ public class LinearSpline : SplineBase
 		for (int i = 0; i < num; i++)
 		{
 			Transform val = controlPoints[i];
-			if (Object.op_Implicit((Object)(object)val))
+			if ((val != null))
 			{
 				InternalPoints[i] = new Point
 				{
@@ -98,7 +99,7 @@ public class LinearSpline : SplineBase
 					Vector3 position2 = InternalPoints[j - 1].Position;
 					Vector3 val3 = val2;
 					val4 = position - position2;
-					val2 = val3 + ((Vector3)(ref val4)).normalized;
+					val2 = val3 + val4.normalized;
 					num2 += 1f;
 				}
 				if (j < num - 1)
@@ -106,11 +107,11 @@ public class LinearSpline : SplineBase
 					Vector3 position3 = InternalPoints[j + 1].Position;
 					Vector3 val5 = val2;
 					val4 = position3 - position;
-					val2 = val5 + ((Vector3)(ref val4)).normalized;
+					val2 = val5 + val4.normalized;
 					num2 += 1f;
 				}
 				Vector3 val6 = val2 / num2;
-				tangent = ((Vector3)(ref val6)).normalized;
+				tangent = val6.normalized;
 			}
 			else
 			{
@@ -134,4 +135,5 @@ public class LinearSpline : SplineBase
 		transform2.localPosition += Vector3.one;
 		controlPoints = (Transform[])(object)new Transform[2] { transform, transform2 };
 	}
+}
 }

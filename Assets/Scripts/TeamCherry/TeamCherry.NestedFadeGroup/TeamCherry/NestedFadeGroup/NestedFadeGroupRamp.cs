@@ -1,7 +1,8 @@
 using TeamCherry.SharedUtils;
 using UnityEngine;
 
-namespace TeamCherry.NestedFadeGroup;
+namespace TeamCherry.NestedFadeGroup
+{
 
 public class NestedFadeGroupRamp : RampBase
 {
@@ -28,7 +29,7 @@ public class NestedFadeGroupRamp : RampBase
 
 	private void Awake()
 	{
-		if (!Object.op_Implicit((Object)(object)group))
+		if (!(group != null))
 		{
 			group = ((Component)this).GetComponent<NestedFadeGroupBase>();
 		}
@@ -36,7 +37,7 @@ public class NestedFadeGroupRamp : RampBase
 
 	protected override void ResetValues()
 	{
-		if (Object.op_Implicit((Object)(object)group))
+		if ((group != null))
 		{
 			if (!startAlpha.HasValue)
 			{
@@ -51,9 +52,10 @@ public class NestedFadeGroupRamp : RampBase
 
 	protected override void UpdateValues(float multiplier)
 	{
-		if (Object.op_Implicit((Object)(object)group))
+		if ((group != null))
 		{
 			group.AlphaSelf = alpha * multiplier;
 		}
 	}
+}
 }

@@ -2,7 +2,8 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-namespace tk2dRuntime;
+namespace tk2dRuntime
+{
 
 internal static class SpriteCollectionGenerator
 {
@@ -19,7 +20,7 @@ internal static class SpriteCollectionGenerator
 	{
 		//IL_0017: Unknown result type (might be due to invalid IL or missing references)
 		Vector2 textureDimensions = default(Vector2);
-		((Vector2)(ref textureDimensions))._002Ector((float)texture.width, (float)texture.height);
+		textureDimensions = new Vector2((float)texture.width, (float)texture.height);
 		return CreateFromTexture(texture, size, textureDimensions, names, regions, null, anchors, null);
 	}
 
@@ -54,7 +55,7 @@ internal static class SpriteCollectionGenerator
 		tk2dSpriteCollectionData.buildKey = Random.Range(0, int.MaxValue);
 		float scale = 2f * size.OrthoSize / size.TargetHeight;
 		Rect trimRect = default(Rect);
-		((Rect)(ref trimRect))._002Ector(0f, 0f, 0f, 0f);
+		trimRect = new Rect(0f, 0f, 0f, 0f);
 		tk2dSpriteCollectionData.spriteDefinitions = new tk2dSpriteDefinition[regions.Length];
 		for (int i = 0; i < regions.Length; i++)
 		{
@@ -65,11 +66,11 @@ internal static class SpriteCollectionGenerator
 			}
 			else if (flag)
 			{
-				((Rect)(ref trimRect)).Set(0f, 0f, ((Rect)(ref regions[i])).height, ((Rect)(ref regions[i])).width);
+				trimRect.Set(0f, 0f, regions[i].height, regions[i].width);
 			}
 			else
 			{
-				((Rect)(ref trimRect)).Set(0f, 0f, ((Rect)(ref regions[i])).width, ((Rect)(ref regions[i])).height);
+				trimRect.Set(0f, 0f, regions[i].width, regions[i].height);
 			}
 			tk2dSpriteCollectionData.spriteDefinitions[i] = CreateDefinitionForRegionInTexture(names[i], textureDimensions, scale, regions[i], trimRect, anchors[i], flag);
 		}
@@ -208,8 +209,8 @@ internal static class SpriteCollectionGenerator
 		//IL_04d4: Unknown result type (might be due to invalid IL or missing references)
 		//IL_04e2: Unknown result type (might be due to invalid IL or missing references)
 		//IL_04e7: Unknown result type (might be due to invalid IL or missing references)
-		float height = ((Rect)(ref uvRegion)).height;
-		float width = ((Rect)(ref uvRegion)).width;
+		float height = uvRegion.height;
+		float width = uvRegion.width;
 		float x = textureDimensions.x;
 		float y = textureDimensions.y;
 		tk2dSpriteDefinition tk2dSpriteDefinition = new tk2dSpriteDefinition();
@@ -218,23 +219,23 @@ internal static class SpriteCollectionGenerator
 		tk2dSpriteDefinition.name = name;
 		tk2dSpriteDefinition.colliderType = tk2dSpriteDefinition.ColliderType.Unset;
 		Vector2 val = default(Vector2);
-		((Vector2)(ref val))._002Ector(0.001f, 0.001f);
+		val = new Vector2(0.001f, 0.001f);
 		Vector2 val2 = default(Vector2);
-		((Vector2)(ref val2))._002Ector((((Rect)(ref uvRegion)).x + val.x) / x, 1f - (((Rect)(ref uvRegion)).y + ((Rect)(ref uvRegion)).height + val.y) / y);
+		val2 = new Vector2((uvRegion.x + val.x) / x, 1f - (uvRegion.y + uvRegion.height + val.y) / y);
 		Vector2 val3 = default(Vector2);
-		((Vector2)(ref val3))._002Ector((((Rect)(ref uvRegion)).x + ((Rect)(ref uvRegion)).width - val.x) / x, 1f - (((Rect)(ref uvRegion)).y - val.y) / y);
+		val3 = new Vector2((uvRegion.x + uvRegion.width - val.x) / x, 1f - (uvRegion.y - val.y) / y);
 		Vector2 val4 = default(Vector2);
-		((Vector2)(ref val4))._002Ector(((Rect)(ref trimRect)).x - anchor.x, 0f - ((Rect)(ref trimRect)).y + anchor.y);
+		val4 = new Vector2(trimRect.x - anchor.x, 0f - trimRect.y + anchor.y);
 		if (rotated)
 		{
 			val4.y -= width;
 		}
 		val4 *= scale;
 		Vector3 val5 = default(Vector3);
-		((Vector3)(ref val5))._002Ector((0f - anchor.x) * scale, anchor.y * scale, 0f);
-		Vector3 val6 = val5 + new Vector3(((Rect)(ref trimRect)).width * scale, (0f - ((Rect)(ref trimRect)).height) * scale, 0f);
+		val5 = new Vector3((0f - anchor.x) * scale, anchor.y * scale, 0f);
+		Vector3 val6 = val5 + new Vector3(trimRect.width * scale, (0f - trimRect.height) * scale, 0f);
 		Vector3 val7 = default(Vector3);
-		((Vector3)(ref val7))._002Ector(0f, (0f - height) * scale, 0f);
+		val7 = new Vector3(0f, (0f - height) * scale, 0f);
 		Vector3 val8 = val7 + new Vector3(width * scale, height * scale, 0f);
 		if (rotated)
 		{
@@ -274,9 +275,9 @@ internal static class SpriteCollectionGenerator
 		tk2dSpriteDefinition.tangents = (Vector4[])(object)new Vector4[0];
 		tk2dSpriteDefinition.indices = new int[6] { 0, 3, 1, 2, 3, 0 };
 		Vector3 val9 = default(Vector3);
-		((Vector3)(ref val9))._002Ector(val5.x, val6.y, 0f);
+		val9 = new Vector3(val5.x, val6.y, 0f);
 		Vector3 val10 = default(Vector3);
-		((Vector3)(ref val10))._002Ector(val6.x, val5.y, 0f);
+		val10 = new Vector3(val6.x, val5.y, 0f);
 		tk2dSpriteDefinition.boundsData = (Vector3[])(object)new Vector3[2]
 		{
 			(val10 + val9) / 2f,
@@ -350,13 +351,13 @@ internal static class SpriteCollectionGenerator
 					case 's':
 					{
 						string[] array = text.Split();
-						((Rect)(ref item2)).Set((float)int.Parse(array[1]), (float)int.Parse(array[2]), (float)int.Parse(array[3]), (float)int.Parse(array[4]));
+						item2.Set((float)int.Parse(array[1]), (float)int.Parse(array[2]), (float)int.Parse(array[3]), (float)int.Parse(array[4]));
 						break;
 					}
 					case 'o':
 					{
 						string[] array2 = text.Split();
-						((Rect)(ref item3)).Set((float)int.Parse(array2[1]), (float)int.Parse(array2[2]), (float)int.Parse(array2[3]), (float)int.Parse(array2[4]));
+						item3.Set((float)int.Parse(array2[1]), (float)int.Parse(array2[2]), (float)int.Parse(array2[3]), (float)int.Parse(array2[4]));
 						flag2 = true;
 						break;
 					}
@@ -368,15 +369,15 @@ internal static class SpriteCollectionGenerator
 						{
 							if (flag)
 							{
-								((Rect)(ref item3)).Set(0f, 0f, ((Rect)(ref item2)).height, ((Rect)(ref item2)).width);
+								item3.Set(0f, 0f, item2.height, item2.width);
 							}
 							else
 							{
-								((Rect)(ref item3)).Set(0f, 0f, ((Rect)(ref item2)).width, ((Rect)(ref item2)).height);
+								item3.Set(0f, 0f, item2.width, item2.height);
 							}
 						}
 						list3.Add(item3);
-						((Vector2)(ref zero2)).Set((float)(int)(((Rect)(ref item3)).width / 2f), (float)(int)(((Rect)(ref item3)).height / 2f));
+						zero2.Set((float)(int)(item3.width / 2f), (float)(int)(item3.height / 2f));
 						list4.Add(zero2);
 						item = "";
 						flag2 = false;
@@ -389,4 +390,5 @@ internal static class SpriteCollectionGenerator
 		}
 		return CreateFromTexture(texture, spriteCollectionSize, zero, list.ToArray(), list2.ToArray(), list3.ToArray(), list4.ToArray(), list5.ToArray());
 	}
+}
 }

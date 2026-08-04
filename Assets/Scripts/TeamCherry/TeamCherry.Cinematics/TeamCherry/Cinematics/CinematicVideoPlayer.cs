@@ -1,7 +1,9 @@
 using System;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
-namespace TeamCherry.Cinematics;
+namespace TeamCherry.Cinematics
+{
 
 public abstract class CinematicVideoPlayer : IDisposable
 {
@@ -33,7 +35,7 @@ public abstract class CinematicVideoPlayer : IDisposable
 	protected CinematicVideoPlayer(CinematicVideoPlayerConfig config)
 	{
 		Config = config;
-		if (Object.op_Implicit((Object)(object)config.AudioSource))
+		if ((config.AudioSource != null))
 		{
 			config.AudioSource.clip = config.VideoReference.Audio;
 			config.AudioSource.playOnAwake = false;
@@ -64,7 +66,7 @@ public abstract class CinematicVideoPlayer : IDisposable
 
 	protected void PlayAudio(float time)
 	{
-		if (Object.op_Implicit((Object)(object)Config.AudioSource))
+		if ((Config.AudioSource != null))
 		{
 			Config.AudioSource.Stop();
 			Config.AudioSource.time = time;
@@ -74,9 +76,10 @@ public abstract class CinematicVideoPlayer : IDisposable
 
 	protected void StopAudio()
 	{
-		if (Object.op_Implicit((Object)(object)Config.AudioSource))
+		if ((Config.AudioSource != null))
 		{
 			Config.AudioSource.Stop();
 		}
 	}
+}
 }

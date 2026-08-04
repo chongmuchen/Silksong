@@ -2,7 +2,8 @@ using System;
 using System.IO;
 using UnityEngine;
 
-namespace TeamCherry.BuildBot;
+namespace TeamCherry.BuildBot
+{
 
 [Serializable]
 public class BuildMetadata
@@ -78,4 +79,5 @@ public class BuildMetadata
 			buildTime = buildTime.ToBinary()
 		};
 	}
+}
 }

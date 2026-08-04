@@ -1,6 +1,7 @@
 using System;
 
-namespace TeamCherry.NestedFadeGroup;
+namespace TeamCherry.NestedFadeGroup
+{
 
 [AttributeUsage(AttributeTargets.Class)]
 public class NestedFadeGroupBridgeAttribute : Attribute
@@ -11,4 +12,5 @@ public class NestedFadeGroupBridgeAttribute : Attribute
 	{
 		TargetTypes = targetTypes;
 	}
+}
 }

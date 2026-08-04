@@ -1,7 +1,9 @@
+#if PLAYMAKER
 using System;
 using HutongGames.PlayMaker;
 
-namespace TeamCherry.Localization;
+namespace TeamCherry.Localization
+{
 
 [Serializable]
 public class LocalisedFsmString
@@ -20,3 +22,6 @@ public class LocalisedFsmString
 		return new LocalisedString(s.Sheet.Value, s.Key.Value);
 	}
 }
+}
+
+#endif

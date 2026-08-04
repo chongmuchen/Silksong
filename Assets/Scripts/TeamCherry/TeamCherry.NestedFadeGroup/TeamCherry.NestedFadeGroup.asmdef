@@ -1,0 +1,17 @@
+{
+  "name": "TeamCherry.NestedFadeGroup",
+  "rootNamespace": "TeamCherry.NestedFadeGroup",
+  "references": [
+    "TeamCherry.SharedUtils",
+    "TeamCherry.TK2D"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": true,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

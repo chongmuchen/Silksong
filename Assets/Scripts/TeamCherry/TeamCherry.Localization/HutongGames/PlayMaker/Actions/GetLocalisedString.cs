@@ -1,6 +1,8 @@
+#if PLAYMAKER
 using TeamCherry.Localization;
 
-namespace HutongGames.PlayMaker.Actions;
+namespace HutongGames.PlayMaker.Actions
+{
 
 public class GetLocalisedString : FsmStateAction
 {
@@ -21,3 +23,6 @@ public class GetLocalisedString : FsmStateAction
 		Finish();
 	}
 }
+}
+
+#endif
