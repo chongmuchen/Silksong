@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
 using GlobalEnums;
-using GlobalSettings;
+// using GlobalSettings;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -121,7 +121,7 @@ public class PlayerData : PlayerDataBase
 
 	public bool CollectedDockDemoKey;
 
-	public HeroItemsState PreMemoryState;
+	// public HeroItemsState PreMemoryState;
 
 	public bool HasStoredMemoryState;
 
@@ -205,7 +205,7 @@ public class PlayerData : PlayerDataBase
 	[NonSerialized]
 	public Vector3 hazardRespawnLocation;
 
-	public HazardRespawnMarker.FacingDirection hazardRespawnFacing;
+	// public HazardRespawnMarker.FacingDirection hazardRespawnFacing;
 
 	public string HeroCorpseScene;
 
@@ -292,9 +292,9 @@ public class PlayerData : PlayerDataBase
 
 	public bool hasKilled;
 
-	public SaveSlotCompletionIcons.CompletionState CompletedEndings;
+	// public SaveSlotCompletionIcons.CompletionState CompletedEndings;
 
-	public SaveSlotCompletionIcons.CompletionState LastCompletedEnding;
+	// public SaveSlotCompletionIcons.CompletionState LastCompletedEnding;
 
 	public bool fixerQuestBoardConvo;
 
@@ -646,7 +646,7 @@ public class PlayerData : PlayerDataBase
 
 	public bool seenJournalQuestUpdateMsg;
 
-	public EnemyJournalKillData EnemyJournalKillData;
+	// public EnemyJournalKillData EnemyJournalKillData;
 
 	public int currentInvPane;
 
@@ -881,7 +881,7 @@ public class PlayerData : PlayerDataBase
 
 	public bool hasMarker_e;
 
-	public WrappedVector2List[] placedMarkers;
+	// public WrappedVector2List[] placedMarkers;
 
 	public EnvironmentTypes environmentType;
 
@@ -1786,7 +1786,7 @@ public class PlayerData : PlayerDataBase
 
 	public bool BelltownFurnishingGramaphone;
 
-	public CollectionGramaphone.PlayingInfo BelltownHousePlayingInfo;
+	// public CollectionGramaphone.PlayingInfo BelltownHousePlayingInfo;
 
 	public bool CrawbellInstalled;
 
@@ -1810,9 +1810,9 @@ public class PlayerData : PlayerDataBase
 
 	public bool CollectedCommonSpine;
 
-	public CollectableMementosData MementosDeposited;
+	// public CollectableMementosData MementosDeposited;
 
-	public MateriumItemsData MateriumCollected;
+	// public MateriumItemsData MateriumCollected;
 
 	public bool CollectedMementoGrey;
 
@@ -1906,7 +1906,7 @@ public class PlayerData : PlayerDataBase
 
 	public bool EncounteredSummonedSaviour;
 
-	public SteelSoulQuestSpot.Spot[] SteelQuestSpots;
+	// public SteelSoulQuestSpot.Spot[] SteelQuestSpots;
 
 	public int GrowstoneState;
 
@@ -2144,7 +2144,7 @@ public class PlayerData : PlayerDataBase
 
 	public bool LibrarianAskedForMelody;
 
-	public CollectionGramaphone.PlayingInfo LibrarianPlayingInfo;
+	// public CollectionGramaphone.PlayingInfo LibrarianPlayingInfo;
 
 	public bool LibrarianCollectionComplete;
 
@@ -2716,7 +2716,7 @@ public class PlayerData : PlayerDataBase
 
 	public string currentBossStatueCompletionKey;
 
-	public BossSequenceController.BossSequenceData currentBossSequence;
+	// public BossSequenceController.BossSequenceData currentBossSequence;
 
 	public bool bossRushMode;
 
@@ -2741,7 +2741,7 @@ public class PlayerData : PlayerDataBase
 
 	public string PreviousCrestID;
 
-	public ToolCrestsData ToolEquips;
+	// public ToolCrestsData ToolEquips;
 
 	[NonSerialized]
 	public bool IsCurrentCrestTemp;
@@ -2750,14 +2750,14 @@ public class PlayerData : PlayerDataBase
 
 	public bool UnlockedExtraYellowSlot;
 
-	public FloatingCrestSlotsData ExtraToolEquips;
+	// public FloatingCrestSlotsData ExtraToolEquips;
 
-	public ToolItemsData Tools;
+	// public ToolItemsData Tools;
 
 	[NonSerialized]
 	private Dictionary<string, int> toolAmountsOverride;
 
-	public ToolItemLiquidsData ToolLiquids;
+	// public ToolItemLiquidsData ToolLiquids;
 
 	public int ToolPouchUpgrades;
 
@@ -2773,9 +2773,9 @@ public class PlayerData : PlayerDataBase
 
 	public bool SeenToolUsePrompt;
 
-	public QuestCompletionData QuestCompletionData;
+	// public QuestCompletionData QuestCompletionData;
 
-	public QuestRumourData QuestRumourData;
+	// public QuestRumourData QuestRumourData;
 
 	public int ShellShards;
 
@@ -2793,9 +2793,9 @@ public class PlayerData : PlayerDataBase
 
 	public int TempShellShardStore;
 
-	public CollectableItemsData Collectables;
+	// public CollectableItemsData Collectables;
 
-	public CollectableRelicsData Relics;
+	// public CollectableRelicsData Relics;
 
 	public bool UnlockedFastTravel;
 
@@ -2863,23 +2863,23 @@ public class PlayerData : PlayerDataBase
 
 	public bool MushroomQuestFound7;
 
-	public List<PlayerStory.EventInfo> StoryEvents;
+	// public List<PlayerStory.EventInfo> StoryEvents;
 
 	private static PlayerData _instance;
 
-	private static BoolFieldAccessOptimizer<PlayerData> boolFieldAccessOptimizer = new BoolFieldAccessOptimizer<PlayerData>();
+	// private static BoolFieldAccessOptimizer<PlayerData> boolFieldAccessOptimizer = new BoolFieldAccessOptimizer<PlayerData>();
 
-	private static FieldAccessOptimizer<PlayerData, int> intFieldAccessOptimiser = new FieldAccessOptimizer<PlayerData, int>();
+	// private static FieldAccessOptimizer<PlayerData, int> intFieldAccessOptimiser = new FieldAccessOptimizer<PlayerData, int>();
 
-	private static FieldAccessOptimizer<PlayerData, float> floatFieldAccessOptimiser = new FieldAccessOptimizer<PlayerData, float>();
+	// private static FieldAccessOptimizer<PlayerData, float> floatFieldAccessOptimiser = new FieldAccessOptimizer<PlayerData, float>();
 
-	private static FieldAccessOptimizer<PlayerData, string> stringFieldAccessOptimiser = new FieldAccessOptimizer<PlayerData, string>();
+	// private static FieldAccessOptimizer<PlayerData, string> stringFieldAccessOptimiser = new FieldAccessOptimizer<PlayerData, string>();
 
-	private static FieldAccessOptimizer<PlayerData, Vector3> vector3FieldAccessOptimiser = new FieldAccessOptimizer<PlayerData, Vector3>();
+	// private static FieldAccessOptimizer<PlayerData, Vector3> vector3FieldAccessOptimiser = new FieldAccessOptimizer<PlayerData, Vector3>();
 
-	public bool IsDemoMode => DemoHelper.IsDemoMode;
+	// public bool IsDemoMode => DemoHelper.IsDemoMode;
 
-	public bool IsExhibitionMode => DemoHelper.IsExhibitionMode;
+	// public bool IsExhibitionMode => DemoHelper.IsExhibitionMode;
 
 	public bool IsHornetStrengthRegained
 	{
@@ -3036,21 +3036,21 @@ public class PlayerData : PlayerDataBase
 
 	public bool CaravanInGreymoor => CaravanTroupeLocation == CaravanTroupeLocations.Greymoor;
 
-	public bool HasLifebloodSyringeGland => Collectables.GetData("Plasmium Gland").Amount > 0;
+	// public bool HasLifebloodSyringeGland => Collectables.GetData("Plasmium Gland").Amount > 0;
 
-	public bool GourmandQuestAccepted => QuestManager.GetQuest("Great Gourmand").IsAccepted;
+	// public bool GourmandQuestAccepted => QuestManager.GetQuest("Great Gourmand").IsAccepted;
 
-	public bool SlaveDeliveryQuestCompleted
-	{
-		get
-		{
-			if (permadeathMode != PermadeathModes.On)
-			{
-				return QuestCompletionData.GetData("Courier Delivery Dustpens Slave").IsCompleted;
-			}
-			return true;
-		}
-	}
+	// public bool SlaveDeliveryQuestCompleted
+	// {
+	// 	get
+	// 	{
+	// 		if (permadeathMode != PermadeathModes.On)
+	// 		{
+	// 			return QuestCompletionData.GetData("Courier Delivery Dustpens Slave").IsCompleted;
+	// 		}
+	// 		return true;
+	// 	}
+	// }
 
 	public bool BelltownHouseVisited => scenesVisited.Contains("Belltown_Room_Spare");
 
@@ -3074,24 +3074,24 @@ public class PlayerData : PlayerDataBase
 		}
 	}
 
-	public bool HasAnyMemento
-	{
-		get
-		{
-			foreach (CollectableItemMemento memento in Gameplay.MementoList)
-			{
-				if ((bool)memento && memento.CollectedAmount > 0)
-				{
-					return true;
-				}
-			}
-			return false;
-		}
-	}
+	// public bool HasAnyMemento
+	// {
+	// 	get
+	// 	{
+	// 		foreach (CollectableItemMemento memento in Gameplay.MementoList)
+	// 		{
+	// 			if ((bool)memento && memento.CollectedAmount > 0)
+	// 			{
+	// 				return true;
+	// 			}
+	// 		}
+	// 		return false;
+	// 	}
+	// }
 
 	public bool CloakFlySmell => cloakOdour_slabFly > 0;
 
-	public bool IsAnyRelicsDeposited => Relics.IsAnyMatching((CollectableRelicsData.Data relic) => relic.IsDeposited);
+	// public bool IsAnyRelicsDeposited => Relics.IsAnyMatching((CollectableRelicsData.Data relic) => relic.IsDeposited);
 
 	public bool WillLoadWardBoss
 	{
@@ -3109,11 +3109,11 @@ public class PlayerData : PlayerDataBase
 		}
 	}
 
-	public int CollectedCloverMemoryOrbs => Convert.ToInt32(memoryOrbs_Clover_02c_A) + Convert.ToInt32(memoryOrbs_Clover_03_B) + Convert.ToInt32(memoryOrbs_Clover_06_A) + Convert.ToInt32(memoryOrbs_Clover_11) + Convert.ToInt32(memoryOrbs_Clover_16_B) + Convert.ToInt32(memoryOrbs_Clover_16_C) + Convert.ToInt32(memoryOrbs_Clover_21) + memoryOrbs_Clover_18_A.CountSetBits() + memoryOrbs_Clover_18_B.CountSetBits() + memoryOrbs_Clover_18_C.CountSetBits() + memoryOrbs_Clover_18_D.CountSetBits() + memoryOrbs_Clover_18_E.CountSetBits() + memoryOrbs_Clover_19.CountSetBits();
+	// public int CollectedCloverMemoryOrbs => Convert.ToInt32(memoryOrbs_Clover_02c_A) + Convert.ToInt32(memoryOrbs_Clover_03_B) + Convert.ToInt32(memoryOrbs_Clover_06_A) + Convert.ToInt32(memoryOrbs_Clover_11) + Convert.ToInt32(memoryOrbs_Clover_16_B) + Convert.ToInt32(memoryOrbs_Clover_16_C) + Convert.ToInt32(memoryOrbs_Clover_21) + memoryOrbs_Clover_18_A.CountSetBits() + memoryOrbs_Clover_18_B.CountSetBits() + memoryOrbs_Clover_18_C.CountSetBits() + memoryOrbs_Clover_18_D.CountSetBits() + memoryOrbs_Clover_18_E.CountSetBits() + memoryOrbs_Clover_19.CountSetBits();
 
-	public bool CloverMemoryOrbsCollectedAll => CollectedCloverMemoryOrbs >= 17;
+	// public bool CloverMemoryOrbsCollectedAll => CollectedCloverMemoryOrbs >= 17;
 
-	public bool CloverMemoryOrbsCollectedTarget => CollectedCloverMemoryOrbs >= 12;
+	// public bool CloverMemoryOrbsCollectedTarget => CollectedCloverMemoryOrbs >= 12;
 
 	public bool IsAct3IntroQueued
 	{
@@ -3127,7 +3127,7 @@ public class PlayerData : PlayerDataBase
 		}
 	}
 
-	public bool HasWhiteFlower => Collectables.GetData("White Flower").Amount > 0;
+	// public bool HasWhiteFlower => Collectables.GetData("White Flower").Amount > 0;
 
 	public bool FleaGamesIsJugglingChampion => fleaGames_juggling_highscore > 30;
 
@@ -3205,10 +3205,10 @@ public class PlayerData : PlayerDataBase
 	{
 		get
 		{
-			if (BossSequenceController.BoundShell)
-			{
-				return Mathf.Min(maxHealth, BossSequenceController.BoundMaxHealth);
-			}
+			// if (BossSequenceController.BoundShell)
+			// {
+			// 	return Mathf.Min(maxHealth, BossSequenceController.BoundMaxHealth);
+			// }
 			return maxHealth;
 		}
 	}
@@ -3218,11 +3218,11 @@ public class PlayerData : PlayerDataBase
 		get
 		{
 			int num = CurrentSilkMaxBasic;
-			ToolItem spoolExtenderTool = Gameplay.SpoolExtenderTool;
-			if ((bool)spoolExtenderTool && spoolExtenderTool.IsEquipped)
-			{
-				num += Gameplay.SpoolExtenderSilk;
-			}
+			// ToolItem spoolExtenderTool = Gameplay.SpoolExtenderTool;
+			// if ((bool)spoolExtenderTool && spoolExtenderTool.IsEquipped)
+			// {
+			// 	num += Gameplay.SpoolExtenderSilk;
+			// }
 			return num;
 		}
 	}
@@ -3235,10 +3235,10 @@ public class PlayerData : PlayerDataBase
 			{
 				return silk;
 			}
-			if (IsAnyCursed)
-			{
-				return 3;
-			}
+			// if (IsAnyCursed)
+			// {
+			// 	return 3;
+			// }
 			if (IsSilkSpoolBroken)
 			{
 				return 9;
@@ -3247,37 +3247,37 @@ public class PlayerData : PlayerDataBase
 		}
 	}
 
-	public int SilkSkillCost
-	{
-		get
-		{
-			if (!Gameplay.FleaCharmTool.IsEquippedHud || health < CurrentMaxHealth)
-			{
-				return 4;
-			}
-			return 3;
-		}
-	}
+	// public int SilkSkillCost
+	// {
+	// 	get
+	// 	{
+	// 		if (!Gameplay.FleaCharmTool.IsEquippedHud || health < CurrentMaxHealth)
+	// 		{
+	// 			return 4;
+	// 		}
+	// 		return 3;
+	// 	}
+	// }
 
-	public bool IsAnyCursed => CurrentCrestID == Gameplay.CursedCrest.name;
+	// public bool IsAnyCursed => CurrentCrestID == Gameplay.CursedCrest.name;
 
-	public int CurrentSilkRegenMax
-	{
-		get
-		{
-			if (!Gameplay.WhiteRingTool.IsEquipped)
-			{
-				return silkRegenMax;
-			}
-			return silkRegenMax + Gameplay.WhiteRingSilkRegenIncrease;
-		}
-	}
+	// public int CurrentSilkRegenMax
+	// {
+	// 	get
+	// 	{
+	// 		if (!Gameplay.WhiteRingTool.IsEquipped)
+	// 		{
+	// 			return silkRegenMax;
+	// 		}
+	// 		return silkRegenMax + Gameplay.WhiteRingSilkRegenIncrease;
+	// 	}
+	// }
 
-	public bool JournalIsCompleted => EnemyJournalManager.IsAllRequiredComplete();
+	// public bool JournalIsCompleted => EnemyJournalManager.IsAllRequiredComplete();
 
-	public int JournalCompletedCount => EnemyJournalManager.GetCompletedEnemiesCount();
+	// public int JournalCompletedCount => EnemyJournalManager.GetCompletedEnemiesCount();
 
-	public bool MushroomQuestCompleted => QuestCompletionData.GetData("Mr Mushroom").IsCompleted;
+	// public bool MushroomQuestCompleted => QuestCompletionData.GetData("Mr Mushroom").IsCompleted;
 
 	public static PlayerData instance
 	{
@@ -3314,7 +3314,7 @@ public class PlayerData : PlayerDataBase
 
 	public static PlayerData CreateNewSingleton(bool addEditorOverrides)
 	{
-		_instance = SaveDataUtility.DeserializeSaveData<PlayerData>("{}");
+		// _instance = SaveDataUtility.DeserializeSaveData<PlayerData>("{}");
 		_instance.SetupNewPlayerData(addEditorOverrides);
 		_instance.SetupExistingPlayerData();
 		return _instance;
@@ -3326,22 +3326,22 @@ public class PlayerData : PlayerDataBase
 		SetupNewPlayerData(addEditorOverrides: false);
 	}
 
-	public static void ClearOptimisers()
-	{
-		boolFieldAccessOptimizer = new BoolFieldAccessOptimizer<PlayerData>();
-		intFieldAccessOptimiser = new FieldAccessOptimizer<PlayerData, int>();
-		floatFieldAccessOptimiser = new FieldAccessOptimizer<PlayerData, float>();
-		stringFieldAccessOptimiser = new FieldAccessOptimizer<PlayerData, string>();
-		vector3FieldAccessOptimiser = new FieldAccessOptimizer<PlayerData, Vector3>();
-	}
+	// public static void ClearOptimisers()
+	// {
+	// 	boolFieldAccessOptimizer = new BoolFieldAccessOptimizer<PlayerData>();
+	// 	intFieldAccessOptimiser = new FieldAccessOptimizer<PlayerData, int>();
+	// 	floatFieldAccessOptimiser = new FieldAccessOptimizer<PlayerData, float>();
+	// 	stringFieldAccessOptimiser = new FieldAccessOptimizer<PlayerData, string>();
+	// 	vector3FieldAccessOptimiser = new FieldAccessOptimizer<PlayerData, Vector3>();
+	// }
 
 	public void SetBool(string boolName, bool value)
 	{
-		if (CheatManager.UseFieldAccessOptimisers)
-		{
-			boolFieldAccessOptimizer.SetField(this, boolName, value);
-			return;
-		}
+		// if (CheatManager.UseFieldAccessOptimisers)
+		// {
+		// 	boolFieldAccessOptimizer.SetField(this, boolName, value);
+		// 	return;
+		// }
 		FieldInfo field = GetType().GetField(boolName);
 		if (field != null)
 		{
@@ -3351,11 +3351,11 @@ public class PlayerData : PlayerDataBase
 
 	public void SetInt(string intName, int value)
 	{
-		if (CheatManager.UseFieldAccessOptimisers)
-		{
-			intFieldAccessOptimiser.SetField(this, intName, value);
-			return;
-		}
+		// if (CheatManager.UseFieldAccessOptimisers)
+		// {
+		// 	intFieldAccessOptimiser.SetField(this, intName, value);
+		// 	return;
+		// }
 		FieldInfo field = GetType().GetField(intName);
 		if (field != null)
 		{
@@ -3365,11 +3365,11 @@ public class PlayerData : PlayerDataBase
 
 	public void IncrementInt(string intName)
 	{
-		if (CheatManager.UseFieldAccessOptimisers)
-		{
-			IntAdd(intName, 1);
-			return;
-		}
+		// if (CheatManager.UseFieldAccessOptimisers)
+		// {
+		// 	IntAdd(intName, 1);
+		// 	return;
+		// }
 		FieldInfo field = GetType().GetField(intName);
 		if (field != null)
 		{
@@ -3380,12 +3380,12 @@ public class PlayerData : PlayerDataBase
 
 	public void IntAdd(string intName, int amount)
 	{
-		if (CheatManager.UseFieldAccessOptimisers)
-		{
-			int field = intFieldAccessOptimiser.GetField(this, intName);
-			intFieldAccessOptimiser.SetField(this, intName, field + amount);
-			return;
-		}
+		// if (CheatManager.UseFieldAccessOptimisers)
+		// {
+		// 	int field = intFieldAccessOptimiser.GetField(this, intName);
+		// 	intFieldAccessOptimiser.SetField(this, intName, field + amount);
+		// 	return;
+		// }
 		FieldInfo field2 = GetType().GetField(intName);
 		if (field2 != null)
 		{
@@ -3396,11 +3396,11 @@ public class PlayerData : PlayerDataBase
 
 	public void SetFloat(string floatName, float value)
 	{
-		if (CheatManager.UseFieldAccessOptimisers)
-		{
-			floatFieldAccessOptimiser.SetField(this, floatName, value);
-			return;
-		}
+		// if (CheatManager.UseFieldAccessOptimisers)
+		// {
+		// 	floatFieldAccessOptimiser.SetField(this, floatName, value);
+		// 	return;
+		// }
 		FieldInfo field = GetType().GetField(floatName);
 		if (field != null)
 		{
@@ -3410,11 +3410,11 @@ public class PlayerData : PlayerDataBase
 
 	public void DecrementInt(string intName)
 	{
-		if (CheatManager.UseFieldAccessOptimisers)
-		{
-			IntAdd(intName, -1);
-			return;
-		}
+		// if (CheatManager.UseFieldAccessOptimisers)
+		// {
+		// 	IntAdd(intName, -1);
+		// 	return;
+		// }
 		FieldInfo field = GetType().GetField(intName);
 		if (!(field == null))
 		{
@@ -3429,10 +3429,10 @@ public class PlayerData : PlayerDataBase
 		{
 			return false;
 		}
-		if (CheatManager.UseFieldAccessOptimisers)
-		{
-			return boolFieldAccessOptimizer.GetField(this, boolName);
-		}
+		// if (CheatManager.UseFieldAccessOptimisers)
+		// {
+		// 	return boolFieldAccessOptimizer.GetField(this, boolName);
+		// }
 		FieldInfo field = GetType().GetField(boolName);
 		if (field != null)
 		{
@@ -3447,10 +3447,10 @@ public class PlayerData : PlayerDataBase
 		{
 			return -9999;
 		}
-		if (CheatManager.UseFieldAccessOptimisers)
-		{
-			return intFieldAccessOptimiser.GetField(this, intName);
-		}
+		// if (CheatManager.UseFieldAccessOptimisers)
+		// {
+		// 	return intFieldAccessOptimiser.GetField(this, intName);
+		// }
 		FieldInfo field = GetType().GetField(intName);
 		if (field != null)
 		{
@@ -3465,10 +3465,10 @@ public class PlayerData : PlayerDataBase
 		{
 			return -9999f;
 		}
-		if (CheatManager.UseFieldAccessOptimisers)
-		{
-			return floatFieldAccessOptimiser.GetField(this, floatName);
-		}
+		// if (CheatManager.UseFieldAccessOptimisers)
+		// {
+		// 	return floatFieldAccessOptimiser.GetField(this, floatName);
+		// }
 		FieldInfo field = GetType().GetField(floatName);
 		if (field != null)
 		{
@@ -3483,10 +3483,10 @@ public class PlayerData : PlayerDataBase
 		{
 			return " ";
 		}
-		if (CheatManager.UseFieldAccessOptimisers)
-		{
-			return stringFieldAccessOptimiser.GetField(this, stringName);
-		}
+		// if (CheatManager.UseFieldAccessOptimisers)
+		// {
+		// 	return stringFieldAccessOptimiser.GetField(this, stringName);
+		// }
 		FieldInfo field = GetType().GetField(stringName);
 		if (field != null)
 		{
@@ -3497,11 +3497,11 @@ public class PlayerData : PlayerDataBase
 
 	public void SetString(string stringName, string value)
 	{
-		if (CheatManager.UseFieldAccessOptimisers)
-		{
-			stringFieldAccessOptimiser.SetField(this, stringName, value);
-			return;
-		}
+		// if (CheatManager.UseFieldAccessOptimisers)
+		// {
+		// 	stringFieldAccessOptimiser.SetField(this, stringName, value);
+		// 	return;
+		// }
 		FieldInfo field = GetType().GetField(stringName);
 		if (field != null)
 		{
@@ -3511,11 +3511,11 @@ public class PlayerData : PlayerDataBase
 
 	public void SetVector3(string vectorName, Vector3 value)
 	{
-		if (CheatManager.UseFieldAccessOptimisers)
-		{
-			vector3FieldAccessOptimiser.SetField(this, vectorName, value);
-			return;
-		}
+		// if (CheatManager.UseFieldAccessOptimisers)
+		// {
+		// 	vector3FieldAccessOptimiser.SetField(this, vectorName, value);
+		// 	return;
+		// }
 		FieldInfo field = GetType().GetField(vectorName);
 		if (field != null)
 		{
@@ -3525,10 +3525,10 @@ public class PlayerData : PlayerDataBase
 
 	public Vector3 GetVector3(string vectorName)
 	{
-		if (CheatManager.UseFieldAccessOptimisers)
-		{
-			return vector3FieldAccessOptimiser.GetField(this, vectorName);
-		}
+		// if (CheatManager.UseFieldAccessOptimisers)
+		// {
+		// 	return vector3FieldAccessOptimiser.GetField(this, vectorName);
+		// }
 		FieldInfo field = GetType().GetField(vectorName);
 		if (field != null)
 		{
@@ -3550,10 +3550,10 @@ public class PlayerData : PlayerDataBase
 	public void CaptureToolAmountsOverride()
 	{
 		toolAmountsOverride = new Dictionary<string, int>();
-		foreach (KeyValuePair<string, ToolItemsData.Data> item in Tools.Enumerate())
-		{
-			toolAmountsOverride[item.Key] = item.Value.AmountLeft;
-		}
+		// foreach (KeyValuePair<string, ToolItemsData.Data> item in Tools.Enumerate())
+		// {
+		// 	toolAmountsOverride[item.Key] = item.Value.AmountLeft;
+		// }
 	}
 
 	public void ClearToolAmountsOverride()
@@ -3561,30 +3561,30 @@ public class PlayerData : PlayerDataBase
 		if (toolAmountsOverride != null)
 		{
 			toolAmountsOverride = null;
-			ToolItemManager.SendEquippedChangedEvent(force: true);
+			// ToolItemManager.SendEquippedChangedEvent(force: true);
 		}
 	}
 
-	public ToolItemsData.Data GetToolData(string toolName)
-	{
-		ToolItemsData.Data data = Tools.GetData(toolName);
-		if (toolAmountsOverride != null && toolAmountsOverride.TryGetValue(toolName, out var value))
-		{
-			data.AmountLeft = value;
-		}
-		return data;
-	}
+	// public ToolItemsData.Data GetToolData(string toolName)
+	// {
+	// 	ToolItemsData.Data data = Tools.GetData(toolName);
+	// 	if (toolAmountsOverride != null && toolAmountsOverride.TryGetValue(toolName, out var value))
+	// 	{
+	// 		data.AmountLeft = value;
+	// 	}
+	// 	return data;
+	// }
 
-	public void SetToolData(string toolName, ToolItemsData.Data data)
-	{
-		if (toolAmountsOverride != null)
-		{
-			ToolItemsData.Data data2 = Tools.GetData(toolName);
-			toolAmountsOverride[toolName] = data.AmountLeft;
-			data.AmountLeft = data2.AmountLeft;
-		}
-		Tools.SetData(toolName, data);
-	}
+	// public void SetToolData(string toolName, ToolItemsData.Data data)
+	// {
+	// 	if (toolAmountsOverride != null)
+	// 	{
+	// 		ToolItemsData.Data data2 = Tools.GetData(toolName);
+	// 		toolAmountsOverride[toolName] = data.AmountLeft;
+	// 		data.AmountLeft = data2.AmountLeft;
+	// 	}
+	// 	Tools.SetData(toolName, data);
+	// }
 
 	public void AddHealth(int amount)
 	{
@@ -3620,7 +3620,7 @@ public class PlayerData : PlayerDataBase
 			damagedPurple = false;
 			if (damagedBlue)
 			{
-				EventRegister.SendEvent("PURPLE HEALTH CHECK");
+				// EventRegister.SendEvent("PURPLE HEALTH CHECK");
 			}
 			healthBlue -= amount;
 			if (healthBlue < 0)
@@ -3633,21 +3633,21 @@ public class PlayerData : PlayerDataBase
 			}
 			return;
 		}
-		int num2 = health - amount;
-		ToolItem fracturedMaskTool = Gameplay.FracturedMaskTool;
-		if (num2 <= 0 && (bool)fracturedMaskTool && fracturedMaskTool.IsEquipped && fracturedMaskTool.SavedData.AmountLeft > 0)
-		{
-			if (allowFracturedMaskBreak)
-			{
-				ToolItemsData.Data savedData = fracturedMaskTool.SavedData;
-				savedData.AmountLeft = 0;
-				fracturedMaskTool.SavedData = savedData;
-			}
-			amount = health - 1;
-		}
+		// int num2 = health - amount;
+		// ToolItem fracturedMaskTool = Gameplay.FracturedMaskTool;
+		// if (num2 <= 0 && (bool)fracturedMaskTool && fracturedMaskTool.IsEquipped && fracturedMaskTool.SavedData.AmountLeft > 0)
+		// {
+		// 	if (allowFracturedMaskBreak)
+		// 	{
+		// 		ToolItemsData.Data savedData = fracturedMaskTool.SavedData;
+		// 		savedData.AmountLeft = 0;
+		// 		fracturedMaskTool.SavedData = savedData;
+		// 	}
+		// 	amount = health - 1;
+		// }
 		if (health - amount <= 0)
 		{
-			health = ((CheatManager.Invincibility == CheatManager.InvincibilityStates.PreventDeath) ? 1 : 0);
+			// health = ((CheatManager.Invincibility == CheatManager.InvincibilityStates.PreventDeath) ? 1 : 0);
 		}
 		else
 		{
@@ -3685,11 +3685,11 @@ public class PlayerData : PlayerDataBase
 	public void AddGeo(int amount)
 	{
 		geo += amount;
-		int currencyCap = Gameplay.GetCurrencyCap(CurrencyType.Money);
-		if (geo > currencyCap)
-		{
-			geo = currencyCap;
-		}
+		// int currencyCap = Gameplay.GetCurrencyCap(CurrencyType.Money);
+		// if (geo > currencyCap)
+		// {
+		// 	geo = currencyCap;
+		// }
 	}
 
 	public void TakeGeo(int amount)
@@ -3704,11 +3704,11 @@ public class PlayerData : PlayerDataBase
 	public void AddShards(int amount)
 	{
 		ShellShards += amount;
-		int currencyCap = Gameplay.GetCurrencyCap(CurrencyType.Shard);
-		if (ShellShards > currencyCap)
-		{
-			ShellShards = currencyCap;
-		}
+		// int currencyCap = Gameplay.GetCurrencyCap(CurrencyType.Shard);
+		// if (ShellShards > currencyCap)
+		// {
+		// 	ShellShards = currencyCap;
+		// }
 	}
 
 	public void TakeShards(int amount)
@@ -3767,26 +3767,26 @@ public class PlayerData : PlayerDataBase
 	{
 	}
 
-	public void SetBenchRespawn(RespawnMarker spawnMarker, string sceneName, int spawnType)
-	{
-		respawnMarkerName = spawnMarker.name;
-		respawnScene = sceneName;
-		respawnType = spawnType;
-		if (spawnMarker.overrideMapZone.IsEnabled && spawnMarker.overrideMapZone.Value != MapZone.NONE)
-		{
-			GameManager.instance.SetOverrideMapZoneAsRespawn(spawnMarker.overrideMapZone.Value);
-		}
-		else
-		{
-			GameManager.instance.SetCurrentMapZoneAsRespawn();
-		}
-	}
+	// public void SetBenchRespawn(RespawnMarker spawnMarker, string sceneName, int spawnType)
+	// {
+	// 	respawnMarkerName = spawnMarker.name;
+	// 	respawnScene = sceneName;
+	// 	respawnType = spawnType;
+	// 	if (spawnMarker.overrideMapZone.IsEnabled && spawnMarker.overrideMapZone.Value != MapZone.NONE)
+	// 	{
+	// 		GameManager.instance.SetOverrideMapZoneAsRespawn(spawnMarker.overrideMapZone.Value);
+	// 	}
+	// 	else
+	// 	{
+	// 		GameManager.instance.SetCurrentMapZoneAsRespawn();
+	// 	}
+	// }
 
 	public void SetBenchRespawn(string spawnMarker, string sceneName, bool facingRight)
 	{
 		respawnMarkerName = spawnMarker;
 		respawnScene = sceneName;
-		GameManager.instance.SetCurrentMapZoneAsRespawn();
+		// GameManager.instance.SetCurrentMapZoneAsRespawn();
 	}
 
 	public void SetBenchRespawn(string spawnMarker, string sceneName, int spawnType, bool facingRight)
@@ -3794,19 +3794,19 @@ public class PlayerData : PlayerDataBase
 		respawnMarkerName = spawnMarker;
 		respawnScene = sceneName;
 		respawnType = spawnType;
-		GameManager.instance.SetCurrentMapZoneAsRespawn();
+		// GameManager.instance.SetCurrentMapZoneAsRespawn();
 	}
 
-	public void SetHazardRespawn(HazardRespawnMarker location)
-	{
-		hazardRespawnLocation = location.transform.position;
-		hazardRespawnFacing = location.RespawnFacingDirection;
-	}
+	// public void SetHazardRespawn(HazardRespawnMarker location)
+	// {
+	// 	hazardRespawnLocation = location.transform.position;
+	// 	hazardRespawnFacing = location.RespawnFacingDirection;
+	// }
 
 	public void SetHazardRespawn(Vector3 position, bool facingRight)
 	{
 		hazardRespawnLocation = position;
-		hazardRespawnFacing = ((!facingRight) ? HazardRespawnMarker.FacingDirection.Left : HazardRespawnMarker.FacingDirection.Right);
+		// hazardRespawnFacing = ((!facingRight) ? HazardRespawnMarker.FacingDirection.Left : HazardRespawnMarker.FacingDirection.Right);
 	}
 
 	public void MapperLeaveAll()
@@ -3830,8 +3830,8 @@ public class PlayerData : PlayerDataBase
 	public void CountGameCompletion()
 	{
 		completionPercentage = 0f;
-		completionPercentage += ToolItemManager.GetCount(ToolItemManager.GetUnlockedTools(), null);
-		completionPercentage += ToolItemManager.GetUnlockedCrestsCount() - 1;
+		// completionPercentage += ToolItemManager.GetCount(ToolItemManager.GetUnlockedTools(), null);
+		// completionPercentage += ToolItemManager.GetUnlockedCrestsCount() - 1;
 		completionPercentage += nailUpgrades;
 		completionPercentage += ToolKitUpgrades;
 		completionPercentage += ToolPouchUpgrades;
@@ -3866,10 +3866,10 @@ public class PlayerData : PlayerDataBase
 		{
 			completionPercentage += 1f;
 		}
-		if (HasWhiteFlower)
-		{
-			completionPercentage += 1f;
-		}
+		// if (HasWhiteFlower)
+		// {
+		// 	completionPercentage += 1f;
+		// }
 	}
 
 	private void SetupNewPlayerData(bool addEditorOverrides)
@@ -3879,21 +3879,21 @@ public class PlayerData : PlayerDataBase
 		scenesMapped = new HashSet<string>();
 		scenesEncounteredBench = new HashSet<string>();
 		scenesEncounteredCocoon = new HashSet<string>();
-		ToolEquips = new ToolCrestsData();
-		ToolEquips.SetData("Hunter", new ToolCrestsData.Data
-		{
-			IsUnlocked = true
-		});
-		ExtraToolEquips = new FloatingCrestSlotsData();
-		Tools = new ToolItemsData();
-		ToolLiquids = new ToolItemLiquidsData();
-		EnemyJournalKillData = new EnemyJournalKillData();
-		QuestCompletionData = new QuestCompletionData();
-		QuestRumourData = new QuestRumourData();
-		Collectables = new CollectableItemsData();
-		Relics = new CollectableRelicsData();
-		MementosDeposited = new CollectableMementosData();
-		MateriumCollected = new MateriumItemsData();
+		// ToolEquips = new ToolCrestsData();
+		// ToolEquips.SetData("Hunter", new ToolCrestsData.Data
+		// {
+		// 	IsUnlocked = true
+		// });
+		// ExtraToolEquips = new FloatingCrestSlotsData();
+		// Tools = new ToolItemsData();
+		// ToolLiquids = new ToolItemLiquidsData();
+		// EnemyJournalKillData = new EnemyJournalKillData();
+		// QuestCompletionData = new QuestCompletionData();
+		// QuestRumourData = new QuestRumourData();
+		// Collectables = new CollectableItemsData();
+		// Relics = new CollectableRelicsData();
+		// MementosDeposited = new CollectableMementosData();
+		// MateriumCollected = new MateriumItemsData();
 		mossBerryValueList = Array.Empty<int>();
 		GrubFarmerMimicValueList = Array.Empty<int>();
 	}
@@ -3903,35 +3903,35 @@ public class PlayerData : PlayerDataBase
 		if (mossBerryValueList == null || mossBerryValueList.Length == 0)
 		{
 			mossBerryValueList = new int[3] { 1, 2, 3 };
-			mossBerryValueList.Shuffle();
+			// mossBerryValueList.Shuffle();
 		}
 		if (GrubFarmerMimicValueList == null || GrubFarmerMimicValueList.Length == 0)
 		{
 			GrubFarmerMimicValueList = new int[3] { 1, 2, 3 };
-			GrubFarmerMimicValueList.Shuffle();
+			// GrubFarmerMimicValueList.Shuffle();
 		}
-		SteelSoulQuestSpot.Spot[] steelQuestSpots = SteelQuestSpots;
-		if (steelQuestSpots == null || steelQuestSpots.Length != 3)
-		{
-			SteelQuestSpots = new SteelSoulQuestSpot.Spot[3];
-			List<string> list = new List<string> { "Shellwood_26", "Bone_East_14", "Aspid_01" };
-			List<string> list2 = new List<string> { "Hang_08", "Coral_28", "Aqueduct_05" };
-			SteelQuestSpots[0] = new SteelSoulQuestSpot.Spot
-			{
-				SceneName = list.GetAndRemoveRandomElement()
-			};
-			SteelQuestSpots[1] = new SteelSoulQuestSpot.Spot
-			{
-				SceneName = list2.GetAndRemoveRandomElement()
-			};
-			List<string> list3 = new List<string>(list.Count + list2.Count);
-			list3.AddRange(list);
-			list3.AddRange(list2);
-			SteelQuestSpots[2] = new SteelSoulQuestSpot.Spot
-			{
-				SceneName = list3.GetRandomElement()
-			};
-		}
+		// SteelSoulQuestSpot.Spot[] steelQuestSpots = SteelQuestSpots;
+		// if (steelQuestSpots == null || steelQuestSpots.Length != 3)
+		// {
+		// 	SteelQuestSpots = new SteelSoulQuestSpot.Spot[3];
+		// 	List<string> list = new List<string> { "Shellwood_26", "Bone_East_14", "Aspid_01" };
+		// 	List<string> list2 = new List<string> { "Hang_08", "Coral_28", "Aqueduct_05" };
+		// 	SteelQuestSpots[0] = new SteelSoulQuestSpot.Spot
+		// 	{
+		// 		SceneName = list.GetAndRemoveRandomElement()
+		// 	};
+		// 	SteelQuestSpots[1] = new SteelSoulQuestSpot.Spot
+		// 	{
+		// 		SceneName = list2.GetAndRemoveRandomElement()
+		// 	};
+		// 	List<string> list3 = new List<string>(list.Count + list2.Count);
+		// 	list3.AddRange(list);
+		// 	list3.AddRange(list2);
+		// 	SteelQuestSpots[2] = new SteelSoulQuestSpot.Spot
+		// 	{
+		// 		SceneName = list3.GetRandomElement()
+		// 	};
+		// }
 	}
 
 	public void ResetNonSerializableFields()
@@ -3969,31 +3969,31 @@ public class PlayerData : PlayerDataBase
 		return DateTime.Now.ToString("yyyy/MM/dd");
 	}
 
-	public void OnBeforeSave()
-	{
-		GameManager gameManager = GameManager.instance;
-		bool flag = false;
-		if (!slab_cloak_battle_completed && gameManager.GetSceneNameString() == "Slab_16" && CurrentCrestID != "Cloakless" && PreviousCrestID == "Cloakless")
-		{
-			string currentCrestID = CurrentCrestID;
-			CurrentCrestID = PreviousCrestID;
-			PreviousCrestID = currentCrestID;
-			flag = true;
-		}
-		else if (IsCurrentCrestTemp)
-		{
-			_ = CurrentCrestID;
-			CurrentCrestID = PreviousCrestID;
-			PreviousCrestID = string.Empty;
-			IsCurrentCrestTemp = false;
-			flag = true;
-		}
-		if (flag)
-		{
-			ToolItemManager.SendEquippedChangedEvent(force: true);
-		}
-		Platform.Current.UpdatePlayTime(playTime);
-	}
+	// public void OnBeforeSave()
+	// {
+	// 	GameManager gameManager = GameManager.instance;
+	// 	bool flag = false;
+	// 	if (!slab_cloak_battle_completed && gameManager.GetSceneNameString() == "Slab_16" && CurrentCrestID != "Cloakless" && PreviousCrestID == "Cloakless")
+	// 	{
+	// 		string currentCrestID = CurrentCrestID;
+	// 		CurrentCrestID = PreviousCrestID;
+	// 		PreviousCrestID = currentCrestID;
+	// 		flag = true;
+	// 	}
+	// 	else if (IsCurrentCrestTemp)
+	// 	{
+	// 		_ = CurrentCrestID;
+	// 		CurrentCrestID = PreviousCrestID;
+	// 		PreviousCrestID = string.Empty;
+	// 		IsCurrentCrestTemp = false;
+	// 		flag = true;
+	// 	}
+	// 	if (flag)
+	// 	{
+	// 		ToolItemManager.SendEquippedChangedEvent(force: true);
+	// 	}
+	// 	Platform.Current.UpdatePlayTime(playTime);
+	// }
 
 	public void UpdateDate()
 	{
