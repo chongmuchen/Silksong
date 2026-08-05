@@ -11,9 +11,8 @@ public class StartManager : MonoBehaviour
 {
 	public Animator startManagerAnimator;
 
-	// todo: 临时
-	// [SerializeField]
-	// private StandaloneLoadingSpinner loadSpinnerPrefab;
+	[SerializeField]
+	private StandaloneLoadingSpinner loadSpinnerPrefab;
 
 	// todo: 临时
 	// [SerializeField]

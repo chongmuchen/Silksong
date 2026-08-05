@@ -509,6 +509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartManager
   startManagerAnimator: {fileID: 1428956810}
+  loadSpinnerPrefab: {fileID: 5146424670094447714, guid: f98319fb5c82249e1a65e82bd9684308, type: 3}
   camera: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
