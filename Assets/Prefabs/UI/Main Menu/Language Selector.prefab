@@ -143,11 +143,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuAudioController
   audioSource: {fileID: 5718311260122879725}
-  select: {fileID: 0}
-  submit: {fileID: 0}
-  cancel: {fileID: 0}
-  slider: {fileID: 0}
-  startGame: {fileID: 0}
+  select: {fileID: 8300000, guid: 10baf57e1981cdd43814c4d3f88b5cd2, type: 3}
+  submit: {fileID: 8300000, guid: 9b4cf35f72bad6e4ea4599df4134d139, type: 3}
+  cancel: {fileID: 8300000, guid: 9b4cf35f72bad6e4ea4599df4134d139, type: 3}
+  slider: {fileID: 8300000, guid: 933f79e307c67df4e8d6c717239e7dfb, type: 3}
+  startGame: {fileID: 8300000, guid: 0a2b8675c865aca4da253d01b21842de, type: 3}
   openProfileSelect: {fileID: 0}
   pause: {fileID: 0}
   unpause: {fileID: 0}
