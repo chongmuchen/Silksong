@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8011427659855712862}
   - component: {fileID: 5718311260122879725}
+  - component: {fileID: 3127433651503290436}
   m_Layer: 0
   m_Name: UIAudioPlayer
   m_TagString: Untagged
@@ -129,6 +130,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3127433651503290436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3143548954071968965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f07d9aa6d14903aa5438862a9ebb12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuAudioController
+  audioSource: {fileID: 5718311260122879725}
+  select: {fileID: 0}
+  submit: {fileID: 0}
+  cancel: {fileID: 0}
+  slider: {fileID: 0}
+  startGame: {fileID: 0}
+  openProfileSelect: {fileID: 0}
+  pause: {fileID: 0}
+  unpause: {fileID: 0}
 --- !u!1 &5468021570911026858
 GameObject:
   m_ObjectHideFlags: 0
