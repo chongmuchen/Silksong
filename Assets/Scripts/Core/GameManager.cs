@@ -513,11 +513,11 @@ public class GameManager : MonoBehaviour
 		{
 			currentLoadDuration = 0f;
 		}
-		IncreaseGameTimer(ref sessionPlayTimer);
-		IncreaseGameTimer(ref timeInScene);
+		// IncreaseGameTimer(ref sessionPlayTimer);
+		// IncreaseGameTimer(ref timeInScene);
 		if (timeInScene < 300f)
 		{
-			IncreaseGameTimer(ref timeSinceLastTimePasses);
+			// IncreaseGameTimer(ref timeSinceLastTimePasses);
 		}
 		// CrossSceneWalker.Tick();
 		UpdateEngagement();
@@ -530,12 +530,12 @@ public class GameManager : MonoBehaviour
 		{
 			if (isSaveGameQueued)
 			{
-				SaveGame(null);
+				// SaveGame(null);
 			}
 			else if (isAutoSaveQueued)
 			{
 				isAutoSaveQueued = false;
-				CreateRestorePoint(queuedAutoSaveName);
+				// CreateRestorePoint(queuedAutoSaveName);
 			}
 		}
 	}
@@ -588,9 +588,9 @@ public class GameManager : MonoBehaviour
 			// PersistentAudioManager.OnLevelLoaded();
 			if (!waitForManualLevelStart)
 			{
-				SetupSceneRefs(refreshTilemapInfo: true);
-				BeginScene();
-				OnNextLevelReady();
+				// SetupSceneRefs(refreshTilemapInfo: true);
+				// BeginScene();
+				// OnNextLevelReady();
 			}
 		}
 	}
@@ -613,7 +613,7 @@ public class GameManager : MonoBehaviour
 		inventoryFSM.SendEvent("INVENTORY CANCEL");
 		if (info.IsFirstLevelForPlayer)
 		{
-			ResetGameTimer();
+			// ResetGameTimer();
 			LoadedFromMenu();
 		}
 		StartCoroutine(BeginSceneTransitionRoutine(info));
@@ -918,11 +918,11 @@ public class GameManager : MonoBehaviour
 	{
 		if (doAdditiveLoad)
 		{
-			StartCoroutine(LoadSceneAdditive(targetScene));
+			// StartCoroutine(LoadSceneAdditive(targetScene));
 		}
 		else
 		{
-			LoadScene(targetScene);
+			// LoadScene(targetScene);
 		}
 	}
 
@@ -981,15 +981,15 @@ public class GameManager : MonoBehaviour
 		// {
 		// 	LoadScene("PermaDeath");
 		// }
-		ResetSemiPersistentItems();
-		AwardQueuedAchievements();
+		// ResetSemiPersistentItems();
+		// AwardQueuedAchievements();
 	}
 
 	public IEnumerator PlayerDeadFromHazard(float waitTime)
 	{
 		// cameraCtrl.FreezeInPlace(freezeTarget: true);
-		NoLongerFirstGame();
-		SaveLevelState();
+		// NoLongerFirstGame();
+		// SaveLevelState();
 		yield return new WaitForSeconds(waitTime);
 		// screenFader_fsm.SendEventSafe("HAZARD FADE");
 		// EventRegister.SendEvent(EventRegisterEvents.HazardFade);
@@ -1071,174 +1071,174 @@ public class GameManager : MonoBehaviour
 		// {
 			// cameraCtrl.camTarget.mode = CameraTarget.TargetMode.FOLLOW_HERO;
 		// }
-		EnterHero();
+		// EnterHero();
 	}
 
 	public void TimePasses()
 	{
 		// StaticVariableList.ClearSceneTransitions();
-		string sceneNameString = GetSceneNameString();
-		MapZone currentMapZoneEnum = GetCurrentMapZoneEnum();
+		// string sceneNameString = GetSceneNameString();
+		// MapZone currentMapZoneEnum = GetCurrentMapZoneEnum();
 		if (playerData.seenBellBeast && playerData.shermaPos == 0)
 		{
 			playerData.shermaPos = 1;
 		}
-		if (playerData.shermaPos == 1 && sceneNameString != "Bone_East_10_Room" && (playerData.scenesVisited.Contains("Belltown") || playerData.scenesVisited.Contains("Halfway_01")))
-		{
-			playerData.shermaPos = 2;
-		}
-		if (playerData.spinnerDefeated && (playerData.encounteredLastJudge || (playerData.activatedStepsUpperBellbench && playerData.defeatedCoralDrillers) || (playerData.visitedCoral && currentMapZoneEnum == MapZone.DUSTPENS) || currentMapZoneEnum == MapZone.SWAMP))
-		{
-			playerData.shermaAtSteps = true;
-		}
-		if (playerData.SeenLastJudgeGateOpen && !playerData.shermaCitadelEntrance_Visiting && playerData.enteredCoral_10 && playerData.enteredSong_19 && playerData.citadelWoken)
-		{
-			playerData.shermaCitadelEntrance_Visiting = true;
-		}
-		if ((playerData.shermaCitadelEntrance_Seen || playerData.citadelHalfwayComplete) && !playerData.shermaCitadelEntrance_Left)
-		{
-			playerData.shermaCitadelEntrance_Left = true;
-		}
-		if (playerData.shermaCitadelSpa_Seen && !playerData.shermaCitadelSpa_Left)
-		{
-			playerData.shermaCitadelSpa_Left = true;
-			playerData.shermaCitadelEntrance_Left = true;
-		}
-		if (playerData.enclaveLevel >= 2 && sceneNameString != "Song_Enclave" && sceneNameString != "Bellshrine_Enclave")
-		{
-			playerData.shermaInEnclave = true;
-		}
+		// if (playerData.shermaPos == 1 && sceneNameString != "Bone_East_10_Room" && (playerData.scenesVisited.Contains("Belltown") || playerData.scenesVisited.Contains("Halfway_01")))
+		// {
+			// playerData.shermaPos = 2;
+		// }
+		// if (playerData.spinnerDefeated && (playerData.encounteredLastJudge || (playerData.activatedStepsUpperBellbench && playerData.defeatedCoralDrillers) || (playerData.visitedCoral && currentMapZoneEnum == MapZone.DUSTPENS) || currentMapZoneEnum == MapZone.SWAMP))
+		// {
+		// 	playerData.shermaAtSteps = true;
+		// }
+		// if (playerData.SeenLastJudgeGateOpen && !playerData.shermaCitadelEntrance_Visiting && playerData.enteredCoral_10 && playerData.enteredSong_19 && playerData.citadelWoken)
+		// {
+		// 	playerData.shermaCitadelEntrance_Visiting = true;
+		// }
+		// if ((playerData.shermaCitadelEntrance_Seen || playerData.citadelHalfwayComplete) && !playerData.shermaCitadelEntrance_Left)
+		// {
+		// 	playerData.shermaCitadelEntrance_Left = true;
+		// }
+		// if (playerData.shermaCitadelSpa_Seen && !playerData.shermaCitadelSpa_Left)
+		// {
+		// 	playerData.shermaCitadelSpa_Left = true;
+		// 	playerData.shermaCitadelEntrance_Left = true;
+		// }
+		// if (playerData.enclaveLevel >= 2 && sceneNameString != "Song_Enclave" && sceneNameString != "Bellshrine_Enclave")
+		// {
+		// 	playerData.shermaInEnclave = true;
+		// }
 		// if (!playerData.shermaHealerActive && QuestManager.GetQuest("Save Sherma").IsCompleted && sceneNameString != "Song_Enclave" && sceneNameString != "Bellshrine_Enclave")
 		// {
 			// playerData.shermaHealerActive = true;
 		// }
-		if (playerData.shermaHealerActive && sceneNameString != "Song_Enclave" && sceneNameString != "Bellshrine_Enclave")
-		{
-			playerData.shermaWoundedPilgrim = UnityEngine.Random.Range(1, 4);
-		}
-		if (sceneNameString != "Bonetown" && sceneNameString != "Belltown")
-		{
-			playerData.mapperAway = UnityEngine.Random.Range(1, 100) > 50;
-		}
-		if (playerData.killedRoostingCrowman)
-		{
-			playerData.killedRoostingCrowman = false;
-		}
-		if (playerData.spinnerDefeated)
-		{
-			playerData.MapperAppearInBellhart = true;
-		}
-		if (playerData.defeatedCoralDrillers)
-		{
-			playerData.coralDrillerSoloReady = true;
-		}
-		if (playerData.dust01_battleCompleted)
-		{
-			playerData.dust01_returnReady = true;
-		}
-		if (sceneNameString != "Bonetown" && playerData.visitedBellhart)
-		{
-			playerData.BonebottomBellwayPilgrimLeft = true;
-		}
-		if (playerData.BoneBottomShopKeepWillLeave && !playerData.BoneBottomShopKeepLeft && sceneNameString != "Bonetown")
-		{
-			playerData.BoneBottomShopKeepLeft = true;
-		}
-		if (currentMapZoneEnum != MapZone.BONETOWN && currentMapZoneEnum != MapZone.PATH_OF_BONE && currentMapZoneEnum != MapZone.MOSS_CAVE)
-		{
-			if (playerData.seenPilbyLeft && !playerData.bonetownPilgrimRoundActive)
-			{
-				playerData.bonetownPilgrimRoundActive = true;
-			}
-			if (playerData.seenPebbLeft && !playerData.bonetownPilgrimHornedActive)
-			{
-				playerData.bonetownPilgrimHornedActive = true;
-			}
-		}
-		if (playerData.hasChargeSlash && sceneNameString != "Room_Pinstress")
-		{
-			playerData.pinstressStoppedResting = true;
-			if (UnityEngine.Random.Range(0, 100) >= 50)
-			{
-				playerData.pinstressInsideSitting = true;
-			}
-			else
-			{
-				playerData.pinstressInsideSitting = false;
-			}
-			if (playerData.blackThreadWorld)
-			{
-				playerData.pinstressQuestReady = true;
-			}
-		}
-		if (!playerData.IsPinGallerySetup && playerData.spinnerDefeated && sceneNameString != "Bone_12")
-		{
-			playerData.IsPinGallerySetup = true;
-		}
-		if (!playerData.PinGalleryLastChallengeOpen && playerData.pinGalleriesCompleted == 2 && playerData.visitedCitadel && sceneNameString != "Bone_12")
-		{
-			playerData.PinGalleryLastChallengeOpen = true;
-		}
-		// if (playerData.bone03_openedTrapdoor && !QuestManager.GetQuest("Rock Rollers").IsAccepted)
+		// if (playerData.shermaHealerActive && sceneNameString != "Song_Enclave" && sceneNameString != "Bellshrine_Enclave")
 		// {
-			// playerData.bone03_openedTrapdoorForRockRoller = true;
+		// 	playerData.shermaWoundedPilgrim = UnityEngine.Random.Range(1, 4);
 		// }
-		if (playerData.rhinoChurchUnlocked)
-		{
-			playerData.rhinoRampageCompleted = true;
-		}
-		if (playerData.rhinoChurchUnlocked && !playerData.churchRhinoKilled && playerData.visitedCitadel && playerData.PilgrimsRestDoorBroken && currentMapZoneEnum != MapZone.WILDS && playerData.respawnScene != "Bone_East_10_Room")
-		{
-			playerData.rhinoRuckus = true;
-			playerData.didRhinoRuckus = true;
-		}
-		if (sceneNameString != "Bone_East_10_Room")
-		{
-			playerData.pilgrimRestCrowd = UnityEngine.Random.Range(1, 6);
-		}
-		if (sceneNameString != "Halfway_01" && playerData.MetHalfwayHunterFan)
-		{
-			if (UnityEngine.Random.Range(1, 100) > 50)
-			{
-				playerData.nuuIsHome = true;
-			}
-			else
-			{
-				playerData.nuuIsHome = false;
-			}
-		}
-		if (playerData.MetHalfwayHunterFan && playerData.defeatedSplinterQueen && currentMapZoneEnum != MapZone.SHELLWOOD_THICKET && !playerData.nuuVisiting_splinterQueen)
-		{
-			playerData.nuuVisiting_splinterQueen = true;
-		}
-		if (playerData.MetHalfwayHunterFan && playerData.defeatedCoralDrillers && currentMapZoneEnum != MapZone.JUDGE_STEPS && !playerData.nuuVisiting_coralDrillers)
-		{
-			playerData.nuuVisiting_coralDrillers = true;
-		}
-		if (playerData.MetHalfwayHunterFan && playerData.skullKingDefeated && currentMapZoneEnum != MapZone.PATH_OF_BONE && !playerData.nuuVisiting_skullKing)
-		{
-			playerData.nuuVisiting_skullKing = true;
-		}
-		if (playerData.MetHalfwayHunterFan && playerData.defeatedZapCoreEnemy && currentMapZoneEnum != MapZone.RED_CORAL_GORGE && !playerData.nuuVisiting_zapNest)
-		{
-			playerData.nuuVisiting_zapNest = true;
-		}
-		if (sceneNameString != "Halfway_01")
-		{
-			playerData.halfwayCrowd = UnityEngine.Random.Range(1, 5);
-			if (playerData.MetHalfwayBartender)
-			{
-				playerData.HalfwayPatronsCanVisit = true;
-			}
-			if (playerData.SeenHalfwayPatronLeft)
-			{
-				playerData.HalfwayPatronLeftGone = true;
-			}
-			if (playerData.SeenHalfwayPatronRight)
-			{
-				playerData.HalfwayPatronRightGone = true;
-			}
-		}
+		// if (sceneNameString != "Bonetown" && sceneNameString != "Belltown")
+		// {
+		// 	playerData.mapperAway = UnityEngine.Random.Range(1, 100) > 50;
+		// }
+		// if (playerData.killedRoostingCrowman)
+		// {
+		// 	playerData.killedRoostingCrowman = false;
+		// }
+		// if (playerData.spinnerDefeated)
+		// {
+		// 	playerData.MapperAppearInBellhart = true;
+		// }
+		// if (playerData.defeatedCoralDrillers)
+		// {
+		// 	playerData.coralDrillerSoloReady = true;
+		// }
+		// if (playerData.dust01_battleCompleted)
+		// {
+		// 	playerData.dust01_returnReady = true;
+		// }
+		// if (sceneNameString != "Bonetown" && playerData.visitedBellhart)
+		// {
+		// 	playerData.BonebottomBellwayPilgrimLeft = true;
+		// }
+		// if (playerData.BoneBottomShopKeepWillLeave && !playerData.BoneBottomShopKeepLeft && sceneNameString != "Bonetown")
+		// {
+		// 	playerData.BoneBottomShopKeepLeft = true;
+		// }
+		// if (currentMapZoneEnum != MapZone.BONETOWN && currentMapZoneEnum != MapZone.PATH_OF_BONE && currentMapZoneEnum != MapZone.MOSS_CAVE)
+		// {
+		// 	if (playerData.seenPilbyLeft && !playerData.bonetownPilgrimRoundActive)
+		// 	{
+		// 		playerData.bonetownPilgrimRoundActive = true;
+		// 	}
+		// 	if (playerData.seenPebbLeft && !playerData.bonetownPilgrimHornedActive)
+		// 	{
+		// 		playerData.bonetownPilgrimHornedActive = true;
+		// 	}
+		// }
+		// if (playerData.hasChargeSlash && sceneNameString != "Room_Pinstress")
+		// {
+		// 	playerData.pinstressStoppedResting = true;
+		// 	if (UnityEngine.Random.Range(0, 100) >= 50)
+		// 	{
+		// 		playerData.pinstressInsideSitting = true;
+		// 	}
+		// 	else
+		// 	{
+		// 		playerData.pinstressInsideSitting = false;
+		// 	}
+		// 	if (playerData.blackThreadWorld)
+		// 	{
+		// 		playerData.pinstressQuestReady = true;
+		// 	}
+		// }
+		// if (!playerData.IsPinGallerySetup && playerData.spinnerDefeated && sceneNameString != "Bone_12")
+		// {
+		// 	playerData.IsPinGallerySetup = true;
+		// }
+		// if (!playerData.PinGalleryLastChallengeOpen && playerData.pinGalleriesCompleted == 2 && playerData.visitedCitadel && sceneNameString != "Bone_12")
+		// {
+		// 	playerData.PinGalleryLastChallengeOpen = true;
+		// }
+		// // if (playerData.bone03_openedTrapdoor && !QuestManager.GetQuest("Rock Rollers").IsAccepted)
+		// // {
+		// 	// playerData.bone03_openedTrapdoorForRockRoller = true;
+		// // }
+		// if (playerData.rhinoChurchUnlocked)
+		// {
+		// 	playerData.rhinoRampageCompleted = true;
+		// }
+		// if (playerData.rhinoChurchUnlocked && !playerData.churchRhinoKilled && playerData.visitedCitadel && playerData.PilgrimsRestDoorBroken && currentMapZoneEnum != MapZone.WILDS && playerData.respawnScene != "Bone_East_10_Room")
+		// {
+		// 	playerData.rhinoRuckus = true;
+		// 	playerData.didRhinoRuckus = true;
+		// }
+		// if (sceneNameString != "Bone_East_10_Room")
+		// {
+		// 	playerData.pilgrimRestCrowd = UnityEngine.Random.Range(1, 6);
+		// }
+		// if (sceneNameString != "Halfway_01" && playerData.MetHalfwayHunterFan)
+		// {
+		// 	if (UnityEngine.Random.Range(1, 100) > 50)
+		// 	{
+		// 		playerData.nuuIsHome = true;
+		// 	}
+		// 	else
+		// 	{
+		// 		playerData.nuuIsHome = false;
+		// 	}
+		// }
+		// if (playerData.MetHalfwayHunterFan && playerData.defeatedSplinterQueen && currentMapZoneEnum != MapZone.SHELLWOOD_THICKET && !playerData.nuuVisiting_splinterQueen)
+		// {
+		// 	playerData.nuuVisiting_splinterQueen = true;
+		// }
+		// if (playerData.MetHalfwayHunterFan && playerData.defeatedCoralDrillers && currentMapZoneEnum != MapZone.JUDGE_STEPS && !playerData.nuuVisiting_coralDrillers)
+		// {
+		// 	playerData.nuuVisiting_coralDrillers = true;
+		// }
+		// if (playerData.MetHalfwayHunterFan && playerData.skullKingDefeated && currentMapZoneEnum != MapZone.PATH_OF_BONE && !playerData.nuuVisiting_skullKing)
+		// {
+		// 	playerData.nuuVisiting_skullKing = true;
+		// }
+		// if (playerData.MetHalfwayHunterFan && playerData.defeatedZapCoreEnemy && currentMapZoneEnum != MapZone.RED_CORAL_GORGE && !playerData.nuuVisiting_zapNest)
+		// {
+		// 	playerData.nuuVisiting_zapNest = true;
+		// }
+		// if (sceneNameString != "Halfway_01")
+		// {
+		// 	playerData.halfwayCrowd = UnityEngine.Random.Range(1, 5);
+		// 	if (playerData.MetHalfwayBartender)
+		// 	{
+		// 		playerData.HalfwayPatronsCanVisit = true;
+		// 	}
+		// 	if (playerData.SeenHalfwayPatronLeft)
+		// 	{
+		// 		playerData.HalfwayPatronLeftGone = true;
+		// 	}
+		// 	if (playerData.SeenHalfwayPatronRight)
+		// 	{
+		// 		playerData.HalfwayPatronRightGone = true;
+		// 	}
+		// }
 		if (!playerData.greymoor_05_centipedeArrives && (playerData.greymoor_04_battleCompleted || playerData.greymoor_10_entered))
 		{
 			playerData.greymoor_05_centipedeArrives = true;
@@ -1401,341 +1401,341 @@ public class GameManager : MonoBehaviour
 		// 		break;
 		// 	}
 		// }
-		if (!playerData.enclaveNPC_songKnightFan && playerData.blackThreadWorld && playerData.wokeSongChevalier && playerData.hasSuperJump && currentMapZoneEnum != MapZone.CITY_OF_SONG)
-		{
-			playerData.enclaveNPC_songKnightFan = true;
-		}
-		if (playerData.boneEastJailerKilled || playerData.CurseKilledFlyBoneEast)
-		{
-			playerData.boneEastJailerClearedOut = true;
-		}
-		if (playerData.enteredGreymoor05)
-		{
-			playerData.previouslyVisitedGreymoor_05 = true;
-		}
-		if (playerData.greymoor05_clearedOut)
-		{
-			playerData.greymoor05_clearedOut = false;
-		}
-		if (playerData.seenEmptyShellwood16)
-		{
-			playerData.slabFlyInShellwood16 = true;
-		}
-		if (playerData.completedLibraryEntryBattle)
-		{
-			playerData.scholarAmbushReady = true;
-		}
-		if (playerData.ant04_battleCompleted)
-		{
-			playerData.ant04_enemiesReturn = true;
-		}
-		if (playerData.dicePilgrimDefeated && playerData.dicePilgrimState == 0 && (playerData.defeatedCogworkDancers || playerData.hasHarpoonDash) && currentMapZoneEnum != MapZone.JUDGE_STEPS)
-		{
-			playerData.dicePilgrimState = 2;
-		}
-		else if (playerData.dicePilgrimState == 0 && (playerData.defeatedCogworkDancers || playerData.hasHarpoonDash) && currentMapZoneEnum != MapZone.JUDGE_STEPS)
-		{
-			playerData.dicePilgrimState = 1;
-		}
-		if (playerData.coral19_clearedOut)
-		{
-			playerData.coral19_clearedOut = false;
-		}
-		if (playerData.defeatedCoralDrillerSolo && currentMapZoneEnum != MapZone.RED_CORAL_GORGE && currentMapZoneEnum != MapZone.JUDGE_STEPS)
-		{
-			playerData.coralDrillerSoloEnemiesReturned = true;
-		}
-		// if (playerData.defeatedCloverDancers && !playerData.cloverDancerRegrowth && currentMapZoneEnum != MapZone.GREYMOOR && currentMapZoneEnum != MapZone.CLOVER && playerData.HasWhiteFlower)
+		// if (!playerData.enclaveNPC_songKnightFan && playerData.blackThreadWorld && playerData.wokeSongChevalier && playerData.hasSuperJump && currentMapZoneEnum != MapZone.CITY_OF_SONG)
 		// {
-			// playerData.cloverDancerRegrowth = true;
+		// 	playerData.enclaveNPC_songKnightFan = true;
 		// }
-		if (playerData.defeatedWispPyreEffigy)
-		{
-			playerData.wisp02_enemiesReturned = true;
-		}
-		// if (!playerData.HalfwayScarecrawAppeared && sceneNameString != "Halfway_01" && QuestManager.GetQuest("Crow Feathers").IsCompleted)
+		// if (playerData.boneEastJailerKilled || playerData.CurseKilledFlyBoneEast)
 		// {
-			// playerData.HalfwayScarecrawAppeared = true;
+		// 	playerData.boneEastJailerClearedOut = true;
 		// }
-		if (playerData.metGrubFarmer && !playerData.farmer_grewFirstGrub && sceneNameString != "Dust_11")
-		{
-			playerData.farmer_grubGrown_1 = true;
-			playerData.farmer_grewFirstGrub = true;
-		}
-		if (playerData.grubFarmLevel >= 1 && playerData.farmer_grewFirstGrub && (!playerData.blackThreadWorld || playerData.silkFarmAbyssCoresCleared))
-		{
-			if (timeSinceLastTimePasses > 0f)
-			{
-				playerData.grubFarmerTimer += timeSinceLastTimePasses;
-			}
-			while (playerData.grubFarmerTimer >= 1800f)
-			{
-				playerData.grubFarmerTimer -= 1800f;
-				if (!playerData.farmer_grubGrowing_1 && !playerData.farmer_grubGrown_1)
-				{
-					playerData.farmer_grubGrowing_1 = true;
-					continue;
-				}
-				if (!playerData.farmer_grubGrown_1)
-				{
-					playerData.farmer_grubGrown_1 = true;
-					playerData.farmer_grubGrowing_1 = false;
-					continue;
-				}
-				if (playerData.grubFarmLevel >= 2 && playerData.farmer_grubGrown_1)
-				{
-					if (!playerData.farmer_grubGrowing_2 && !playerData.farmer_grubGrown_2)
-					{
-						playerData.farmer_grubGrowing_2 = true;
-						continue;
-					}
-					if (!playerData.farmer_grubGrown_2)
-					{
-						playerData.farmer_grubGrown_2 = true;
-						playerData.farmer_grubGrowing_2 = false;
-						continue;
-					}
-				}
-				if (playerData.grubFarmLevel >= 3 && playerData.farmer_grubGrown_2)
-				{
-					if (!playerData.farmer_grubGrowing_3 && !playerData.farmer_grubGrown_3)
-					{
-						playerData.farmer_grubGrowing_3 = true;
-					}
-					else if (!playerData.farmer_grubGrown_3)
-					{
-						playerData.farmer_grubGrown_3 = true;
-						playerData.farmer_grubGrowing_3 = false;
-					}
-				}
-			}
-		}
-		if (playerData.hitCrowCourtSwitch && !playerData.CrowCourtInSession && !playerData.defeatedCrowCourt && currentMapZoneEnum != MapZone.GREYMOOR && playerData.blackThreadWorld)
-		{
-			playerData.CrowCourtInSession = true;
-		}
-		if (playerData.defeatedCrowCourt && playerData.CrowCourtInSession && currentMapZoneEnum != MapZone.GREYMOOR)
-		{
-			playerData.CrowCourtInSession = false;
-		}
-		if (playerData.CrawbellInstalled)
-		{
-			if (timeSinceLastTimePasses > 0f)
-			{
-				playerData.CrawbellTimer += timeSinceLastTimePasses;
-			}
-			switch (sceneNameString)
-			{
-			default:
-			{
-				playerData.CrawbellCrawsInside = UnityEngine.Random.Range(0, 2) == 0;
-				// ArrayForEnumAttribute.EnsureArraySize(ref playerData.CrawbellCurrency, typeof(CurrencyType));
-				// ArrayForEnumAttribute.EnsureArraySize(ref playerData.CrawbellCurrencyCaps, typeof(CurrencyType));
-				for (int i = 0; i < playerData.CrawbellCurrencyCaps.Length; i++)
-				{
-					if (playerData.CrawbellCurrencyCaps[i] <= 0)
-					{
-						playerData.CrawbellCurrencyCaps[i] = UnityEngine.Random.Range(300, 500);
-					}
-				}
-				while (playerData.CrawbellTimer >= 300f)
-				{
-					playerData.CrawbellTimer -= 300f;
-					for (int j = 0; j < playerData.CrawbellCurrency.Length; j++)
-					{
-						int num2 = playerData.CrawbellCurrency[j];
-						if (num2 < playerData.CrawbellCurrencyCaps[j])
-						{
-							playerData.CrawbellCurrency[j] = num2 + UnityEngine.Random.Range(5, 20);
-						}
-					}
-				}
-				break;
-			}
-			case "Belltown":
-			case "Belltown_Room_Spare":
-			case "Belltown_basement":
-			case "Belltown_Room_pinsmith":
-			case "Belltown_Room_Relic":
-				break;
-			}
-		}
-		// if (playerData.Collectables.GetData("Growstone").Amount > 0)
+		// if (playerData.enteredGreymoor05)
+		// {
+		// 	playerData.previouslyVisitedGreymoor_05 = true;
+		// }
+		// if (playerData.greymoor05_clearedOut)
+		// {
+		// 	playerData.greymoor05_clearedOut = false;
+		// }
+		// if (playerData.seenEmptyShellwood16)
+		// {
+		// 	playerData.slabFlyInShellwood16 = true;
+		// }
+		// if (playerData.completedLibraryEntryBattle)
+		// {
+		// 	playerData.scholarAmbushReady = true;
+		// }
+		// if (playerData.ant04_battleCompleted)
+		// {
+		// 	playerData.ant04_enemiesReturn = true;
+		// }
+		// if (playerData.dicePilgrimDefeated && playerData.dicePilgrimState == 0 && (playerData.defeatedCogworkDancers || playerData.hasHarpoonDash) && currentMapZoneEnum != MapZone.JUDGE_STEPS)
+		// {
+		// 	playerData.dicePilgrimState = 2;
+		// }
+		// else if (playerData.dicePilgrimState == 0 && (playerData.defeatedCogworkDancers || playerData.hasHarpoonDash) && currentMapZoneEnum != MapZone.JUDGE_STEPS)
+		// {
+		// 	playerData.dicePilgrimState = 1;
+		// }
+		// if (playerData.coral19_clearedOut)
+		// {
+		// 	playerData.coral19_clearedOut = false;
+		// }
+		// if (playerData.defeatedCoralDrillerSolo && currentMapZoneEnum != MapZone.RED_CORAL_GORGE && currentMapZoneEnum != MapZone.JUDGE_STEPS)
+		// {
+		// 	playerData.coralDrillerSoloEnemiesReturned = true;
+		// }
+		// // if (playerData.defeatedCloverDancers && !playerData.cloverDancerRegrowth && currentMapZoneEnum != MapZone.GREYMOOR && currentMapZoneEnum != MapZone.CLOVER && playerData.HasWhiteFlower)
+		// // {
+		// 	// playerData.cloverDancerRegrowth = true;
+		// // }
+		// if (playerData.defeatedWispPyreEffigy)
+		// {
+		// 	playerData.wisp02_enemiesReturned = true;
+		// }
+		// // if (!playerData.HalfwayScarecrawAppeared && sceneNameString != "Halfway_01" && QuestManager.GetQuest("Crow Feathers").IsCompleted)
+		// // {
+		// 	// playerData.HalfwayScarecrawAppeared = true;
+		// // }
+		// if (playerData.metGrubFarmer && !playerData.farmer_grewFirstGrub && sceneNameString != "Dust_11")
+		// {
+		// 	playerData.farmer_grubGrown_1 = true;
+		// 	playerData.farmer_grewFirstGrub = true;
+		// }
+		// if (playerData.grubFarmLevel >= 1 && playerData.farmer_grewFirstGrub && (!playerData.blackThreadWorld || playerData.silkFarmAbyssCoresCleared))
 		// {
 		// 	if (timeSinceLastTimePasses > 0f)
 		// 	{
-		// 		playerData.GrowstoneTimer += timeSinceLastTimePasses;
+		// 		playerData.grubFarmerTimer += timeSinceLastTimePasses;
 		// 	}
-		// 	while (playerData.GrowstoneTimer >= 1200f)
+		// 	while (playerData.grubFarmerTimer >= 1800f)
 		// 	{
-		// 		if (playerData.GrowstoneState >= 3)
+		// 		playerData.grubFarmerTimer -= 1800f;
+		// 		if (!playerData.farmer_grubGrowing_1 && !playerData.farmer_grubGrown_1)
 		// 		{
-		// 			playerData.GrowstoneTimer = 0f;
-		// 			break;
+		// 			playerData.farmer_grubGrowing_1 = true;
+		// 			continue;
 		// 		}
-		// 		playerData.GrowstoneTimer -= 1200f;
-		// 		playerData.GrowstoneState++;
+		// 		if (!playerData.farmer_grubGrown_1)
+		// 		{
+		// 			playerData.farmer_grubGrown_1 = true;
+		// 			playerData.farmer_grubGrowing_1 = false;
+		// 			continue;
+		// 		}
+		// 		if (playerData.grubFarmLevel >= 2 && playerData.farmer_grubGrown_1)
+		// 		{
+		// 			if (!playerData.farmer_grubGrowing_2 && !playerData.farmer_grubGrown_2)
+		// 			{
+		// 				playerData.farmer_grubGrowing_2 = true;
+		// 				continue;
+		// 			}
+		// 			if (!playerData.farmer_grubGrown_2)
+		// 			{
+		// 				playerData.farmer_grubGrown_2 = true;
+		// 				playerData.farmer_grubGrowing_2 = false;
+		// 				continue;
+		// 			}
+		// 		}
+		// 		if (playerData.grubFarmLevel >= 3 && playerData.farmer_grubGrown_2)
+		// 		{
+		// 			if (!playerData.farmer_grubGrowing_3 && !playerData.farmer_grubGrown_3)
+		// 			{
+		// 				playerData.farmer_grubGrowing_3 = true;
+		// 			}
+		// 			else if (!playerData.farmer_grubGrown_3)
+		// 			{
+		// 				playerData.farmer_grubGrown_3 = true;
+		// 				playerData.farmer_grubGrowing_3 = false;
+		// 			}
+		// 		}
 		// 	}
 		// }
-		// if (playerData.blackThreadWorld && !playerData.HuntressRuntAppeared && !Gameplay.HuntressQuest.IsCompleted)
+		// if (playerData.hitCrowCourtSwitch && !playerData.CrowCourtInSession && !playerData.defeatedCrowCourt && currentMapZoneEnum != MapZone.GREYMOOR && playerData.blackThreadWorld)
 		// {
-		// 	playerData.HuntressRuntAppeared = true;
+		// 	playerData.CrowCourtInSession = true;
 		// }
-		if (playerData.defeatedSplinterQueen && !playerData.splinterQueenSproutCut && currentMapZoneEnum != MapZone.SHELLWOOD_THICKET && playerData.splinterQueenSproutTimer < 50)
-		{
-			playerData.splinterQueenSproutTimer++;
-		}
-		if (playerData.roofCrabDefeated && playerData.citadelWoken && currentMapZoneEnum != MapZone.CRAWLSPACE && currentMapZoneEnum != MapZone.BONETOWN && currentMapZoneEnum != MapZone.PATH_OF_BONE && currentMapZoneEnum != MapZone.MOSSTOWN)
-		{
-			playerData.littleCrabsAppeared = true;
-		}
-		if ((playerData.BonebottomBellwayPilgrimScared || playerData.skullKingInvaded) && !playerData.BonebottomBellwayPilgrimLeft && (!playerData.skullKingInvaded || playerData.skullKingKilled) && currentMapZoneEnum != MapZone.BONETOWN && currentMapZoneEnum != MapZone.PATH_OF_BONE)
-		{
-			playerData.BonebottomBellwayPilgrimLeft = true;
-		}
-		if (playerData.spinnerDefeated)
-		{
-			playerData.BonebottomBellwayPilgrimLeft = true;
-		}
-		playerData.skullKingWillInvade = false;
-		// if (playerData.skullKingDefeated && !playerData.skullKingWillInvade && currentMapZoneEnum != MapZone.BONETOWN && currentMapZoneEnum != MapZone.PATH_OF_BONE && currentMapZoneEnum != MapZone.MOSS_CAVE && !playerData.blackThreadWorld && (playerData.visitedCitadel || playerData.visitedCoral || playerData.visitedDustpens) && !QuestManager.GetQuest("Soul Snare").IsAccepted && UnityEngine.Random.Range(1, 100) <= 30)
+		// if (playerData.defeatedCrowCourt && playerData.CrowCourtInSession && currentMapZoneEnum != MapZone.GREYMOOR)
 		// {
-		// 	playerData.skullKingWillInvade = true;
+		// 	playerData.CrowCourtInSession = false;
 		// }
-		// if (playerData.skullKingWillInvade && QuestManager.GetQuest("Soul Snare").IsAccepted)
+		// if (playerData.CrawbellInstalled)
 		// {
-		// 	playerData.skullKingWillInvade = false;
-		// }
-		if (playerData.skullKingKilled && !playerData.skullKingBenchMended)
-		{
-			playerData.skullKingBenchMended = true;
-		}
-		if (playerData.skullKingBenchMended && playerData.pilbyKilled && !playerData.boneBottomFuneral && !playerData.blackThreadWorld && currentMapZoneEnum != MapZone.BONETOWN && currentMapZoneEnum != MapZone.PATH_OF_BONE && currentMapZoneEnum != MapZone.MOSS_CAVE)
-		{
-			playerData.boneBottomFuneral = true;
-			playerData.skullKingPlatMended = true;
-		}
-		if ((playerData.UnlockedMelodyLift || playerData.hasDoubleJump) && !playerData.pilbyKilled && playerData.pilbyMeetConvo && !playerData.pilbyAtPilgrimsRest && !playerData.rhinoRuckus)
-		{
-			playerData.pilbyAtPilgrimsRest = true;
-			if (playerData.PilgrimsRestDoorBroken)
-			{
-				playerData.pilbyInsidePilgrimsRest = true;
-			}
-		}
-		if (playerData.pilbySeenAtPilgrimsRest && !playerData.pilbyLeftPilgrimsRest && currentMapZoneEnum != MapZone.WILDS)
-		{
-			playerData.pilbyLeftPilgrimsRest = true;
-		}
-		if (currentMapZoneEnum != MapZone.BONETOWN && currentMapZoneEnum != MapZone.PATH_OF_BONE && currentMapZoneEnum != MapZone.MOSS_CAVE && playerData.visitedBoneForest)
-		{
-			playerData.bonetownCrowd = UnityEngine.Random.Range(1, 8);
-		}
-		if (sceneNameString != "Bellway_01" && sceneNameString != "Bonetown")
-		{
-			// if (QuestManager.GetQuest("Building Materials (Statue)").IsCompleted)
-			// {
-			// 	playerData.fixerStatueConstructed = true;
-			// }
-			// if (QuestManager.GetQuest("Building Materials (Bridge)").IsCompleted)
-			// {
-			// 	playerData.fixerBridgeConstructed = true;
-			// }
-			// if (QuestManager.GetQuest("Pilgrim Rags").IsCompleted)
-			// {
-			// 	playerData.boneBottomAddition_RagLine = true;
-			// }
-		}
-		// if (!playerData.ChurchKeeperLeftBasement && sceneName != "Tut_03" && sceneName != "Bonetown" && sceneData.PersistentInts.TryGetValue("Tut_03", "Churchkeeper Basement", out var value) && value.Value > 0)
-		// {
-		// 	playerData.ChurchKeeperLeftBasement = true;
-		// }
-		if (playerData.CaravanLechSaved && !playerData.CaravanLechReturnedToCaravan && sceneName != "Bone_10" && sceneName != "Greymoor_08" && sceneName != "Coral_Judge_Arena" && sceneName != "Aqueduct_05")
-		{
-			playerData.CaravanLechReturnedToCaravan = true;
-		}
-		if ((playerData.encounteredVampireGnat_05 || playerData.encounteredVampireGnatBoss) && currentMapZoneEnum != MapZone.GREYMOOR)
-		{
-			playerData.allowVampireGnatInAltLoc = true;
-		}
-		if (!playerData.VampireGnatCorpseOnCaravan && playerData.VampireGnatDefeatedBeforeCaravanArrived && !playerData.VampireGnatCorpseInWater && playerData.CaravanTroupeLocation > CaravanTroupeLocations.Bone && sceneName != "Greymoor_08")
-		{
-			playerData.VampireGnatCorpseOnCaravan = true;
-		}
-		if (playerData.CaravanTroupeLocation > CaravanTroupeLocations.Bone && !playerData.creaturesReturnedToBone10 && playerData.respawnScene != "Bone_10")
-		{
-			playerData.creaturesReturnedToBone10 = true;
-		}
-		switch (playerData.CaravanTroupeLocation)
-		{
-		case CaravanTroupeLocations.Greymoor:
-			if (playerData.MetCaravanTroupeLeaderGreymoor && !playerData.CaravanTroupeLeaderCanLeaveGreymoor && sceneName != "Greymoor_08")
-			{
-				playerData.CaravanTroupeLeaderCanLeaveGreymoor = true;
-			}
-			break;
-		case CaravanTroupeLocations.CoralJudge:
-			if (playerData.MetCaravanTroupeLeaderJudge && !playerData.CaravanTroupeLeaderCanLeaveJudge && sceneName != "Coral_Judge_Arena")
-			{
-				playerData.CaravanTroupeLeaderCanLeaveJudge = true;
-			}
-			break;
-		}
-		if (!playerData.SpinnerDefeatedTimePassed && sceneName != "Belltown" && sceneName != "Belltown_Boss")
-		{
-			playerData.SpinnerDefeatedTimePassed = true;
-		}
-		if (!playerData.antMerchantKilled && currentMapZoneEnum != MapZone.HUNTERS_NEST && (playerData.defeatedCogworkDancers || playerData.bellShrineEnclave || playerData.hasHarpoonDash))
-		{
-			playerData.antMerchantKilled = true;
-			// if (playerData.ant21_InitBattleCompleted && !Gameplay.CurveclawTool.IsUnlocked && !Gameplay.CurveclawUpgradedTool.IsUnlocked)
-			// {
-			// 	playerData.ant21_ExtraBattleAdded = true;
-			// }
-		}
-		if (playerData.MottledChildGivenTool && !playerData.MottledChildNewTool)
-		{
-			playerData.MottledChildNewTool = true;
-		}
-		if (playerData.bellShrineBellhart && currentMapZoneEnum != MapZone.BELLTOWN && currentMapZoneEnum != MapZone.MEMORY)
-		{
-			playerData.belltownCrowdsReady = true;
-			playerData.belltownCrowd = UnityEngine.Random.Range(1, 7);
-		}
-		if (playerData.visitedBellhartSaved && currentMapZoneEnum != MapZone.BELLTOWN)
-		{
-			playerData.shermaInBellhart = true;
-		}
-		// if (currentMapZoneEnum != MapZone.BELLTOWN)
-		// {
-		// 	switch (playerData.BelltownHouseState)
+		// 	if (timeSinceLastTimePasses > 0f)
 		// 	{
-		// 	case BelltownHouseStates.None:
-		// 		if (QuestManager.GetQuest("Belltown House Start").IsCompleted)
+		// 		playerData.CrawbellTimer += timeSinceLastTimePasses;
+		// 	}
+		// 	switch (sceneNameString)
+		// 	{
+		// 	default:
+		// 	{
+		// 		playerData.CrawbellCrawsInside = UnityEngine.Random.Range(0, 2) == 0;
+		// 		// ArrayForEnumAttribute.EnsureArraySize(ref playerData.CrawbellCurrency, typeof(CurrencyType));
+		// 		// ArrayForEnumAttribute.EnsureArraySize(ref playerData.CrawbellCurrencyCaps, typeof(CurrencyType));
+		// 		for (int i = 0; i < playerData.CrawbellCurrencyCaps.Length; i++)
 		// 		{
-		// 			playerData.BelltownHouseState = BelltownHouseStates.Half;
+		// 			if (playerData.CrawbellCurrencyCaps[i] <= 0)
+		// 			{
+		// 				playerData.CrawbellCurrencyCaps[i] = UnityEngine.Random.Range(300, 500);
+		// 			}
 		// 		}
-		// 		break;
-		// 	case BelltownHouseStates.Half:
-		// 		if (QuestManager.GetQuest("Belltown House Mid").IsCompleted)
+		// 		while (playerData.CrawbellTimer >= 300f)
 		// 		{
-		// 			playerData.BelltownHouseState = BelltownHouseStates.Full;
+		// 			playerData.CrawbellTimer -= 300f;
+		// 			for (int j = 0; j < playerData.CrawbellCurrency.Length; j++)
+		// 			{
+		// 				int num2 = playerData.CrawbellCurrency[j];
+		// 				if (num2 < playerData.CrawbellCurrencyCaps[j])
+		// 				{
+		// 					playerData.CrawbellCurrency[j] = num2 + UnityEngine.Random.Range(5, 20);
+		// 				}
+		// 			}
 		// 		}
 		// 		break;
 		// 	}
-		// 	if (playerData.BelltownGreeterConvo > 0)
-		// 	{
-		// 		playerData.BelltownGreeterMetTimePassed = true;
+		// 	case "Belltown":
+		// 	case "Belltown_Room_Spare":
+		// 	case "Belltown_basement":
+		// 	case "Belltown_Room_pinsmith":
+		// 	case "Belltown_Room_Relic":
+		// 		break;
 		// 	}
 		// }
-		if (playerData.gotPastDockSpearThrower)
-		{
-			playerData.gotPastDockSpearThrower = false;
-		}
-		if (playerData.wardBossDefeated && currentMapZoneEnum != MapZone.WARD && currentMapZoneEnum != MapZone.MEMORY && playerData.respawnScene != "Ward_02")
-		{
-			playerData.wardWoken = true;
-		}
+		// // if (playerData.Collectables.GetData("Growstone").Amount > 0)
+		// // {
+		// // 	if (timeSinceLastTimePasses > 0f)
+		// // 	{
+		// // 		playerData.GrowstoneTimer += timeSinceLastTimePasses;
+		// // 	}
+		// // 	while (playerData.GrowstoneTimer >= 1200f)
+		// // 	{
+		// // 		if (playerData.GrowstoneState >= 3)
+		// // 		{
+		// // 			playerData.GrowstoneTimer = 0f;
+		// // 			break;
+		// // 		}
+		// // 		playerData.GrowstoneTimer -= 1200f;
+		// // 		playerData.GrowstoneState++;
+		// // 	}
+		// // }
+		// // if (playerData.blackThreadWorld && !playerData.HuntressRuntAppeared && !Gameplay.HuntressQuest.IsCompleted)
+		// // {
+		// // 	playerData.HuntressRuntAppeared = true;
+		// // }
+		// if (playerData.defeatedSplinterQueen && !playerData.splinterQueenSproutCut && currentMapZoneEnum != MapZone.SHELLWOOD_THICKET && playerData.splinterQueenSproutTimer < 50)
+		// {
+		// 	playerData.splinterQueenSproutTimer++;
+		// }
+		// if (playerData.roofCrabDefeated && playerData.citadelWoken && currentMapZoneEnum != MapZone.CRAWLSPACE && currentMapZoneEnum != MapZone.BONETOWN && currentMapZoneEnum != MapZone.PATH_OF_BONE && currentMapZoneEnum != MapZone.MOSSTOWN)
+		// {
+		// 	playerData.littleCrabsAppeared = true;
+		// }
+		// if ((playerData.BonebottomBellwayPilgrimScared || playerData.skullKingInvaded) && !playerData.BonebottomBellwayPilgrimLeft && (!playerData.skullKingInvaded || playerData.skullKingKilled) && currentMapZoneEnum != MapZone.BONETOWN && currentMapZoneEnum != MapZone.PATH_OF_BONE)
+		// {
+		// 	playerData.BonebottomBellwayPilgrimLeft = true;
+		// }
+		// if (playerData.spinnerDefeated)
+		// {
+		// 	playerData.BonebottomBellwayPilgrimLeft = true;
+		// }
+		// playerData.skullKingWillInvade = false;
+		// // if (playerData.skullKingDefeated && !playerData.skullKingWillInvade && currentMapZoneEnum != MapZone.BONETOWN && currentMapZoneEnum != MapZone.PATH_OF_BONE && currentMapZoneEnum != MapZone.MOSS_CAVE && !playerData.blackThreadWorld && (playerData.visitedCitadel || playerData.visitedCoral || playerData.visitedDustpens) && !QuestManager.GetQuest("Soul Snare").IsAccepted && UnityEngine.Random.Range(1, 100) <= 30)
+		// // {
+		// // 	playerData.skullKingWillInvade = true;
+		// // }
+		// // if (playerData.skullKingWillInvade && QuestManager.GetQuest("Soul Snare").IsAccepted)
+		// // {
+		// // 	playerData.skullKingWillInvade = false;
+		// // }
+		// if (playerData.skullKingKilled && !playerData.skullKingBenchMended)
+		// {
+		// 	playerData.skullKingBenchMended = true;
+		// }
+		// if (playerData.skullKingBenchMended && playerData.pilbyKilled && !playerData.boneBottomFuneral && !playerData.blackThreadWorld && currentMapZoneEnum != MapZone.BONETOWN && currentMapZoneEnum != MapZone.PATH_OF_BONE && currentMapZoneEnum != MapZone.MOSS_CAVE)
+		// {
+		// 	playerData.boneBottomFuneral = true;
+		// 	playerData.skullKingPlatMended = true;
+		// }
+		// if ((playerData.UnlockedMelodyLift || playerData.hasDoubleJump) && !playerData.pilbyKilled && playerData.pilbyMeetConvo && !playerData.pilbyAtPilgrimsRest && !playerData.rhinoRuckus)
+		// {
+		// 	playerData.pilbyAtPilgrimsRest = true;
+		// 	if (playerData.PilgrimsRestDoorBroken)
+		// 	{
+		// 		playerData.pilbyInsidePilgrimsRest = true;
+		// 	}
+		// }
+		// if (playerData.pilbySeenAtPilgrimsRest && !playerData.pilbyLeftPilgrimsRest && currentMapZoneEnum != MapZone.WILDS)
+		// {
+		// 	playerData.pilbyLeftPilgrimsRest = true;
+		// }
+		// if (currentMapZoneEnum != MapZone.BONETOWN && currentMapZoneEnum != MapZone.PATH_OF_BONE && currentMapZoneEnum != MapZone.MOSS_CAVE && playerData.visitedBoneForest)
+		// {
+		// 	playerData.bonetownCrowd = UnityEngine.Random.Range(1, 8);
+		// }
+		// if (sceneNameString != "Bellway_01" && sceneNameString != "Bonetown")
+		// {
+		// 	// if (QuestManager.GetQuest("Building Materials (Statue)").IsCompleted)
+		// 	// {
+		// 	// 	playerData.fixerStatueConstructed = true;
+		// 	// }
+		// 	// if (QuestManager.GetQuest("Building Materials (Bridge)").IsCompleted)
+		// 	// {
+		// 	// 	playerData.fixerBridgeConstructed = true;
+		// 	// }
+		// 	// if (QuestManager.GetQuest("Pilgrim Rags").IsCompleted)
+		// 	// {
+		// 	// 	playerData.boneBottomAddition_RagLine = true;
+		// 	// }
+		// }
+		// // if (!playerData.ChurchKeeperLeftBasement && sceneName != "Tut_03" && sceneName != "Bonetown" && sceneData.PersistentInts.TryGetValue("Tut_03", "Churchkeeper Basement", out var value) && value.Value > 0)
+		// // {
+		// // 	playerData.ChurchKeeperLeftBasement = true;
+		// // }
+		// if (playerData.CaravanLechSaved && !playerData.CaravanLechReturnedToCaravan && sceneName != "Bone_10" && sceneName != "Greymoor_08" && sceneName != "Coral_Judge_Arena" && sceneName != "Aqueduct_05")
+		// {
+		// 	playerData.CaravanLechReturnedToCaravan = true;
+		// }
+		// if ((playerData.encounteredVampireGnat_05 || playerData.encounteredVampireGnatBoss) && currentMapZoneEnum != MapZone.GREYMOOR)
+		// {
+		// 	playerData.allowVampireGnatInAltLoc = true;
+		// }
+		// if (!playerData.VampireGnatCorpseOnCaravan && playerData.VampireGnatDefeatedBeforeCaravanArrived && !playerData.VampireGnatCorpseInWater && playerData.CaravanTroupeLocation > CaravanTroupeLocations.Bone && sceneName != "Greymoor_08")
+		// {
+		// 	playerData.VampireGnatCorpseOnCaravan = true;
+		// }
+		// if (playerData.CaravanTroupeLocation > CaravanTroupeLocations.Bone && !playerData.creaturesReturnedToBone10 && playerData.respawnScene != "Bone_10")
+		// {
+		// 	playerData.creaturesReturnedToBone10 = true;
+		// }
+		// switch (playerData.CaravanTroupeLocation)
+		// {
+		// case CaravanTroupeLocations.Greymoor:
+		// 	if (playerData.MetCaravanTroupeLeaderGreymoor && !playerData.CaravanTroupeLeaderCanLeaveGreymoor && sceneName != "Greymoor_08")
+		// 	{
+		// 		playerData.CaravanTroupeLeaderCanLeaveGreymoor = true;
+		// 	}
+		// 	break;
+		// case CaravanTroupeLocations.CoralJudge:
+		// 	if (playerData.MetCaravanTroupeLeaderJudge && !playerData.CaravanTroupeLeaderCanLeaveJudge && sceneName != "Coral_Judge_Arena")
+		// 	{
+		// 		playerData.CaravanTroupeLeaderCanLeaveJudge = true;
+		// 	}
+		// 	break;
+		// }
+		// if (!playerData.SpinnerDefeatedTimePassed && sceneName != "Belltown" && sceneName != "Belltown_Boss")
+		// {
+		// 	playerData.SpinnerDefeatedTimePassed = true;
+		// }
+		// if (!playerData.antMerchantKilled && currentMapZoneEnum != MapZone.HUNTERS_NEST && (playerData.defeatedCogworkDancers || playerData.bellShrineEnclave || playerData.hasHarpoonDash))
+		// {
+		// 	playerData.antMerchantKilled = true;
+		// 	// if (playerData.ant21_InitBattleCompleted && !Gameplay.CurveclawTool.IsUnlocked && !Gameplay.CurveclawUpgradedTool.IsUnlocked)
+		// 	// {
+		// 	// 	playerData.ant21_ExtraBattleAdded = true;
+		// 	// }
+		// }
+		// if (playerData.MottledChildGivenTool && !playerData.MottledChildNewTool)
+		// {
+		// 	playerData.MottledChildNewTool = true;
+		// }
+		// if (playerData.bellShrineBellhart && currentMapZoneEnum != MapZone.BELLTOWN && currentMapZoneEnum != MapZone.MEMORY)
+		// {
+		// 	playerData.belltownCrowdsReady = true;
+		// 	playerData.belltownCrowd = UnityEngine.Random.Range(1, 7);
+		// }
+		// if (playerData.visitedBellhartSaved && currentMapZoneEnum != MapZone.BELLTOWN)
+		// {
+		// 	playerData.shermaInBellhart = true;
+		// }
+		// // if (currentMapZoneEnum != MapZone.BELLTOWN)
+		// // {
+		// // 	switch (playerData.BelltownHouseState)
+		// // 	{
+		// // 	case BelltownHouseStates.None:
+		// // 		if (QuestManager.GetQuest("Belltown House Start").IsCompleted)
+		// // 		{
+		// // 			playerData.BelltownHouseState = BelltownHouseStates.Half;
+		// // 		}
+		// // 		break;
+		// // 	case BelltownHouseStates.Half:
+		// // 		if (QuestManager.GetQuest("Belltown House Mid").IsCompleted)
+		// // 		{
+		// // 			playerData.BelltownHouseState = BelltownHouseStates.Full;
+		// // 		}
+		// // 		break;
+		// // 	}
+		// // 	if (playerData.BelltownGreeterConvo > 0)
+		// // 	{
+		// // 		playerData.BelltownGreeterMetTimePassed = true;
+		// // 	}
+		// // }
+		// if (playerData.gotPastDockSpearThrower)
+		// {
+		// 	playerData.gotPastDockSpearThrower = false;
+		// }
+		// if (playerData.wardBossDefeated && currentMapZoneEnum != MapZone.WARD && currentMapZoneEnum != MapZone.MEMORY && playerData.respawnScene != "Ward_02")
+		// {
+		// 	playerData.wardWoken = true;
+		// }
 	// 	if (sceneData.PersistentBools.TryGetValue("Dock_10", "dock_pressure_plate_lock", out var value2) && value2.Value && currentMapZoneEnum != MapZone.DOCKS && playerData.respawnScene != "Dock_10" && !playerData.blackThreadWorld && !playerData.BallowInSauna)
 	// 	{
 	// 		playerData.BallowInSauna = true;
@@ -2449,7 +2449,7 @@ public class GameManager : MonoBehaviour
 		playerData.respawnMarkerName = respawnMarkerName;
 		playerData.respawnType = respawnType;
 		playerData.respawnScene = sceneName;
-		SetCurrentMapZoneAsRespawn();
+		// SetCurrentMapZoneAsRespawn();
 	}
 
 	public void SetNonlethalDeathRespawn(string respawnMarkerName, int respawnType, bool respawnFacingRight)
@@ -5022,60 +5022,60 @@ public class GameManager : MonoBehaviour
 
 	public void FreezeMoment(int type)
 	{
-		FreezeMoment((FreezeMomentTypes)type);
+		// FreezeMoment((FreezeMomentTypes)type);
 	}
 
-	public void FreezeMoment(FreezeMomentTypes type, Action onFinish = null)
-	{
-		switch (type)
-		{
-		case FreezeMomentTypes.HeroDamage:
-			StartCoroutine(FreezeMoment(0.01f, 0.28f, 0.1f, 0f, onFinish));
-			break;
-		case FreezeMomentTypes.EnemyDeath:
-			StartCoroutine(FreezeMoment(0.04f, 0.024f, 0.04f, 0f, onFinish));
-			break;
-		case FreezeMomentTypes.BossDeathStrike:
-			StartCoroutine(FreezeMoment(0f, 0.35f, 0.1f, 0f, onFinish));
-			break;
-		case FreezeMomentTypes.NailClashEffect:
-			StartCoroutine(FreezeMoment(0.01f, 0.25f, 0.1f, 0f, onFinish));
-			break;
-		case FreezeMomentTypes.EnemyDeathShort:
-			StartCoroutine(FreezeMoment(0.04f, 0.015f, 0.04f, 0f, onFinish));
-			break;
-		case FreezeMomentTypes.BossStun:
-			StartCoroutine(FreezeMoment(0f, 0.25f, 0.1f, 0f, onFinish));
-			break;
-		case FreezeMomentTypes.QuickFreeze:
-			StartCoroutine(FreezeMoment(0.0001f, 0.02f, 0.0001f, 0.0001f, onFinish));
-			break;
-		case FreezeMomentTypes.ZapFreeze:
-			StartCoroutine(FreezeMoment(0f, 0.1f, 0f, 0f, onFinish));
-			break;
-		case FreezeMomentTypes.WitchBindHit:
-			StartCoroutine(FreezeMoment(0.04f, 0.03f, 0.04f, 0f, onFinish));
-			break;
-		case FreezeMomentTypes.HeroDamageShort:
-			StartCoroutine(FreezeMoment(0.001f, 0.15f, 0.05f, 0f, onFinish));
-			break;
-		case FreezeMomentTypes.BossDeathSlow:
-			StartCoroutine(FreezeMoment(0.1f, 1.15f, 0.1f, 0.05f, onFinish));
-			break;
-		case FreezeMomentTypes.RaceWinSlow:
-			StartCoroutine(FreezeMoment(0.5f, 3f, 0.3f, 0.1f, onFinish));
-			break;
-		case FreezeMomentTypes.EnemyBattleEndSlow:
-			StartCoroutine(FreezeMoment(0.1f, 1f, 0.75f, 0.25f, onFinish));
-			break;
-		case FreezeMomentTypes.BigEnemyDeathSlow:
-			StartCoroutine(FreezeMoment(0.04f, 0.06f, 0.04f, 0f, onFinish));
-			break;
-		case FreezeMomentTypes.BindBreak:
-			StartCoroutine(FreezeMoment(0.01f, 0.4f, 0.1f, 0f, onFinish));
-			break;
-		}
-	}
+	// public void FreezeMoment(FreezeMomentTypes type, Action onFinish = null)
+	// {
+	// 	switch (type)
+	// 	{
+	// 	case FreezeMomentTypes.HeroDamage:
+	// 		StartCoroutine(FreezeMoment(0.01f, 0.28f, 0.1f, 0f, onFinish));
+	// 		break;
+	// 	case FreezeMomentTypes.EnemyDeath:
+	// 		StartCoroutine(FreezeMoment(0.04f, 0.024f, 0.04f, 0f, onFinish));
+	// 		break;
+	// 	case FreezeMomentTypes.BossDeathStrike:
+	// 		StartCoroutine(FreezeMoment(0f, 0.35f, 0.1f, 0f, onFinish));
+	// 		break;
+	// 	case FreezeMomentTypes.NailClashEffect:
+	// 		StartCoroutine(FreezeMoment(0.01f, 0.25f, 0.1f, 0f, onFinish));
+	// 		break;
+	// 	case FreezeMomentTypes.EnemyDeathShort:
+	// 		StartCoroutine(FreezeMoment(0.04f, 0.015f, 0.04f, 0f, onFinish));
+	// 		break;
+	// 	case FreezeMomentTypes.BossStun:
+	// 		StartCoroutine(FreezeMoment(0f, 0.25f, 0.1f, 0f, onFinish));
+	// 		break;
+	// 	case FreezeMomentTypes.QuickFreeze:
+	// 		StartCoroutine(FreezeMoment(0.0001f, 0.02f, 0.0001f, 0.0001f, onFinish));
+	// 		break;
+	// 	case FreezeMomentTypes.ZapFreeze:
+	// 		StartCoroutine(FreezeMoment(0f, 0.1f, 0f, 0f, onFinish));
+	// 		break;
+	// 	case FreezeMomentTypes.WitchBindHit:
+	// 		StartCoroutine(FreezeMoment(0.04f, 0.03f, 0.04f, 0f, onFinish));
+	// 		break;
+	// 	case FreezeMomentTypes.HeroDamageShort:
+	// 		StartCoroutine(FreezeMoment(0.001f, 0.15f, 0.05f, 0f, onFinish));
+	// 		break;
+	// 	case FreezeMomentTypes.BossDeathSlow:
+	// 		StartCoroutine(FreezeMoment(0.1f, 1.15f, 0.1f, 0.05f, onFinish));
+	// 		break;
+	// 	case FreezeMomentTypes.RaceWinSlow:
+	// 		StartCoroutine(FreezeMoment(0.5f, 3f, 0.3f, 0.1f, onFinish));
+	// 		break;
+	// 	case FreezeMomentTypes.EnemyBattleEndSlow:
+	// 		StartCoroutine(FreezeMoment(0.1f, 1f, 0.75f, 0.25f, onFinish));
+	// 		break;
+	// 	case FreezeMomentTypes.BigEnemyDeathSlow:
+	// 		StartCoroutine(FreezeMoment(0.04f, 0.06f, 0.04f, 0f, onFinish));
+	// 		break;
+	// 	case FreezeMomentTypes.BindBreak:
+	// 		StartCoroutine(FreezeMoment(0.01f, 0.4f, 0.1f, 0f, onFinish));
+	// 		break;
+	// 	}
+	// }
 
 	// public IEnumerator FreezeMoment(float rampDownTime, float waitTime, float rampUpTime, float targetSpeed, Action onFinish = null)
 	// {
