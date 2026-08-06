@@ -156,7 +156,7 @@ public class GameManager : MonoBehaviour
 
 	private List<SceneSeedTracker> sceneSeedTrackers;
 
-	// public GameConfig gameConfig;
+	public GameConfig gameConfig;
 
 	// public GameCameras gameCams;
 
@@ -604,7 +604,7 @@ public class GameManager : MonoBehaviour
 	{
 		if (startedLanguageDisabled)
 		{
-			// gameConfig.hideLanguageOption = true;
+			gameConfig.hideLanguageOption = true;
 		}
 	}
 
@@ -4822,22 +4822,22 @@ public class GameManager : MonoBehaviour
 	// 		}
 	// 	});
 	// }
-	//
-	// public string GetJsonForSaveBytes(byte[] fileBytes)
-	// {
-	// 	bool legacyUseEncryption = gameConfig.useSaveEncryption && !Platform.Current.IsFileSystemProtected;
-	// 	return SaveFileCodec.DecodeJson(fileBytes, legacyUseEncryption);
-	// }
-	//
-	// public static string GetJsonForSaveBytesStatic(byte[] fileBytes)
-	// {
-	// 	if ((bool)instance)
-	// 	{
-	// 		return instance.GetJsonForSaveBytes(fileBytes);
-	// 	}
-	// 	return SaveFileCodec.DecodeJson(fileBytes, legacyUseEncryption: !Platform.Current.IsFileSystemProtected);
-	// }
-	//
+	
+	public string GetJsonForSaveBytes(byte[] fileBytes)
+	{
+		bool legacyUseEncryption = gameConfig.useSaveEncryption && !Platform.Current.IsFileSystemProtected;
+		return SaveFileCodec.DecodeJson(fileBytes, legacyUseEncryption);
+	}
+	
+	public static string GetJsonForSaveBytesStatic(byte[] fileBytes)
+	{
+		if ((bool)instance)
+		{
+			return instance.GetJsonForSaveBytes(fileBytes);
+		}
+		return SaveFileCodec.DecodeJson(fileBytes, legacyUseEncryption: !Platform.Current.IsFileSystemProtected);
+	}
+	
 	// public byte[] GetBytesForSaveJson(string jsonData)
 	// {
 	// 	bool useEncryption = gameConfig.useSaveEncryption && !Platform.Current.IsFileSystemProtected;
