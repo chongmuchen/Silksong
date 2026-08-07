@@ -16,9 +16,9 @@ public abstract class Platform : MonoBehaviour
     [Flags]
     public enum ScreenModeState
     {
-        Standard = 0,
-        HandHeld = 2,
-        HandHeldSmall = 4,
+        Standard = 0, // 标准屏幕模式
+        HandHeld = 2, // 普通掌机模式
+        HandHeldSmall = 4, // 小屏幕的掌机模式
         IncludeFutureFlags = int.MinValue
     }
 
@@ -37,9 +37,9 @@ public abstract class Platform : MonoBehaviour
 
     protected enum SaveSlotFileNameUsage
     {
-        Primary = 0,
-        Backup = 1,
-        BackupMarkedForDeletion = 2
+        Primary = 0, // 当前正式存档
+        Backup = 1, // 旧存档的备份
+        BackupMarkedForDeletion = 2 // 已标记为待删除的备份
     }
 
     public interface ISharedData
@@ -93,40 +93,40 @@ public abstract class Platform : MonoBehaviour
 
     public enum GraphicsTiers
     {
-        VeryLow = 0,
-        Low = 1,
-        Medium = 2,
-        High = 3
+        VeryLow = 0, // 极低画质
+        Low = 1, // 低画质
+        Medium = 2, // 中等画质
+        High = 3 // 高画质
     }
 
     public delegate void GraphicsTierChangedDelegate(GraphicsTiers graphicsTier);
 
-    public enum AcceptRejectInputStyles
+    public enum AcceptRejectInputStyles // 这个枚举表示菜单中“确认键”和“取消键”的排列风格。
     {
-        NonJapaneseStyle = 0,
-        JapaneseStyle = 1
+        NonJapaneseStyle = 0, // Action1，下方按钮Action2，右侧按钮
+        JapaneseStyle = 1 // Action2，右侧按钮Action1，下方按钮
     }
 
     public enum MenuActions
     {
-        None = 0,
-        Submit = 1,
-        Cancel = 2,
-        Extra = 3,
-        Super = 4
+        None = 0, // 没有菜单操作
+        Submit = 1, // 确认、提交
+        Cancel = 2, // 取消、返回
+        Extra = 3, // 额外操作一
+        Super = 4 // 额外操作二
     }
 
-    public enum EngagementRequirements
+    public enum EngagementRequirements // 游戏是否必须把当前绑定的“平台用户”显示出来。
     {
         Invisible = 0,
         MustDisplay = 1
     }
 
-    public enum EngagementStates
+    public enum EngagementStates // 游戏是否已经确定并绑定了当前使用的系统账号/玩家
     {
-        NotEngaged = 0,
-        EngagePending = 1,
-        Engaged = 2
+        NotEngaged = 0, // 未绑定
+        EngagePending = 1, // 绑定中
+        Engaged = 2 // 已绑定
     }
 
     public interface IDisengageHandler
@@ -268,21 +268,21 @@ public abstract class Platform : MonoBehaviour
 
     public virtual bool IsPausingOnControllerDisconnected => false;
 
-    public bool WasLastInputKeyboard
-    {
-        get
-        {
-            InputHandler instance = ManagerSingleton<InputHandler>.Instance;
-            if (instance.lastActiveController != BindingSourceType.KeyBindingSource)
-            {
-                return instance.lastActiveController == BindingSourceType.MouseBindingSource;
-            }
+    // public bool WasLastInputKeyboard
+    // {
+    //     get
+    //     {
+    //         InputHandler instance = ManagerSingleton<InputHandler>.Instance;
+    //         if (instance.lastActiveController != BindingSourceType.KeyBindingSource)
+    //         {
+    //             return instance.lastActiveController == BindingSourceType.MouseBindingSource;
+    //         }
+    //
+    //         return true;
+    //     }
+    // }
 
-            return true;
-        }
-    }
-
-    public virtual bool FetchScenesBeforeFade => !CheatManager.DisableAsyncSceneLoad;
+    // public virtual bool FetchScenesBeforeFade => !CheatManager.DisableAsyncSceneLoad;
 
     public virtual float MaximumLoadDurationForNonCriticalGarbageCollection => 0f;
 
@@ -362,7 +362,7 @@ public abstract class Platform : MonoBehaviour
     {
         if (Platform.OnSaveStoreStateChanged != null)
         {
-            CoreLoop.InvokeSafe(delegate { Platform.OnSaveStoreStateChanged(mounted); });
+            // CoreLoop.InvokeSafe(delegate { Platform.OnSaveStoreStateChanged(mounted); });
         }
     }
 
@@ -434,32 +434,32 @@ public abstract class Platform : MonoBehaviour
     public void CreateSaveRestorePoint(int slot, string identifier, bool noTrim, byte[] bytes,
         Action<bool> callback = null)
     {
-        if (SaveRestoreHandler == null)
-        {
-            Debug.LogError("Unable to create save restore point. Missing Save Restore Handler.", this);
-            callback?.Invoke(obj: false);
-            return;
-        }
-
-        Action<bool> callback2 = ((callback == null)
-            ? null
-            : ((Action<bool>)delegate(bool success) { CoreLoop.InvokeSafe(delegate { callback(success); }); }));
-        SaveRestoreHandler.WriteSaveRestorePoint(slot, identifier, noTrim, bytes, callback2);
+        // if (SaveRestoreHandler == null)
+        // {
+        //     Debug.LogError("Unable to create save restore point. Missing Save Restore Handler.", this);
+        //     callback?.Invoke(obj: false);
+        //     return;
+        // }
+        //
+        // Action<bool> callback2 = ((callback == null)
+        //     ? null
+        //     : ((Action<bool>)delegate(bool success) { CoreLoop.InvokeSafe(delegate { callback(success); }); }));
+        // SaveRestoreHandler.WriteSaveRestorePoint(slot, identifier, noTrim, bytes, callback2);
     }
 
     public void WriteSaveBackup(int slot, byte[] bytes, Action<bool> callback = null)
     {
-        if (SaveRestoreHandler == null)
-        {
-            Debug.LogError("Unable to write save backup point. Missing Save Restore Handler.", this);
-            callback?.Invoke(obj: false);
-            return;
-        }
-
-        Action<bool> callback2 = ((callback == null)
-            ? null
-            : ((Action<bool>)delegate(bool success) { CoreLoop.InvokeSafe(delegate { callback(success); }); }));
-        SaveRestoreHandler.WriteVersionBackup(slot, bytes, callback2);
+        // if (SaveRestoreHandler == null)
+        // {
+        //     Debug.LogError("Unable to write save backup point. Missing Save Restore Handler.", this);
+        //     callback?.Invoke(obj: false);
+        //     return;
+        // }
+        //
+        // Action<bool> callback2 = ((callback == null)
+        //     ? null
+        //     : ((Action<bool>)delegate(bool success) { CoreLoop.InvokeSafe(delegate { callback(success); }); }));
+        // SaveRestoreHandler.WriteVersionBackup(slot, bytes, callback2);
     }
 
     public FetchDataRequest FetchRestorePoints(int slot)
@@ -486,32 +486,32 @@ public abstract class Platform : MonoBehaviour
 
     public void DeleteRestorePointsForSlot(int slot, Action<bool> callback = null)
     {
-        if (SaveRestoreHandler == null)
-        {
-            Debug.LogError("Unable to delete save restore point. Missing Save Restore Handler.", this);
-            callback?.Invoke(obj: false);
-            return;
-        }
-
-        Action<bool> callback2 = ((callback == null)
-            ? null
-            : ((Action<bool>)delegate(bool success) { CoreLoop.InvokeSafe(delegate { callback(success); }); }));
-        SaveRestoreHandler.DeleteRestorePoints(slot, callback2);
+        // if (SaveRestoreHandler == null)
+        // {
+        //     Debug.LogError("Unable to delete save restore point. Missing Save Restore Handler.", this);
+        //     callback?.Invoke(obj: false);
+        //     return;
+        // }
+        //
+        // Action<bool> callback2 = ((callback == null)
+        //     ? null
+        //     : ((Action<bool>)delegate(bool success) { CoreLoop.InvokeSafe(delegate { callback(success); }); }));
+        // SaveRestoreHandler.DeleteRestorePoints(slot, callback2);
     }
 
     public void DeleteVersionBackupsForSlot(int slot, Action<bool> callback = null)
     {
-        if (SaveRestoreHandler == null)
-        {
-            Debug.LogError("Unable to delete backup files from previous versions. Missing Save Restore Handler.", this);
-            callback?.Invoke(obj: false);
-            return;
-        }
-
-        Action<bool> callback2 = ((callback == null)
-            ? null
-            : ((Action<bool>)delegate(bool success) { CoreLoop.InvokeSafe(delegate { callback(success); }); }));
-        SaveRestoreHandler.DeleteVersionBackups(slot, callback2);
+        // if (SaveRestoreHandler == null)
+        // {
+        //     Debug.LogError("Unable to delete backup files from previous versions. Missing Save Restore Handler.", this);
+        //     callback?.Invoke(obj: false);
+        //     return;
+        // }
+        //
+        // Action<bool> callback2 = ((callback == null)
+        //     ? null
+        //     : ((Action<bool>)delegate(bool success) { CoreLoop.InvokeSafe(delegate { callback(success); }); }));
+        // SaveRestoreHandler.DeleteVersionBackups(slot, callback2);
     }
 
     public virtual void FetchImportData(Action<List<ImportDataInfo>> callback)
@@ -529,26 +529,26 @@ public abstract class Platform : MonoBehaviour
         callback?.Invoke();
     }
 
-    public virtual void AdjustGameSettings(GameSettings gameSettings)
-    {
-    }
-
-    public virtual bool TryGetAchievementState(string achievementId, out AchievementState state)
-    {
-        bool? flag = IsAchievementUnlocked(achievementId);
-        if (!flag.HasValue)
-        {
-            state = default(AchievementState);
-            return false;
-        }
-
-        state = new AchievementState
-        {
-            isValid = true,
-            isUnlocked = flag.Value
-        };
-        return true;
-    }
+    // public virtual void AdjustGameSettings(GameSettings gameSettings)
+    // {
+    // }
+    //
+    // public virtual bool TryGetAchievementState(string achievementId, out AchievementState state)
+    // {
+    //     bool? flag = IsAchievementUnlocked(achievementId);
+    //     if (!flag.HasValue)
+    //     {
+    //         state = default(AchievementState);
+    //         return false;
+    //     }
+    //
+    //     state = new AchievementState
+    //     {
+    //         isValid = true,
+    //         isUnlocked = flag.Value
+    //     };
+    //     return true;
+    // }
 
     public abstract bool? IsAchievementUnlocked(string achievementId);
 
@@ -618,9 +618,9 @@ public abstract class Platform : MonoBehaviour
         ChangeGraphicsTier(GraphicsTier, isForced: true);
     }
 
-    public virtual void AdjustGraphicsSettings(GameSettings gameSettings)
-    {
-    }
+    // public virtual void AdjustGraphicsSettings(GameSettings gameSettings)
+    // {
+    // }
 
     protected void ChangeGraphicsTier(GraphicsTiers graphicsTier, bool isForced)
     {
@@ -715,107 +715,107 @@ public abstract class Platform : MonoBehaviour
 
     public abstract AcceptRejectInputStyles GetAcceptRejectInputStyle(GamepadType gamepadType);
 
-    public MenuActions GetMenuAction(HeroActions ia, bool ignoreAttack = false, bool isContinuous = false)
-    {
-        return GetMenuAction(GetPressedState(ia.MenuSubmit, isContinuous), GetPressedState(ia.MenuCancel, isContinuous),
-            GetPressedState(ia.Jump, isContinuous), !ignoreAttack && GetPressedState(ia.Attack, isContinuous),
-            GetPressedState(ia.Cast, isContinuous), GetPressedState(ia.MenuExtra, isContinuous),
-            GetPressedState(ia.MenuSuper, isContinuous), GetPressedState(ia.Dash, isContinuous),
-            GetPressedState(ia.DreamNail, isContinuous));
-    }
+    // public MenuActions GetMenuAction(HeroActions ia, bool ignoreAttack = false, bool isContinuous = false)
+    // {
+    //     return GetMenuAction(GetPressedState(ia.MenuSubmit, isContinuous), GetPressedState(ia.MenuCancel, isContinuous),
+    //         GetPressedState(ia.Jump, isContinuous), !ignoreAttack && GetPressedState(ia.Attack, isContinuous),
+    //         GetPressedState(ia.Cast, isContinuous), GetPressedState(ia.MenuExtra, isContinuous),
+    //         GetPressedState(ia.MenuSuper, isContinuous), GetPressedState(ia.Dash, isContinuous),
+    //         GetPressedState(ia.DreamNail, isContinuous));
+    // }
 
-    private bool GetPressedState(PlayerAction action, bool isContinuous)
-    {
-        if (!isContinuous)
-        {
-            return action.WasPressed;
-        }
-
-        return action.IsPressed;
-    }
+    // private bool GetPressedState(PlayerAction action, bool isContinuous)
+    // {
+    //     if (!isContinuous)
+    //     {
+    //         return action.WasPressed;
+    //     }
+    //
+    //     return action.IsPressed;
+    // }
 
     public MenuActions GetMenuAction(bool menuSubmitInput, bool menuCancelInput, bool jumpInput, bool attackInput,
         bool castInput, bool menuExtraInput = false, bool menuSuperInput = false, bool dashInput = false,
         bool dreamNailInput = false)
     {
-        if (WasLastInputKeyboard)
-        {
-            if (menuSubmitInput || jumpInput)
-            {
-                return MenuActions.Submit;
-            }
-
-            if (menuCancelInput || attackInput || castInput)
-            {
-                return MenuActions.Cancel;
-            }
-
-            if (menuExtraInput || dashInput)
-            {
-                return MenuActions.Extra;
-            }
-
-            if (menuSuperInput || dreamNailInput)
-            {
-                return MenuActions.Super;
-            }
-        }
-        else
-        {
-            if (menuSubmitInput)
-            {
-                return MenuActions.Submit;
-            }
-
-            if (menuCancelInput)
-            {
-                return MenuActions.Cancel;
-            }
-
-            if (menuExtraInput)
-            {
-                return MenuActions.Extra;
-            }
-
-            if (menuSuperInput)
-            {
-                return MenuActions.Super;
-            }
-        }
+        // if (WasLastInputKeyboard)
+        // {
+        //     if (menuSubmitInput || jumpInput)
+        //     {
+        //         return MenuActions.Submit;
+        //     }
+        //
+        //     if (menuCancelInput || attackInput || castInput)
+        //     {
+        //         return MenuActions.Cancel;
+        //     }
+        //
+        //     if (menuExtraInput || dashInput)
+        //     {
+        //         return MenuActions.Extra;
+        //     }
+        //
+        //     if (menuSuperInput || dreamNailInput)
+        //     {
+        //         return MenuActions.Super;
+        //     }
+        // }
+        // else
+        // {
+        //     if (menuSubmitInput)
+        //     {
+        //         return MenuActions.Submit;
+        //     }
+        //
+        //     if (menuCancelInput)
+        //     {
+        //         return MenuActions.Cancel;
+        //     }
+        //
+        //     if (menuExtraInput)
+        //     {
+        //         return MenuActions.Extra;
+        //     }
+        //
+        //     if (menuSuperInput)
+        //     {
+        //         return MenuActions.Super;
+        //     }
+        // }
 
         return MenuActions.None;
     }
 
     public virtual void SetSceneLoadState(bool isInProgress, bool isHighPriority = false)
     {
-        if (isInProgress && isHighPriority)
-        {
-            CheatManager.BoostModeActive = true;
-            if (ChangesBackgroundLoadingPriority)
-            {
-                SetBackgroundLoadingPriority(ThreadPriority.High);
-            }
-
-            GameCameras instance = GameCameras.SilentInstance;
-            if ((bool)instance && (bool)instance.mainCamera)
-            {
-                instance.SetMainCameraActive(value: false);
-            }
-        }
-        else
-        {
-            CheatManager.BoostModeActive = false;
-            if (ChangesBackgroundLoadingPriority)
-            {
-                RestoreBackgroundLoadingPriority();
-            }
-
-            GameCameras instance2 = GameCameras.SilentInstance;
-            if ((bool)instance2 && (bool)instance2.mainCamera)
-            {
-                instance2.SetMainCameraActive(value: true);
-            }
-        }
+        // if (isInProgress && isHighPriority)
+        // {
+        //     CheatManager.BoostModeActive = true;
+        //     if (ChangesBackgroundLoadingPriority)
+        //     {
+        //         SetBackgroundLoadingPriority(ThreadPriority.High);
+        //     }
+        //
+        //     GameCameras instance = GameCameras.SilentInstance;
+        //     if ((bool)instance && (bool)instance.mainCamera)
+        //     {
+        //         instance.SetMainCameraActive(value: false);
+        //     }
+        // }
+        // else
+        // {
+        //     CheatManager.BoostModeActive = false;
+        //     if (ChangesBackgroundLoadingPriority)
+        //     {
+        //         RestoreBackgroundLoadingPriority();
+        //     }
+        //
+        //     GameCameras instance2 = GameCameras.SilentInstance;
+        //     if ((bool)instance2 && (bool)instance2.mainCamera)
+        //     {
+        //         instance2.SetMainCameraActive(value: true);
+        //     }
+        // }
     }
 
     public void SetBackgroundLoadingPriority(ThreadPriority threadPriority)
