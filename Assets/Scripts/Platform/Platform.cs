@@ -202,7 +202,7 @@ public abstract class Platform : MonoBehaviour
 
     public abstract ISharedData LocalSharedData { get; }
 
-    public abstract ISharedData RoamingSharedData { get; }
+    // public abstract ISharedData RoamingSharedData { get; }
 
     public virtual string UserDataDirectory => Application.persistentDataPath;
 
@@ -214,7 +214,7 @@ public abstract class Platform : MonoBehaviour
 
     public virtual bool IsFiringAchievementsFromSavesAllowed => true;
 
-    public abstract bool AreAchievementsFetched { get; }
+    // public abstract bool AreAchievementsFetched { get; }
 
     public virtual bool HasNativeAchievementsDialog => false;
 
@@ -550,7 +550,7 @@ public abstract class Platform : MonoBehaviour
     //     return true;
     // }
 
-    public abstract bool? IsAchievementUnlocked(string achievementId);
+    // public abstract bool? IsAchievementUnlocked(string achievementId);
 
     public abstract void PushAchievementUnlock(string achievementId);
 
